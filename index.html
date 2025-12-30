@@ -1,1 +1,1006 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('Assets/Images/ninja.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(10, 10, 10, 0.7) 0%,
+                rgba(10, 10, 10, 0.85) 50%,
+                rgba(10, 10, 10, 0.95) 100%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(20px);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+            animation: ninja-shine 3s infinite;
+        }
+
+        @keyframes ninja-shine {
+            0% { left: -100%; }
+            50%, 100% { left: 100%; }
+        }
+
+        .badge-text {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .scroll-indicator {
+            margin-top: 4rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            opacity: 0.4;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Projects Grid */
+        .projects {
+            min-height: 100vh;
+            padding: 30vh 2rem 6rem;
+            position: relative;
+        }
+
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-visual {
+            height: 320px;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 10, 0.5);
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover .project-visual::before {
+            background: rgba(10, 10, 10, 0.3);
+        }
+
+        .project-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%) brightness(0.7);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover .project-visual img {
+            filter: grayscale(0%) brightness(0.9);
+            transform: scale(1.05);
+        }
+
+        .project-icon {
+            font-size: 5rem;
+            opacity: 0.6;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .project-card:hover .project-icon {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .preview-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0a0a0a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            cursor: pointer;
+            text-decoration: none;
+            position: relative;
+            z-index: 10;
+            border: none;
+            font-family: inherit;
+        }
+
+        .preview-btn:hover {
+            background: #ffffff;
+            transform: translateX(4px);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-badge {
+            padding: 0.375rem 0.875rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+
+        .project-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links a:hover {
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .footer-links svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-links a:hover svg {
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .projects {
+                padding: 100vh 1.5rem 4rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Sidebar Overlay */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100vh;
+            background: rgba(15, 15, 15, 0.98);
+            backdrop-filter: blur(20px);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            overflow-y: auto;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-overlay.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            z-index: 999;
+        }
+
+        .sidebar-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-content {
+            padding: 3rem;
+            max-width: 100%;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .close-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: rgba(255, 255, 255, 0.9);
+        }
+
+        .sidebar-thumbnail {
+            width: 100%;
+            height: 300px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(20%) brightness(0.8);
+        }
+
+        .sidebar-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .sidebar-tag {
+            display: inline-block;
+            padding: 0.5rem 1.25rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-section {
+            margin-bottom: 2rem;
+        }
+
+        .info-section-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-item-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .info-item-value {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .open-design-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: #0a0a0a;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .open-design-btn:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .open-design-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Responsive sidebar */
+        @media (max-width: 1024px) {
+            .sidebar-overlay {
+                width: 70%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar-overlay {
+                width: 100%;
+            }
+
+            .sidebar-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .sidebar-thumbnail {
+                height: 220px;
+            }
+
+            .sidebar-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in-delay-1 {
+            animation: fadeInUp 0.8s ease-out 0.1s forwards;
+            opacity: 0;
+        }
+
+        .fade-in-delay-2 {
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            opacity: 0;
+        }
+
+        .fade-in-delay-3 {
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <div class="hero-content">
+            <div class="badge fade-in">
+                <span class="badge-text">FabNinjas | Portfolio Wallet</span>
+            </div>
+            <h1 class="fade-in-delay-1">Design Excellence</h1>
+            <p class="subtitle fade-in-delay-2">Explore a curated collection of modern web experiences, each crafted with precision and attention to detail.</p>
+            <div class="scroll-indicator fade-in-delay-3">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="projects-container">
+            <h2 class="section-title">Featured Work</h2>
+            <p class="section-subtitle">Projects showcasing different domain designs</p>
+
+            <div class="grid">
+                <!-- Project 1: Designer Portfolio -->
+                <div class="project-card">
+                    <div class="project-visual">
+                        <img src="Assets/Images/designer.png" alt="Designer Portfolio">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="designer">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Designer Portfolio</span>
+                        <h3 class="project-title">Creative Designer Portfolio</h3>
+                        <p class="project-description">A bold and dynamic portfolio website featuring dark aesthetics, smooth animations, and a focus on visual storytelling. Perfect for showcasing creative work.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Dark Theme</span>
+                            <span class="tech-badge">Animations</span>
+                            <span class="tech-badge">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Grace Gravity -->
+                <div class="project-card">
+                    <div class="project-visual">
+                        <img src="Assets/Images/gravity.png" alt="Grace Gravity IDE">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="gravity">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">AI powered IDE</span>
+                        <h3 class="project-title">Grace Gravity IDE</h3>
+                        <p class="project-description">Next-generation IDE landing page with clean design, elegant typography, and smooth scrolling. Focuses on showcasing product features effectively.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Clean Design</span>
+                            <span class="tech-badge">TailwindCSS</span>
+                            <span class="tech-badge">Modern</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: FitZone -->
+                <div class="project-card">
+                    <div class="project-visual">
+                        <img src="Assets/Images/gym.png" alt="FitZone Fitness Center">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="gym">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Business Site</span>
+                        <h3 class="project-title">FitZone Fitness Center</h3>
+                        <p class="project-description">Premium fitness center website with sophisticated design, membership plans, trainer profiles, and comprehensive service showcase.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Professional</span>
+                            <span class="tech-badge">Business</span>
+                            <span class="tech-badge">Full-featured</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-backdrop"></div>
+    <div class="sidebar-overlay">
+        <div class="sidebar-content">
+            <div class="sidebar-header">
+                <div></div>
+                <button class="close-btn">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="sidebar-thumbnail">
+                <img id="sidebar-image" src="" alt="Project Thumbnail">
+            </div>
+
+            <span id="sidebar-tag" class="sidebar-tag"></span>
+            <h2 id="sidebar-title" class="sidebar-title"></h2>
+            <p id="sidebar-description" class="sidebar-description"></p>
+
+            <div class="info-section">
+                <h3 class="info-section-title">AI Development Details</h3>
+
+                <div class="info-item">
+                    <div class="info-item-label">AI Tool Used</div>
+                    <div class="info-item-value" id="ai-tool"></div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-item-label">Model</div>
+                    <div class="info-item-value" id="ai-model"></div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-item-label" id="prompt-label">Design Prompt</div>
+                    <div class="info-item-value" id="ai-prompt"></div>
+                </div>
+            </div>
+
+            <a id="open-design-link" href="" target="_blank" rel="noopener noreferrer" class="open-design-btn">
+                Open Design Page
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">FabNinjas | Portfolio Showcase © 2025</p>
+            <div class="footer-links">
+                <a href="#top">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+
+                if (href === '#top') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.15}s`;
+            observer.observe(card);
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Sidebar functionality
+        const projectData = {
+            designer: {
+                title: "Creative Designer Portfolio",
+                tag: "Designer Portfolio",
+                description: "A bold and dynamic portfolio website featuring dark aesthetics, smooth animations, and a focus on visual storytelling. Perfect for showcasing creative work with an emphasis on visual impact and user engagement.",
+                image: "Assets/Images/designer.png",
+                link: "designer-portfolio.html",
+                aiTool: "Cursor AI",
+                aiModel: "Claude Sonnet 4.5",
+                promptLabel: "Design Prompt",
+                prompt: "Create a single HTML file that is a clone of this site: https://aneshk.design/ - I want the same design, layout, and structure as the portfolio on that link. Recreate the site in one new HTML file, visually and structurally as close as possible to the original. The clone should include Layout, spacing, and styling that match the original."
+            },
+            gravity: {
+                title: "Grace Gravity IDE",
+                tag: "AI Powered IDE",
+                description: "Next-generation IDE landing page with clean design, elegant typography, and smooth scrolling. Focuses on showcasing product features effectively with modern UI patterns and interactive elements.",
+                image: "Assets/Images/gravity.png",
+                link: "gravity.html",
+                aiTool: "Cursor AI",
+                aiModel: "GPT Codex",
+                promptLabel: "Note",
+                prompt: "Developed using prompts under developer control. Custom iterative development process with specific design requirements and technical specifications."
+            },
+            gym: {
+                title: "FitZone Fitness Center",
+                tag: "Business Website",
+                description: "Premium fitness center website with sophisticated design, membership plans, trainer profiles, and comprehensive service showcase. Designed to convert visitors into members with compelling visuals and clear calls-to-action.",
+                image: "Assets/Images/gym.png",
+                link: "gym.html",
+                aiTool: "Cursor AI",
+                aiModel: "Claude Sonnet 4.5",
+                promptLabel: "Design Prompt",
+                prompt: "Create a static HTML file named gym.html for a gym website. The webpage should follow modern web design practices and feel attractive, calm, modern, and human-centered. The design should be welcoming and professional, not aggressive or flashy. Use a calm color palette limited to three complementary colors. Avoid strong or harsh colors and do not use gradient styles. Include high-quality gym or fitness-related images that enhance the overall look. The layout, typography, spacing, and visuals should work together to create a clean, modern, and pleasant user experience."
+            }
+        };
+
+        // Get sidebar elements
+        const sidebar = document.querySelector('.sidebar-overlay');
+        const backdrop = document.querySelector('.sidebar-backdrop');
+        const closeBtn = document.querySelector('.close-btn');
+        const detailButtons = document.querySelectorAll('[data-project]');
+
+        // Function to open sidebar with project data
+        function openSidebar(projectKey) {
+            const project = projectData[projectKey];
+            if (!project) return;
+
+            // Populate sidebar content
+            document.getElementById('sidebar-image').src = project.image;
+            document.getElementById('sidebar-image').alt = project.title;
+            document.getElementById('sidebar-tag').textContent = project.tag;
+            document.getElementById('sidebar-title').textContent = project.title;
+            document.getElementById('sidebar-description').textContent = project.description;
+            document.getElementById('ai-tool').textContent = project.aiTool;
+            document.getElementById('ai-model').textContent = project.aiModel;
+            document.getElementById('prompt-label').textContent = project.promptLabel;
+            document.getElementById('ai-prompt').textContent = project.prompt;
+            document.getElementById('open-design-link').href = project.link;
+
+            // Show sidebar and backdrop
+            sidebar.classList.add('active');
+            backdrop.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        // Function to close sidebar
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            backdrop.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Add click listeners to detail buttons
+        detailButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const projectKey = button.getAttribute('data-project');
+                openSidebar(projectKey);
+            });
+        });
+
+        // Close sidebar when clicking close button
+        closeBtn.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking backdrop
+        backdrop.addEventListener('click', closeSidebar);
+
+        // Close sidebar on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+                closeSidebar();
+            }
+        });
+    </script>
+</body>
+</html>

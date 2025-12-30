@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative Designer Portfolio - Websites that catch your eye">
+    <title>Designer Portfolio - Creative Web Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #ffffff;
+            --text-gray: #999999;
+            --accent-color: #00ff88;
+            --card-bg: #111111;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-location {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 2px;
+            background: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+        }
+
+        .hero h1 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-gray);
+        }
+
+        .hero-title {
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        .hero-title .highlight {
+            display: block;
+            color: var(--accent-color);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px var(--accent-color);
+            }
+            to {
+                text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
+            }
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 5%;
+        }
+
+        .project-item {
+            max-width: 1400px;
+            margin: 0 auto 8rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .project-number {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .project-category {
+            font-size: 1rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 500px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:hover {
+            transform: scale(1.02);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 5%;
+            background: var(--card-bg);
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .about h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+            text-align: left;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+        }
+
+        .about-text .highlight {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .stats {
+            display: flex;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 6rem 5%;
+        }
+
+        .skills-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .skills h3 {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .skill-item:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .skill-item h4 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 8rem 5%;
+            background: var(--card-bg);
+        }
+
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .testimonials-subtitle {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-dark);
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: left;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-company {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--bg-dark);
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .contact-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 4rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .contact-btn {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--bg-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .footer-credits {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 5rem;
+            }
+
+            .project-item {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 6rem 2rem;
+                gap: 2rem;
+                transition: right 0.3s ease;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .contact h2 {
+                font-size: 2.5rem;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Cursor Effect */
+        .cursor-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .cursor-dot {
+                display: block;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Marquee Effect */
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 4rem 0;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .marquee span {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 2rem;
+            color: var(--text-gray);
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div>
+            <div class="logo">DESIGNER</div>
+            <div class="nav-location">MUMBAI (UTC+5:30)</div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#works">WORKS</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>I AM A DESIGNER AND I DESIGN</h1>
+            <div class="hero-title">
+                <div>WEBSITES</div>
+                <div class="highlight">THAT CATCH</div>
+                <div>YOUR EYE</div>
+            </div>
+        </div>
+        <div class="scroll-indicator">Scroll Down ↓</div>
+    </section>
+
+    <!-- Marquee Section -->
+    <div class="marquee">
+        <div class="marquee-content">
+            <span>CREATIVE DESIGN</span>
+            <span>•</span>
+            <span>USER EXPERIENCE</span>
+            <span>•</span>
+            <span>WEB DEVELOPMENT</span>
+            <span>•</span>
+            <span>BRAND IDENTITY</span>
+            <span>•</span>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="projects" id="works">
+        <div class="project-item fade-in">
+            <div>
+                <div class="project-number">01 / 04</div>
+                <h2 class="project-title">CREATIVE STUDIO</h2>
+                <p class="project-category">BRANDING (WEBSITE)</p>
+                <p class="project-description">A complete brand transformation for a creative studio, bringing their vision to life through modern design and seamless user experience.</p>
+            </div>
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop" alt="Project 1">
+            </div>
+        </div>
+
+        <div class="project-item fade-in">
+            <div>
+                <div class="project-number">02 / 04</div>
+                <h2 class="project-title">TECH STARTUP</h2>
+                <p class="project-category">UI/UX (WEB APP)</p>
+                <p class="project-description">Designed a clean and intuitive interface for a SaaS platform, focusing on user flow and accessibility while maintaining a modern aesthetic.</p>
+            </div>
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop" alt="Project 2">
+            </div>
+        </div>
+
+        <div class="project-item fade-in">
+            <div>
+                <div class="project-number">03 / 04</div>
+                <h2 class="project-title">E-COMMERCE</h2>
+                <p class="project-category">DESIGN (MOBILE APP)</p>
+                <p class="project-description">Crafted a seamless shopping experience with focus on conversion optimization and delightful micro-interactions throughout the user journey.</p>
+            </div>
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop" alt="Project 3">
+            </div>
+        </div>
+
+        <div class="project-item fade-in">
+            <div>
+                <div class="project-number">04 / 04</div>
+                <h2 class="project-title">PORTFOLIO</h2>
+                <p class="project-category">PERSONAL (WEBSITE)</p>
+                <p class="project-description">A bold and dynamic portfolio showcasing creative work with emphasis on typography, motion design, and storytelling.</p>
+            </div>
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&h=600&fit=crop" alt="Project 4">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="section-label">2022 - NOW</div>
+            <h2>MANDATORY ABOUT ME SECTION</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>For <span class="highlight">3 years</span>, I've been working to bring what a brand does to life through digital experiences that are intuitive, human, and easy to connect with.</p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=600&fit=crop" alt="Designer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+        <div class="skills-container">
+            <h3>MY SKILLS</h3>
+            <div class="skills-grid">
+                <div class="skill-item fade-in">
+                    <h4>RESEARCH</h4>
+                </div>
+                <div class="skill-item fade-in">
+                    <h4>WIREFRAME</h4>
+                </div>
+                <div class="skill-item fade-in">
+                    <h4>UI DESIGN</h4>
+                </div>
+                <div class="skill-item fade-in">
+                    <h4>PROTOTYPE</h4>
+                </div>
+                <div class="skill-item fade-in">
+                    <h4>INTERACTION</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="testimonials-container">
+            <h2>THAT'S WHAT</h2>
+            <div class="testimonials-subtitle">THEY SAID</div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-company">TECH CO</div>
+                    <p class="testimonial-text">A big thank you for everything done on our project. The depth of expertise, quick thinking, and collaborative attitude are truly remarkable and something to be remembered.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AJ</div>
+                        <div class="author-info">
+                            <h4>Alex Johnson</h4>
+                            <p>CEO, Tech Co</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-company">CREATIVE LABS</div>
+                    <p class="testimonial-text">I had the pleasure working on multiple projects. Top-notch quality delivered every time. Even my clients were happy with the work and attention to detail.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Founder, Creative Labs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-company">DESIGN STUDIO</div>
+                    <p class="testimonial-text">Highly creative and reliable designer with a great sense of layout and design aesthetics. Consistently delivers visually appealing, user-friendly interfaces with close attention to detail.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RP</div>
+                        <div class="author-info">
+                            <h4>Robert Park</h4>
+                            <p>Creative Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>LET'S MAKE THINGS CLICK</h2>
+            <p class="contact-subtitle">I AM CURRENTLY AVAILABLE AND ACTIVELY LOOKING FOR NEW JOB OPPORTUNITIES</p>
+            <div class="contact-links">
+                <a href="#" class="contact-btn">RESUME</a>
+                <a href="#" class="contact-btn">LINKEDIN</a>
+                <a href="#" class="contact-btn">EMAIL</a>
+                <a href="#" class="contact-btn">PHONE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>MADE WITH LOVE USING HTML & CSS</p>
+                <p>© 2025 Designer Portfolio. All Rights Reserved.</p>
+            </div>
+            <div class="footer-credits">
+                <p>AS SEEN ON ONEPAGELOVE</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Custom cursor
+        const cursorDot = document.getElementById('cursorDot');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Hover effect on interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .project-image, .skill-item, .testimonial-card');
+
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                cursorDot.style.transform = 'scale(2)';
+            });
+
+            element.addEventListener('mouseleave', () => {
+                cursorDot.style.transform = 'scale(1)';
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 1s ease-out';
+            observer.observe(el);
+        });
+
+        // Scroll indicator hide on scroll
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+
+        // Number counter animation
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (target === 3 ? '' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (target === 3 ? '' : '+');
+                }
+            }, 20);
+        };
+
+        // Observe stats for animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const target = statNumber.textContent.includes('+')
+                        ? parseInt(statNumber.textContent)
+                        : parseInt(statNumber.textContent);
+                    animateCounter(statNumber, target);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-item').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                heroContent.style.opacity = 1 - scrolled / 700;
+            }
+        });
+    </script>
+</body>
+</html>
