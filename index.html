@@ -142,6 +142,12 @@
         .scroll-indicator {
             margin-top: 4rem;
             animation: bounce 2s infinite;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 0.8;
         }
 
         .scroll-indicator svg {
@@ -250,7 +256,7 @@
         .project-visual img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             filter: grayscale(30%) brightness(0.7);
             transition: all 0.4s ease;
         }
@@ -705,7 +711,7 @@
             </div>
             <h1 class="fade-in-delay-1">Design Excellence</h1>
             <p class="subtitle fade-in-delay-2">Explore a curated collection of modern web experiences, each crafted with precision and attention to detail.</p>
-            <div class="scroll-indicator fade-in-delay-3">
+            <div class="scroll-indicator fade-in-delay-3" id="scroll-down-arrow">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
                 </svg>
@@ -862,6 +868,19 @@
     </footer>
 
     <script>
+        // Scroll down arrow functionality
+        const scrollDownArrow = document.getElementById('scroll-down-arrow');
+        if (scrollDownArrow) {
+            scrollDownArrow.addEventListener('click', () => {
+                const projectsSection = document.querySelector('.projects');
+                if (projectsSection) {
+                    const yOffset = 230;
+                    const y = projectsSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            });
+        }
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
