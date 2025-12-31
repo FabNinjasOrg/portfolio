@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Apex Studio</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Additional About Page Styles */
+    .about-hero {
+      padding-top: 150px;
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-12);
+      text-align: center;
+      margin: var(--space-20) 0;
+    }
+
+    .stat-item h3 {
+      font-size: var(--text-6xl);
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+    }
+
+    .stat-item p {
+      font-size: var(--text-base);
+      color: var(--color-text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .team-member {
+      text-align: center;
+      transition: transform var(--transition-base);
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+    }
+
+    .team-member-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background-color: var(--color-border);
+      margin-bottom: var(--space-4);
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition-base);
+    }
+
+    .team-member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .team-member:hover .team-member-image {
+      border-radius: 20%;
+    }
+
+    .team-member-name {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      margin-bottom: var(--space-1);
+    }
+
+    .team-member-role {
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+
+    .contact-section {
+      background-color: var(--color-white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+
+    .contact-info-item {
+      margin-bottom: var(--space-8);
+    }
+
+    .contact-info-item h4 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2);
+      color: var(--color-primary);
+    }
+
+    .contact-info-item p {
+      font-size: var(--text-base);
+      color: var(--color-text-light);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">APEX <span style="color: var(--color-accent);">Studio</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="work.html" class="nav-link">Work</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="container">
+      <p class="text-small text-accent mb-4">About Us</p>
+      <h1>We're a team of <br><span class="text-accent">creative minds</span></h1>
+      <p class="text-large" style="max-width: 800px; margin: 0 auto; color: var(--color-text-light);">
+        Apex Studio was founded on the belief that great design isn't just about aesthetics—it's about creating meaningful connections between brands and their audiences.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section class="section section-large">
+    <div class="container">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <h2 class="mb-8">Our Story</h2>
+        <p class="text-large mb-8">
+          Since 2018, we've been helping brands tell their stories through innovative design and strategic thinking. What started as a small team of designers has grown into a full-service creative agency.
+        </p>
+        <p class="text-large mb-8">
+          Our approach combines deep industry knowledge with a passion for pushing creative boundaries. We believe in the power of collaboration and work closely with our clients to understand their vision and bring it to life.
+        </p>
+        <p class="text-large">
+          Every project is an opportunity to create something exceptional—something that not only looks beautiful but also drives real results for our clients.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-item animate-on-scroll">
+          <h3>150+</h3>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <h3>50+</h3>
+          <p>Happy Clients</p>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <h3>15+</h3>
+          <p>Team Members</p>
+        </div>
+        <div class="stat-item animate-on-scroll">
+          <h3>8+</h3>
+          <p>Awards Won</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section section-large" style="background-color: var(--color-white);">
+    <div class="container">
+      <div class="text-center mb-12">
+        <p class="text-small text-accent mb-4">Meet The Team</p>
+        <h2>The people behind the magic</h2>
+        <p class="text-large" style="color: var(--color-text-light); max-width: 700px; margin: 0 auto;">
+          Our diverse team brings together expertise in design, strategy, and technology.
+        </p>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=12" alt="Alex Rivera">
+          </div>
+          <h4 class="team-member-name">Alex Rivera</h4>
+          <p class="team-member-role">Creative Director</p>
+        </div>
+
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=5" alt="Sarah Chen">
+          </div>
+          <h4 class="team-member-name">Sarah Chen</h4>
+          <p class="team-member-role">Lead Designer</p>
+        </div>
+
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=13" alt="Marcus Johnson">
+          </div>
+          <h4 class="team-member-name">Marcus Johnson</h4>
+          <p class="team-member-role">UX Director</p>
+        </div>
+
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=9" alt="Emma Thompson">
+          </div>
+          <h4 class="team-member-name">Emma Thompson</h4>
+          <p class="team-member-role">Strategy Lead</p>
+        </div>
+
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=15" alt="David Park">
+          </div>
+          <h4 class="team-member-name">David Park</h4>
+          <p class="team-member-role">Brand Strategist</p>
+        </div>
+
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=10" alt="Lisa Anderson">
+          </div>
+          <h4 class="team-member-name">Lisa Anderson</h4>
+          <p class="team-member-role">Senior Developer</p>
+        </div>
+
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=14" alt="James Wilson">
+          </div>
+          <h4 class="team-member-name">James Wilson</h4>
+          <p class="team-member-role">Visual Designer</p>
+        </div>
+
+        <div class="team-member animate-on-scroll">
+          <div class="team-member-image">
+            <img src="https://i.pravatar.cc/300?img=16" alt="Nina Patel">
+          </div>
+          <h4 class="team-member-name">Nina Patel</h4>
+          <p class="team-member-role">Project Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section section-large contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div>
+          <p class="text-small text-accent mb-4">Get In Touch</p>
+          <h2 class="mb-8">Let's create something amazing together</h2>
+          <p class="text-large mb-12" style="color: var(--color-text-light);">
+            Have a project in mind? We'd love to hear about it. Fill out the form or reach out directly.
+          </p>
+
+          <div class="contact-info-item">
+            <h4>Email</h4>
+            <p>hello@apexstudio.com</p>
+          </div>
+
+          <div class="contact-info-item">
+            <h4>Phone</h4>
+            <p>+1 (555) 123-4567</p>
+          </div>
+
+          <div class="contact-info-item">
+            <h4>Address</h4>
+            <p>123 Creative Street<br>New York, NY 10001<br>United States</p>
+          </div>
+
+          <div class="contact-info-item">
+            <h4>Follow Us</h4>
+            <p>
+              <a href="#" style="color: var(--color-accent); text-decoration: none; margin-right: 1rem;">Instagram</a>
+              <a href="#" style="color: var(--color-accent); text-decoration: none; margin-right: 1rem;">Twitter</a>
+              <a href="#" style="color: var(--color-accent); text-decoration: none; margin-right: 1rem;">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div>
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="company" class="form-label">Company (Optional)</label>
+              <input type="text" id="company" name="company" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Tell us about your project</label>
+              <textarea id="message" name="message" class="form-textarea" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">
+              Send Message
+            </button>
+          </form>
+          <div id="formMessage" style="margin-top: 1rem; padding: 1rem; display: none; border-radius: 4px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Apex Studio</h4>
+          <p>A creative agency crafting digital experiences that matter.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="../index.html">Home</a></p>
+          <p><a href="work.html">Work</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="#contact">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <p><a href="#">Instagram</a></p>
+          <p><a href="#">Twitter</a></p>
+          <p><a href="#">LinkedIn</a></p>
+          <p><a href="#">Dribbble</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>hello@apexstudio.com</p>
+          <p>+1 (555) 123-4567</p>
+          <p>New York, NY</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FabNinjas. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/contact.js"></script>
+</body>
+</html>
+

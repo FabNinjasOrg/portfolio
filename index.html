@@ -45,7 +45,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.5;
+            opacity: 0.8;
             pointer-events: none;
         }
 
@@ -142,18 +142,20 @@
         .scroll-indicator {
             margin-top: 4rem;
             animation: bounce 2s infinite;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .scroll-indicator:hover {
-            opacity: 0.8;
+            pointer-events: none;
         }
 
         .scroll-indicator svg {
             width: 24px;
             height: 24px;
             opacity: 0.4;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator svg:hover {
+            opacity: 0.8;
         }
 
         @keyframes bounce {
@@ -618,6 +620,39 @@
             line-height: 1.6;
         }
 
+        .note-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-left: 4px solid rgba(59, 130, 246, 0.8);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .note-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(59, 130, 246, 0.9);
+            margin-bottom: 0.75rem;
+        }
+
+        .note-icon {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .note-content {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
         .open-design-btn {
             display: inline-flex;
             align-items: center;
@@ -744,9 +779,9 @@
                         <h3 class="project-title">Creative Designer Portfolio</h3>
                         <p class="project-description">A bold and dynamic portfolio website featuring dark aesthetics, smooth animations, and a focus on visual storytelling. Perfect for showcasing creative work.</p>
                         <div class="tech-stack">
+                            <span class="tech-badge">Single Page</span>
                             <span class="tech-badge">Dark Theme</span>
                             <span class="tech-badge">Animations</span>
-                            <span class="tech-badge">Responsive</span>
                         </div>
                     </div>
                 </div>
@@ -769,8 +804,8 @@
                         <h3 class="project-title">Grace Gravity IDE</h3>
                         <p class="project-description">Next-generation IDE landing page with clean design, elegant typography, and smooth scrolling. Focuses on showcasing product features effectively.</p>
                         <div class="tech-stack">
+                            <span class="tech-badge">Single Page</span>
                             <span class="tech-badge">Clean Design</span>
-                            <span class="tech-badge">TailwindCSS</span>
                             <span class="tech-badge">Modern</span>
                         </div>
                     </div>
@@ -794,9 +829,84 @@
                         <h3 class="project-title">FitZone Fitness Center</h3>
                         <p class="project-description">Premium fitness center website with sophisticated design, membership plans, trainer profiles, and comprehensive service showcase.</p>
                         <div class="tech-stack">
+                            <span class="tech-badge">Single Page</span>
                             <span class="tech-badge">Professional</span>
-                            <span class="tech-badge">Business</span>
                             <span class="tech-badge">Full-featured</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Aroma Coffee Shop -->
+                <div class="project-card">
+                    <div class="project-visual">
+                        <img src="Assets/Images/coffee.png" alt="Aroma Coffee Shop">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="coffee">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Coffee Shop</span>
+                        <h3 class="project-title">Aroma Coffee House</h3>
+                        <p class="project-description">Elegant coffee shop website with sophisticated design, signature drinks showcase, interactive animations, and cozy atmosphere presentation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Single Page</span>
+                            <span class="tech-badge">Elegant</span>
+                            <span class="tech-badge">Interactive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Dreamheaven Realty -->
+                <div class="project-card">
+                    <div class="project-visual">
+                        <img src="Assets/Images/dreamheaven.png" alt="Dreamheaven Realty">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="dreamheaven">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Real Estate</span>
+                        <h3 class="project-title">Dreamheaven Realty</h3>
+                        <p class="project-description">Modern real estate platform featuring property listings, advanced search filters, agent profiles, and immersive property showcases with stunning visuals.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Multi Page</span>
+                            <span class="tech-badge">Professional</span>
+                            <span class="tech-badge">Modern UI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Apex Studio -->
+                <div class="project-card">
+                    <div class="project-visual">
+                        <img src="Assets/Images/apex.png" alt="Apex Studio">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="apex">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Creative Agency</span>
+                        <h3 class="project-title">Apex Studio</h3>
+                        <p class="project-description">Creative agency website showcasing innovative design work, team expertise, and client success stories with sleek animations and contemporary aesthetics.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Multi Page</span>
+                            <span class="tech-badge">Creative</span>
+                            <span class="tech-badge">Interactive</span>
                         </div>
                     </div>
                 </div>
@@ -844,6 +954,18 @@
                 </div>
             </div>
 
+            <div class="note-section">
+                <div class="note-title">
+                    <svg class="note-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Important Note
+                </div>
+                <div class="note-content">
+                    This is the main prompt used to come up with the basic foundation of the webpage design. The final result includes additional prompts, iterations, refinements, and developer efforts to achieve the polished design you see today.
+                </div>
+            </div>
+
             <a id="open-design-link" href="" target="_blank" rel="noopener noreferrer" class="open-design-btn">
                 Open Design Page
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -856,7 +978,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <p class="footer-text">FabNinjas | Portfolio Showcase © 2025</p>
+            <p class="footer-text">FabNinjas | Portfolio Wallet © 2025</p>
             <div class="footer-links">
                 <a href="#top">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -869,7 +991,7 @@
 
     <script>
         // Scroll down arrow functionality
-        const scrollDownArrow = document.getElementById('scroll-down-arrow');
+        const scrollDownArrow = document.querySelector('#scroll-down-arrow svg');
         if (scrollDownArrow) {
             scrollDownArrow.addEventListener('click', () => {
                 const projectsSection = document.querySelector('.projects');
@@ -961,6 +1083,39 @@
                 aiModel: "Claude Sonnet 4.5",
                 promptLabel: "Design Prompt",
                 prompt: "Create a static HTML file named gym.html for a gym website. The webpage should follow modern web design practices and feel attractive, calm, modern, and human-centered. The design should be welcoming and professional, not aggressive or flashy. Use a calm color palette limited to three complementary colors. Avoid strong or harsh colors and do not use gradient styles. Include high-quality gym or fitness-related images that enhance the overall look. The layout, typography, spacing, and visuals should work together to create a clean, modern, and pleasant user experience."
+            },
+            coffee: {
+                title: "Aroma Coffee House",
+                tag: "Coffee Shop Website",
+                description: "Sophisticated coffee shop website featuring elegant design with coffee-inspired color palette (espresso, mocha, cream), interactive animations, signature drinks showcase, and immersive parallax effects. Built with modern web standards focusing on creating a warm, inviting digital experience that mirrors the cozy atmosphere of an artisan coffee house.",
+                image: "Assets/Images/coffee.png",
+                link: "coffee-shop.html",
+                aiTool: "Cursor AI",
+                aiModel: "Claude Sonnet 4.5",
+                promptLabel: "Design Prompt",
+                prompt: "Please create the simple web page for coffee shop. It should look elegant and cozy vibe giving. Please do not use any flashy design, just calming in nature and please use white, coffee, and black colors with proper font and use relevant images as well."
+            },
+            dreamheaven: {
+                title: "Dreamheaven Realty",
+                tag: "Real Estate Website",
+                description: "Modern real estate platform featuring property listings, advanced search filters, agent profiles, and immersive property showcases with stunning visuals. Designed to help clients find their dream homes with an intuitive, user-friendly interface and comprehensive property information.",
+                image: "Assets/Images/dreamheaven.png",
+                link: "real-estate-website/index.html",
+                aiTool: "Cursor AI",
+                aiModel: "Claude Sonnet 4.5",
+                promptLabel: "Design Prompt",
+                prompt: "You are a senior frontend web developer and UI/UX designer. Build a modern, responsive multi-page website for a real estate company. Requirements: Use HTML, CSS, and JavaScript only. Clean, professional, trust-focused design. Mobile-first and responsive. Pages (minimum 3): Home Page - Hero section with headline, subheadline, and CTA (\"Find Your Dream Home\"), Featured property listings (cards with image, price, location), Short \"Why Choose Us\" section. Listings Page - Grid of property cards, Each card includes image, title, price, and short description. About / Contact Page - Company overview and mission, Agent profiles or team section, Contact form (name, email, message). Additional Guidelines: Use reusable components, Clear navigation menu linking all pages, Modern typography and spacing, Placeholder images and dummy data where needed. Generate complete, well-structured code with comments explaining major sections."
+            },
+            apex: {
+                title: "Apex Studio",
+                tag: "Creative Agency Website",
+                description: "Creative agency website showcasing innovative design work, team expertise, and client success stories with sleek animations and contemporary aesthetics. Features portfolio showcases, service offerings, and compelling case studies that demonstrate creative excellence and strategic thinking.",
+                image: "Assets/Images/apex.png",
+                link: "creative-agency/index.html",
+                aiTool: "Cursor AI",
+                aiModel: "Claude Sonnet 4.5",
+                promptLabel: "Design Prompt",
+                prompt: "You are designing a creative agency website with strong visual identity. Pages (minimum 3): Home - Large typography hero, Services overview, Selected work preview. Work - Case study cards, Hover interactions, Project descriptions. About / Contact - Agency story, Team section, Contact form. Design Goals: Strong typography, Bold spacing, Modern grid system, Subtle animations. Produce clean, responsive code with reusable components. Portfolio signal: \"I care about design, not just making divs appear.\" Just use HTML, CSS and JS."
             }
         };
 
@@ -987,10 +1142,17 @@
             document.getElementById('ai-prompt').textContent = project.prompt;
             document.getElementById('open-design-link').href = project.link;
 
+            const noteSection = document.querySelector('.note-section');
+            if (projectKey === 'gravity') {
+                noteSection.style.display = 'none';
+            } else {
+                noteSection.style.display = 'block';
+            }
+
             // Show sidebar and backdrop
             sidebar.classList.add('active');
             backdrop.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         // Function to close sidebar

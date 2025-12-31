@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Studio - Creative Agency</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">APEX <span style="color: var(--color-accent);">Studio</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="pages/work.html" class="nav-link">Work</a></li>
+        <li><a href="pages/about.html" class="nav-link">About</a></li>
+        <li><a href="pages/about.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          We craft<br>
+          <span class="text-accent">digital</span><br>
+          experiences
+        </h1>
+        <p class="hero-subtitle">
+          A creative agency specializing in brand identity, web design, and digital innovation that drives results.
+        </p>
+        <div class="hero-cta">
+          <a href="pages/work.html" class="btn btn-primary btn-large">View Our Work</a>
+          <a href="pages/about.html#contact" class="btn btn-outline btn-large" style="margin-left: 1rem;">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section section-large">
+    <div class="container">
+      <div class="text-center mb-12">
+        <p class="text-small text-accent mb-4">What We Do</p>
+        <h2>Services that elevate your brand</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card animate-on-scroll">
+          <div class="card-content">
+            <div class="service-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+            </div>
+            <h3 class="card-title">Brand Identity</h3>
+            <p class="card-description">
+              We create distinctive brand identities that resonate with your audience and stand out in the market.
+            </p>
+          </div>
+        </div>
+
+        <div class="card animate-on-scroll">
+          <div class="card-content">
+            <div class="service-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+            <h3 class="card-title">Web Design</h3>
+            <p class="card-description">
+              Beautiful, responsive websites that combine aesthetics with functionality to deliver exceptional user experiences.
+            </p>
+          </div>
+        </div>
+
+        <div class="card animate-on-scroll">
+          <div class="card-content">
+            <div class="service-icon">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="card-title">Digital Strategy</h3>
+            <p class="card-description">
+              Data-driven strategies that align your digital presence with your business goals for measurable growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work Section -->
+  <section class="section section-large" style="background-color: var(--color-white);">
+    <div class="container">
+      <div class="text-center mb-12">
+        <p class="text-small text-accent mb-4">Portfolio</p>
+        <h2>Selected Work</h2>
+        <p class="text-large" style="color: var(--color-text-light); max-width: 700px; margin: 0 auto;">
+          A curated collection of our recent projects showcasing creativity and innovation.
+        </p>
+      </div>
+
+      <div class="grid grid-2" style="gap: 4rem;">
+        <!-- Project 1 -->
+        <div class="card animate-on-scroll">
+          <div style="overflow: hidden;">
+            <img class="card-image" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop" alt="Nexus Tech Project">
+          </div>
+          <div class="card-content">
+            <div class="card-tags" style="margin-bottom: var(--space-6);">
+              <span class="tag">Branding</span>
+              <span class="tag">Web Design</span>
+            </div>
+            <h3 class="card-title">Nexus Tech</h3>
+            <p class="card-description">
+              Complete brand refresh and digital platform for a leading technology startup.
+            </p>
+            <a href="pages/work.html" style="color: var(--color-accent); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">
+              View Case Study →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="card animate-on-scroll">
+          <div style="overflow: hidden;">
+            <img class="card-image" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=600&fit=crop" alt="Bloom Wellness Project">
+          </div>
+          <div class="card-content">
+            <div class="card-tags" style="margin-bottom: var(--space-6);">
+              <span class="tag">UX/UI</span>
+              <span class="tag">App Design</span>
+            </div>
+            <h3 class="card-title">Bloom Wellness</h3>
+            <p class="card-description">
+              Mobile app design for a wellness platform connecting users with health professionals.
+            </p>
+            <a href="pages/work.html" style="color: var(--color-accent); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">
+              View Case Study →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="card animate-on-scroll">
+          <div style="overflow: hidden;">
+            <img class="card-image" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop" alt="Luxe Atelier Project">
+          </div>
+          <div class="card-content">
+            <div class="card-tags" style="margin-bottom: var(--space-6);">
+              <span class="tag">E-commerce</span>
+              <span class="tag">Strategy</span>
+            </div>
+            <h3 class="card-title">Luxe Atelier</h3>
+            <p class="card-description">
+              E-commerce platform and digital strategy for a luxury fashion brand.
+            </p>
+            <a href="pages/work.html" style="color: var(--color-accent); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">
+              View Case Study →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="card animate-on-scroll">
+          <div style="overflow: hidden;">
+            <img class="card-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop" alt="Urban Eats Project">
+          </div>
+          <div class="card-content">
+            <div class="card-tags" style="margin-bottom: var(--space-6);">
+              <span class="tag">Branding</span>
+              <span class="tag">Digital</span>
+            </div>
+            <h3 class="card-title">Urban Eats</h3>
+            <p class="card-description">
+              Brand identity and digital presence for a modern restaurant chain.
+            </p>
+            <a href="pages/work.html" style="color: var(--color-accent); text-decoration: none; font-weight: 600; margin-top: 1rem; display: inline-block;">
+              View Case Study →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="pages/work.html" class="btn btn-outline btn-large">View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section-large">
+    <div class="container text-center">
+      <h2 class="mb-8">Ready to start a project?</h2>
+      <p class="text-large mb-12" style="max-width: 600px; margin-left: auto; margin-right: auto; color: var(--color-text-light);">
+        Let's collaborate to create something extraordinary for your brand.
+      </p>
+      <a href="pages/about.html#contact" class="btn btn-primary btn-large">Start a Conversation</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Apex Studio</h4>
+          <p>A creative agency crafting digital experiences that matter.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="pages/work.html">Work</a></p>
+          <p><a href="pages/about.html">About</a></p>
+          <p><a href="pages/about.html#contact">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <p><a href="#">Instagram</a></p>
+          <p><a href="#">Twitter</a></p>
+          <p><a href="#">LinkedIn</a></p>
+          <p><a href="#">Dribbble</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>hello@apexstudio.com</p>
+          <p>+1 (555) 123-4567</p>
+          <p>New York, NY</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FabNinjas. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

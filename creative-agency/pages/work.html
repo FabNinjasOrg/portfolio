@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work - Apex Studio</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Additional Work Page Styles */
+    .work-hero {
+      padding-top: 150px;
+      padding-bottom: 80px;
+      text-align: center;
+    }
+
+    .project-card {
+      position: relative;
+      height: 500px;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: var(--color-white);
+    }
+
+    .project-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition-slow);
+    }
+
+    .project-card:hover .project-card-image {
+      transform: scale(1.1);
+    }
+
+    .project-card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: var(--space-8);
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .project-card:hover .project-card-overlay {
+      opacity: 1;
+    }
+
+    .project-card-title {
+      color: var(--color-white);
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-3);
+      transform: translateY(20px);
+      transition: transform var(--transition-base);
+    }
+
+    .project-card:hover .project-card-title {
+      transform: translateY(0);
+    }
+
+    .project-card-description {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: var(--text-base);
+      margin-bottom: var(--space-4);
+      transform: translateY(20px);
+      transition: transform var(--transition-base) 0.1s;
+    }
+
+    .project-card:hover .project-card-description {
+      transform: translateY(0);
+    }
+
+    .project-card-tags {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      transform: translateY(20px);
+      transition: transform var(--transition-base) 0.2s;
+    }
+
+    .project-card:hover .project-card-tags {
+      transform: translateY(0);
+    }
+
+    .project-tag {
+      padding: var(--space-1) var(--space-3);
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: var(--color-white);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-12);
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: var(--space-3) var(--space-6);
+      background-color: transparent;
+      border: 2px solid var(--color-border);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-color: var(--color-primary);
+    }
+
+    .grid-work {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: var(--space-8);
+    }
+
+    @media (max-width: 768px) {
+      .grid-work {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="../index.html" class="nav-logo">APEX <span style="color: var(--color-accent);">Studio</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="work.html" class="nav-link active">Work</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="about.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="work-hero">
+    <div class="container">
+      <p class="text-small text-accent mb-4">Portfolio</p>
+      <h1>Our Work</h1>
+      <p class="text-large" style="max-width: 700px; margin: 0 auto; color: var(--color-text-light);">
+        Explore our collection of projects where creativity meets strategy to deliver exceptional results.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <section class="section">
+    <div class="container">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+        <button class="filter-btn" data-filter="web">Web Design</button>
+        <button class="filter-btn" data-filter="app">App Design</button>
+        <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="grid-work" id="projectsGrid">
+        <!-- Project 1 -->
+        <div class="project-card animate-on-scroll" data-category="branding web">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&h=800&fit=crop" alt="Nexus Tech" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Nexus Tech</h3>
+            <p class="project-card-description">
+              Complete brand refresh and digital platform for a leading technology startup, focusing on modern aesthetics and user experience.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">Branding</span>
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Strategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card animate-on-scroll" data-category="app">
+          <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=800&fit=crop" alt="Bloom Wellness" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Bloom Wellness</h3>
+            <p class="project-card-description">
+              Mobile app design for a wellness platform connecting users with health professionals through intuitive interfaces.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">UX/UI</span>
+              <span class="project-tag">App Design</span>
+              <span class="project-tag">Mobile</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card animate-on-scroll" data-category="ecommerce web">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&h=800&fit=crop" alt="Luxe Atelier" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Luxe Atelier</h3>
+            <p class="project-card-description">
+              E-commerce platform and digital strategy for a luxury fashion brand with focus on premium user experience.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">E-commerce</span>
+              <span class="project-tag">Strategy</span>
+              <span class="project-tag">Development</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-card animate-on-scroll" data-category="branding">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=800&fit=crop" alt="Urban Eats" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Urban Eats</h3>
+            <p class="project-card-description">
+              Brand identity and digital presence for a modern restaurant chain with emphasis on vibrant visuals.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">Branding</span>
+              <span class="project-tag">Digital</span>
+              <span class="project-tag">Photography</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-card animate-on-scroll" data-category="web">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop" alt="Quantum Finance" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Quantum Finance</h3>
+            <p class="project-card-description">
+              Corporate website redesign for a fintech company, balancing professionalism with modern design trends.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Corporate</span>
+              <span class="project-tag">Fintech</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-card animate-on-scroll" data-category="app branding">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=800&fit=crop" alt="Flow Productivity" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Flow Productivity</h3>
+            <p class="project-card-description">
+              Complete brand identity and app design for a productivity tool helping teams collaborate efficiently.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">App Design</span>
+              <span class="project-tag">Branding</span>
+              <span class="project-tag">SaaS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-card animate-on-scroll" data-category="ecommerce">
+          <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=1200&h=800&fit=crop" alt="Artisan Market" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Artisan Market</h3>
+            <p class="project-card-description">
+              E-commerce platform connecting artisans with customers, featuring storytelling and immersive product displays.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">E-commerce</span>
+              <span class="project-tag">Marketplace</span>
+              <span class="project-tag">UX Design</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="project-card animate-on-scroll" data-category="web branding">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=800&fit=crop" alt="Summit Ventures" class="project-card-image">
+          <div class="project-card-overlay">
+            <h3 class="project-card-title">Summit Ventures</h3>
+            <p class="project-card-description">
+              Brand development and website for a venture capital firm, emphasizing trust and innovation.
+            </p>
+            <div class="project-card-tags">
+              <span class="project-tag">Branding</span>
+              <span class="project-tag">Web Design</span>
+              <span class="project-tag">Corporate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section-large">
+    <div class="container text-center">
+      <h2 class="mb-8">Like what you see?</h2>
+      <p class="text-large mb-12" style="max-width: 600px; margin-left: auto; margin-right: auto; color: var(--color-text-light);">
+        Let's discuss how we can bring your vision to life.
+      </p>
+      <a href="about.html#contact" class="btn btn-primary btn-large">Start Your Project</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Apex Studio</h4>
+          <p>A creative agency crafting digital experiences that matter.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <p><a href="../index.html">Home</a></p>
+          <p><a href="work.html">Work</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="about.html#contact">Contact</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <p><a href="#">Instagram</a></p>
+          <p><a href="#">Twitter</a></p>
+          <p><a href="#">LinkedIn</a></p>
+          <p><a href="#">Dribbble</a></p>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>hello@apexstudio.com</p>
+          <p>+1 (555) 123-4567</p>
+          <p>New York, NY</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 FabNinjas. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/work.js"></script>
+</body>
+</html>
+
