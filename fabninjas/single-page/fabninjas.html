@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FabNinjas - Transforming Ideas into Ultimate Tech Products</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/favicon.png" sizes="180x180">
+    <meta name="theme-color" content="#282643">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #282643;
+            --primary-purple: #776482;
+            --accent-orange: #e99d75;
+            --light-cream: #f2e1ca;
+            --light-purple: #baa9b8;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Libre Franklin', sans-serif;
+            color: var(--primary-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(40, 38, 67, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.8rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #3a3659 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(233, 157, 117, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(119, 100, 130, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-50px, 50px) scale(1.1); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-orange);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--light-cream);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            font-family: 'Libre Franklin', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: var(--primary-dark);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(233, 157, 117, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--light-cream);
+            color: var(--light-cream);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-cream);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(242, 225, 202, 0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, #8a7593 100%);
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 3rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about .section-label {
+            color: var(--accent-orange);
+        }
+
+        .about .section-title {
+            color: var(--white);
+            margin-bottom: 5rem;
+        }
+
+        .who-we-are-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .who-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .who-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(233, 157, 117, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .who-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent-orange);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .who-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .who-icon svg {
+            width: 100%;
+            height: 100%;
+            stroke: var(--white);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .who-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .who-card p {
+            font-size: 1rem;
+            color: var(--light-cream);
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 5%;
+            background: var(--white);
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-intro {
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+            text-align: left;
+        }
+
+        .service-card {
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-purple) 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(233, 157, 117, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-orange);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            color: var(--light-cream);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-features li {
+            font-size: 0.95rem;
+            color: var(--light-cream);
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .service-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 8rem 5%;
+            background: var(--primary-dark);
+        }
+
+        .portfolio-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .portfolio .section-label {
+            color: var(--accent-orange);
+        }
+
+        .portfolio .section-title {
+            color: var(--white);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .portfolio-image-wrapper {
+            width: 100%;
+            height: 400px;
+            background: var(--light-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .portfolio-image {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.08);
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+            background: var(--white);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .portfolio-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-category {
+            font-size: 0.9rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 8rem 5%;
+            background: var(--light-purple);
+        }
+
+        .process-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .process-timeline {
+            margin-top: 5rem;
+            position: relative;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary-dark);
+            transform: translateX(-50%);
+        }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .process-step:nth-child(even) .step-content {
+            order: 2;
+        }
+
+        .process-step:nth-child(even) .step-number-wrapper {
+            order: 1;
+        }
+
+        .step-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            font-size: 1.1rem;
+            color: var(--primary-purple);
+            line-height: 1.8;
+        }
+
+        .step-number-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-number {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(233, 157, 117, 0.4);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 8rem 5%;
+            background: var(--light-cream);
+        }
+
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonials-intro {
+            font-size: 1.2rem;
+            color: var(--primary-purple);
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            line-height: 1.8;
+        }
+
+        .testimonials-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .tab-button {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: transparent;
+            border: 2px solid var(--primary-dark);
+            border-radius: 50px;
+            color: var(--primary-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Libre Franklin', sans-serif;
+        }
+
+        .tab-button:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .tab-button.active {
+            background: var(--accent-orange);
+            border-color: var(--accent-orange);
+            color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: left;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            font-size: 6rem;
+            color: var(--accent-orange);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-stars {
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--light-cream);
+        }
+
+        .author-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .author-role {
+            font-size: 0.95rem;
+            color: var(--primary-purple);
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 5% 4rem;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #3a3659 100%);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact .section-label {
+            color: var(--accent-orange);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+            margin-bottom: 2rem;
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: var(--light-cream);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--light-cream);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.9rem 1rem;
+            font-size: 0.95rem;
+            border: 2px solid var(--primary-purple);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-family: 'Libre Franklin', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--light-purple);
+        }
+
+        .form-submit {
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--primary-purple);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            color: var(--light-cream);
+            font-size: 0.95rem;
+        }
+
+        .footer-text a {
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .who-we-are-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-timeline::before {
+                left: 30px;
+            }
+
+            .process-step {
+                grid-template-columns: 1fr;
+                padding-left: 80px;
+            }
+
+            .process-step:nth-child(even) .step-content,
+            .process-step:nth-child(even) .step-number-wrapper {
+                order: initial;
+            }
+
+            .step-number-wrapper {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--primary-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-tabs {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .tab-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--accent-orange);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/logo.png" alt="FabNinjas">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>
+                Transforming <span class="highlight">Ideas</span><br>
+                Into Ultimate <span class="highlight">Tech Products</span>
+            </h1>
+            <p>
+                We craft scalable, robust, and high-performance tech solutions that evolve with your business.
+                Our expertise lies in tackling complex challenges that require innovation, dedication, and continuous refinement.
+            </p>
+            <div class="cta-buttons">
+                <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+                <a href="#contact" class="btn btn-secondary">Start a Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="section-label">Who We Are</div>
+            <h2 class="section-title">WHO WE ARE</h2>
+
+            <div class="who-we-are-grid">
+                <!-- Vision Card -->
+                <div class="who-card">
+                    <div class="who-icon">
+                        <svg viewBox="0 0 100 100">
+                            <!-- Eye/Target Icon -->
+                            <circle cx="50" cy="50" r="12" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="25" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="38" stroke-width="2"/>
+                            <path d="M 50 12 L 50 2 M 88 50 L 98 50 M 50 88 L 50 98 M 12 50 L 2 50"/>
+                            <path d="M 75 25 L 82 18 M 75 75 L 82 82 M 25 75 L 18 82 M 25 25 L 18 18"/>
+                        </svg>
+                    </div>
+                    <h3>OUR VISION</h3>
+                    <p>To create a community of developers with ninja-like competencies in their work. They will bring their A-game to their work and keep evolving with changing technology.</p>
+                </div>
+
+                <!-- Mission Card -->
+                <div class="who-card">
+                    <div class="who-icon">
+                        <svg viewBox="0 0 100 100">
+                            <!-- Rocket Body -->
+                            <path d="M 40 70 L 40 35 Q 40 15, 50 10 Q 60 15, 60 35 L 60 70" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+                            <!-- Window -->
+                            <circle cx="50" cy="35" r="8" stroke-width="2.5"/>
+
+                            <!-- Left Wing -->
+                            <path d="M 40 55 L 25 65 L 40 65 Z" stroke-width="2.5" stroke-linejoin="round"/>
+
+                            <!-- Right Wing -->
+                            <path d="M 60 55 L 75 65 L 60 65 Z" stroke-width="2.5" stroke-linejoin="round"/>
+
+                            <!-- Flames -->
+                            <path d="M 43 70 L 40 85" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M 50 70 L 50 90" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M 57 70 L 60 85" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>OUR MISSION</h3>
+                    <p>We are on a global mission to become a leading consultancy firm in the IT sector and to provide an efficient workforce of developers seeing the projects end-to-end.</p>
+                </div>
+
+                <!-- Culture Card -->
+                <div class="who-card">
+                    <div class="who-icon">
+                        <svg viewBox="0 0 100 100">
+                            <!-- Team/People Icon -->
+                            <circle cx="35" cy="30" r="10"/>
+                            <path d="M 35 42 L 35 55 M 25 48 L 35 45 L 45 48 M 35 55 L 28 75 M 35 55 L 42 75"/>
+                            <circle cx="65" cy="30" r="10"/>
+                            <path d="M 65 42 L 65 55 M 55 48 L 65 45 L 75 48 M 65 55 L 58 75 M 65 55 L 72 75"/>
+                            <circle cx="50" cy="45" r="10"/>
+                            <path d="M 50 57 L 50 70 M 40 63 L 50 60 L 60 63 M 50 70 L 43 90 M 50 70 L 57 90"/>
+                        </svg>
+                    </div>
+                    <h3>OUR CULTURE</h3>
+                    <p>A workspace which enables the team to unleash our true potential through joy in work and growth. Our culture is defined by collaboration, growth, wellbeing, no overwork & accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="section-label">Our Services</div>
+            <h2 class="section-title">What We Do Best</h2>
+            <p class="services-intro">Comprehensive technology solutions tailored to your business needs</p>
+
+            <div class="services-grid">
+                <!-- Web Development -->
+                <div class="service-card">
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">
+                        We create stunning, responsive websites and web applications using cutting-edge technologies. From simple landing pages to complex e-commerce platforms.
+                    </p>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>React & Vue.js</li>
+                        <li>Laravel Backend</li>
+                        <li>E-commerce Solutions</li>
+                    </ul>
+                </div>
+
+                <!-- Mobile App Development -->
+                <div class="service-card">
+                    <h3 class="service-title">Mobile App Development</h3>
+                    <p class="service-description">
+                        Build powerful mobile applications for iOS and Android platforms. We create native and cross-platform apps that deliver exceptional user experiences.
+                    </p>
+                    <ul class="service-features">
+                        <li>iOS & Android</li>
+                        <li>React Native</li>
+                        <li>Flutter Development</li>
+                        <li>App Store Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Cloud Solutions -->
+                <div class="service-card">
+                    <h3 class="service-title">Cloud Solutions</h3>
+                    <p class="service-description">
+                        Leverage the power of cloud computing with our comprehensive solutions. We help you migrate, optimize, and scale your infrastructure.
+                    </p>
+                    <ul class="service-features">
+                        <li>AWS & Azure</li>
+                        <li>Cloud Architecture</li>
+                        <li>DevOps & CI/CD</li>
+                        <li>Cost Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- API Development -->
+                <div class="service-card">
+                    <h3 class="service-title">API Development</h3>
+                    <p class="service-description">
+                        Building robust, scalable APIs that power your applications and enable seamless integration with third-party services and systems.
+                    </p>
+                    <ul class="service-features">
+                        <li>RESTful APIs</li>
+                        <li>GraphQL</li>
+                        <li>API Documentation</li>
+                        <li>Third-party Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Database Development -->
+                <div class="service-card">
+                    <h3 class="service-title">Database Development</h3>
+                    <p class="service-description">
+                        Designing and optimizing database structures for maximum performance, security, and scalability. We handle complex data requirements.
+                    </p>
+                    <ul class="service-features">
+                        <li>MySQL & PostgreSQL</li>
+                        <li>MongoDB</li>
+                        <li>Database Optimization</li>
+                        <li>Data Migration</li>
+                    </ul>
+                </div>
+
+                <!-- Technology Consulting -->
+                <div class="service-card">
+                    <h3 class="service-title">Technology Consulting</h3>
+                    <p class="service-description">
+                        Strategic technology guidance to help your business make informed decisions and implement the right solutions for growth.
+                    </p>
+                    <ul class="service-features">
+                        <li>Tech Strategy</li>
+                        <li>Architecture Planning</li>
+                        <li>Digital Transformation</li>
+                        <li>Performance Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-container">
+            <div class="section-label">Our Work</div>
+            <h2 class="section-title">Projects That Define Excellence</h2>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="../../Assets/Images/gravity.png" alt="Gravity Project" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Gravity</h3>
+                        <p class="portfolio-category">Web Application</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="../../Assets/Images/apex.png" alt="Apex Project" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Apex</h3>
+                        <p class="portfolio-category">Full Stack</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-image-wrapper">
+                        <img src="../../Assets/Images/dreamheaven.png" alt="Dreamheaven Project" class="portfolio-image">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 class="portfolio-title">Dreamheaven</h3>
+                        <p class="portfolio-category">Innovation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="process-container">
+            <div class="section-label">How We Work</div>
+            <h2 class="section-title">Our Development Process</h2>
+
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-content">
+                        <h3 class="step-title">Discovery & Brainstorming</h3>
+                        <p class="step-description">
+                            We dive deep into understanding your vision, challenges, and goals. This phase involves
+                            extensive brainstorming sessions to ensure we capture every nuance of your requirements.
+                        </p>
+                    </div>
+                    <div class="step-number-wrapper">
+                        <div class="step-number">01</div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-content">
+                        <h3 class="step-title">Architecture & Planning</h3>
+                        <p class="step-description">
+                            We design scalable architectures that can handle growth. Every technical decision is made
+                            with long-term scalability and performance in mind.
+                        </p>
+                    </div>
+                    <div class="step-number-wrapper">
+                        <div class="step-number">02</div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-content">
+                        <h3 class="step-title">Development & Iteration</h3>
+                        <p class="step-description">
+                            Through continuous development cycles, we build, test, and refine. We embrace the complexity
+                            and iterate until perfection is achieved.
+                        </p>
+                    </div>
+                    <div class="step-number-wrapper">
+                        <div class="step-number">03</div>
+                    </div>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-content">
+                        <h3 class="step-title">Evolution & Growth</h3>
+                        <p class="step-description">
+                            Post-launch, we continue to evolve your product. As your business grows, your tech solution
+                            grows with it, maintaining optimal performance at every stage.
+                        </p>
+                    </div>
+                    <div class="step-number-wrapper">
+                        <div class="step-number">04</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <div class="section-label">Testimonials</div>
+            <h2 class="section-title">What People Say About Us</h2>
+            <p class="testimonials-intro">Discover the experiences of our clients and the passion of our team</p>
+
+            <div class="testimonials-tabs">
+                <button class="tab-button active" data-tab="clients">Client Reviews</button>
+                <button class="tab-button" data-tab="team">Team Reviews</button>
+            </div>
+
+            <div class="testimonials-grid" id="clientReviews">
+                <!-- Client Review 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+                    <p class="testimonial-text">
+                        We've been working with FabNinjas Private Limited for several years, and they consistently deliver exceptional results. Their technical expertise and creativity have helped us achieve our online goals.
+                    </p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Business Owner</span>
+                        <span class="author-role">Long-term Client</span>
+                    </div>
+                </div>
+
+                <!-- Client Review 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+                    <p class="testimonial-text">
+                        FabNinjas Pvt. Ltd. provided excellent communication and support from the initial consultation to the final launch. Their team brought our complex web application to life and delivered a seamless user experience.
+                    </p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Project Manager</span>
+                        <span class="author-role">Web Application Client</span>
+                    </div>
+                </div>
+
+                <!-- Client Review 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+                    <p class="testimonial-text">
+                        The team at FabNinjas truly understands our business needs & provides innovative solutions to help us stay ahead in the competitive online landscape. Their attention to detail and commitment towards excellence is unmatched.
+                    </p>
+                    <div class="testimonial-author">
+                        <span class="author-name">CEO</span>
+                        <span class="author-role">Innovation Partner</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonials-grid" id="teamReviews" style="display: none;">
+                <!-- Team Review 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+                    <p class="testimonial-text">
+                        It has been a fulfilling experience here. The collaborative environment allows to constantly learn and grow. The innovative projects challenge me to push my boundaries.
+                    </p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Senior Developer</span>
+                        <span class="author-role">Full-Stack Ninja</span>
+                    </div>
+                </div>
+
+                <!-- Team Review 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+                    <p class="testimonial-text">
+                        As a Laravel Developer at a company that fosters a culture of creativity and innovation, I am empowered to bring my ideas to life and make a meaningful impact on my projects.
+                    </p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Laravel Developer</span>
+                        <span class="author-role">Backend Specialist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="section-label">Get In Touch</div>
+            <h2 class="section-title">Let's Build Something Extraordinary</h2>
+            <p class="contact-text">
+                Have a complex project in mind? Let's discuss how we can transform your ideas into
+                scalable, high-performance tech solutions.
+            </p>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company" placeholder="Your Company">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your complex project..." required></textarea>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">
+                © 2026 <a href="#">FabNinjas</a>. Transforming ideas into ultimate tech products.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for fade-in animation
+        document.querySelectorAll('.service-card, .portfolio-item, .who-card, .process-step, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Testimonials tab switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const clientReviews = document.getElementById('clientReviews');
+        const teamReviews = document.getElementById('teamReviews');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+
+                // Show/hide reviews based on tab
+                if (button.dataset.tab === 'clients') {
+                    clientReviews.style.display = 'grid';
+                    teamReviews.style.display = 'none';
+                } else {
+                    clientReviews.style.display = 'none';
+                    teamReviews.style.display = 'grid';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
