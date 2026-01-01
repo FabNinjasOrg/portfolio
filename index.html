@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,12 +57,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(10, 10, 10, 0.7) 0%,
-                rgba(10, 10, 10, 0.85) 50%,
-                rgba(10, 10, 10, 0.95) 100%
-            );
+            background: linear-gradient(180deg,
+                    rgba(10, 10, 10, 0.7) 0%,
+                    rgba(10, 10, 10, 0.85) 50%,
+                    rgba(10, 10, 10, 0.95) 100%);
             pointer-events: none;
             z-index: 0;
         }
@@ -105,8 +104,14 @@
         }
 
         @keyframes ninja-shine {
-            0% { left: -100%; }
-            50%, 100% { left: 100%; }
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
         }
 
         .badge-text {
@@ -159,8 +164,15 @@
         }
 
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
         }
 
         /* Projects Grid */
@@ -201,6 +213,29 @@
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+        }
+
+        .quick-access-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            background: #ffffff;
+            border: none;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 15;
+            text-decoration: none;
+        }
+
+        .quick-access-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: #000000;
         }
 
         .project-card::before {
@@ -326,6 +361,8 @@
             background: #ffffff;
             transform: translateX(4px);
         }
+
+
 
         .project-content {
             padding: 2rem;
@@ -711,6 +748,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -737,6 +775,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Hero Section -->
     <section class="hero" id="top">
@@ -745,10 +784,12 @@
                 <span class="badge-text">FabNinjas | Portfolio Wallet</span>
             </div>
             <h1 class="fade-in-delay-1">Design Excellence</h1>
-            <p class="subtitle fade-in-delay-2">Explore a curated collection of modern web experiences, each crafted with precision and attention to detail.</p>
+            <p class="subtitle fade-in-delay-2">Explore a curated collection of modern web experiences, each crafted
+                with precision and attention to detail.</p>
             <div class="scroll-indicator fade-in-delay-3" id="scroll-down-arrow">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
             </div>
         </div>
@@ -761,40 +802,22 @@
             <p class="section-subtitle">Projects showcasing different domain designs</p>
 
             <div class="grid">
-                <!-- Project 1: Designer Portfolio -->
-                <div class="project-card">
-                    <div class="project-visual">
-                        <img src="Assets/Images/designer.png" alt="Designer Portfolio">
-                        <div class="project-overlay">
-                            <button class="preview-btn" data-project="designer">
-                                View Details
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Designer Portfolio</span>
-                        <h3 class="project-title">Creative Designer Portfolio</h3>
-                        <p class="project-description">A bold and dynamic portfolio website featuring dark aesthetics, smooth animations, and a focus on visual storytelling. Perfect for showcasing creative work.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Single Page</span>
-                            <span class="tech-badge">Dark Theme</span>
-                            <span class="tech-badge">Animations</span>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Project 2: Grace Gravity -->
                 <div class="project-card">
+                    <a href="gravity.html" class="quick-access-btn" target="_blank" title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div class="project-visual">
                         <img src="Assets/Images/gravity.png" alt="Grace Gravity IDE">
                         <div class="project-overlay">
                             <button class="preview-btn" data-project="gravity">
                                 View Details
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
                         </div>
@@ -802,7 +825,8 @@
                     <div class="project-content">
                         <span class="project-tag">AI powered IDE</span>
                         <h3 class="project-title">Grace Gravity IDE</h3>
-                        <p class="project-description">Next-generation IDE landing page with clean design, elegant typography, and smooth scrolling. Focuses on showcasing product features effectively.</p>
+                        <p class="project-description">Next-generation IDE landing page with clean design, elegant
+                            typography, and smooth scrolling. Focuses on showcasing product features effectively.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Single Page</span>
                             <span class="tech-badge">Clean Design</span>
@@ -811,40 +835,56 @@
                     </div>
                 </div>
 
-                <!-- Project 3: FitZone -->
+                <!-- Project 1: Designer Portfolio -->
                 <div class="project-card">
+                    <a href="designer-portfolio.html" class="quick-access-btn" target="_blank" title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div class="project-visual">
-                        <img src="Assets/Images/gym.png" alt="FitZone Fitness Center">
+                        <img src="Assets/Images/designer.png" alt="Designer Portfolio">
                         <div class="project-overlay">
-                            <button class="preview-btn" data-project="gym">
+                            <button class="preview-btn" data-project="designer">
                                 View Details
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
                         </div>
                     </div>
                     <div class="project-content">
-                        <span class="project-tag">Business Site</span>
-                        <h3 class="project-title">FitZone Fitness Center</h3>
-                        <p class="project-description">Premium fitness center website with sophisticated design, membership plans, trainer profiles, and comprehensive service showcase.</p>
+                        <span class="project-tag">Designer Portfolio</span>
+                        <h3 class="project-title">Creative Designer Portfolio</h3>
+                        <p class="project-description">A bold and dynamic portfolio website featuring dark aesthetics,
+                            smooth animations, and a focus on visual storytelling. Perfect for showcasing creative work.
+                        </p>
                         <div class="tech-stack">
                             <span class="tech-badge">Single Page</span>
-                            <span class="tech-badge">Professional</span>
-                            <span class="tech-badge">Full-featured</span>
+                            <span class="tech-badge">Dark Theme</span>
+                            <span class="tech-badge">Animations</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4: Aroma Coffee Shop -->
                 <div class="project-card">
+                    <a href="coffee-shop.html" class="quick-access-btn" target="_blank" title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div class="project-visual">
                         <img src="Assets/Images/coffee.png" alt="Aroma Coffee Shop">
                         <div class="project-overlay">
                             <button class="preview-btn" data-project="coffee">
                                 View Details
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
                         </div>
@@ -852,7 +892,8 @@
                     <div class="project-content">
                         <span class="project-tag">Coffee Shop</span>
                         <h3 class="project-title">Aroma Coffee House</h3>
-                        <p class="project-description">Elegant coffee shop website with sophisticated design, signature drinks showcase, interactive animations, and cozy atmosphere presentation.</p>
+                        <p class="project-description">Elegant coffee shop website with sophisticated design, signature
+                            drinks showcase, interactive animations, and cozy atmosphere presentation.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Single Page</span>
                             <span class="tech-badge">Elegant</span>
@@ -861,40 +902,22 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Dreamheaven Realty -->
-                <div class="project-card">
-                    <div class="project-visual">
-                        <img src="Assets/Images/dreamheaven.png" alt="Dreamheaven Realty">
-                        <div class="project-overlay">
-                            <button class="preview-btn" data-project="dreamheaven">
-                                View Details
-                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Real Estate</span>
-                        <h3 class="project-title">Dreamheaven Realty</h3>
-                        <p class="project-description">Modern real estate platform featuring property listings, advanced search filters, agent profiles, and immersive property showcases with stunning visuals.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">Multi Page</span>
-                            <span class="tech-badge">Professional</span>
-                            <span class="tech-badge">Modern UI</span>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Project 6: Apex Studio -->
                 <div class="project-card">
+                    <a href="creative-agency/index.html" class="quick-access-btn" target="_blank" title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div class="project-visual">
                         <img src="Assets/Images/apex.png" alt="Apex Studio">
                         <div class="project-overlay">
                             <button class="preview-btn" data-project="apex">
                                 View Details
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
                         </div>
@@ -902,7 +925,8 @@
                     <div class="project-content">
                         <span class="project-tag">Creative Agency</span>
                         <h3 class="project-title">Apex Studio</h3>
-                        <p class="project-description">Creative agency website showcasing innovative design work, team expertise, and client success stories with sleek animations and contemporary aesthetics.</p>
+                        <p class="project-description">Creative agency website showcasing innovative design work, team
+                            expertise, and client success stories with sleek animations and contemporary aesthetics.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Multi Page</span>
                             <span class="tech-badge">Creative</span>
@@ -911,15 +935,89 @@
                     </div>
                 </div>
 
+                <!-- Project 5: Dreamheaven Realty -->
+                <div class="project-card">
+                    <a href="real-estate-website/index.html" class="quick-access-btn" target="_blank" title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                    <div class="project-visual">
+                        <img src="Assets/Images/dreamheaven.png" alt="Dreamheaven Realty">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="dreamheaven">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Real Estate</span>
+                        <h3 class="project-title">Dreamheaven Realty</h3>
+                        <p class="project-description">Modern real estate platform featuring property listings, advanced
+                            search filters, agent profiles, and immersive property showcases with stunning visuals.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Multi Page</span>
+                            <span class="tech-badge">Professional</span>
+                            <span class="tech-badge">Modern UI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: FitZone -->
+                <div class="project-card">
+                    <a href="gym.html" class="quick-access-btn" target="_blank" title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                    <div class="project-visual">
+                        <img src="Assets/Images/gym.png" alt="FitZone Fitness Center">
+                        <div class="project-overlay">
+                            <button class="preview-btn" data-project="gym">
+                                View Details
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Business Site</span>
+                        <h3 class="project-title">FitZone Fitness Center</h3>
+                        <p class="project-description">Premium fitness center website with sophisticated design,
+                            membership plans, trainer profiles, and comprehensive service showcase.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Single Page</span>
+                            <span class="tech-badge">Professional</span>
+                            <span class="tech-badge">Full-featured</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Project 7: FabNinjas Single Page -->
                 <div class="project-card">
+                    <a href="fabninjas/single-page/fabninjas.html" class="quick-access-btn" target="_blank"
+                        title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div class="project-visual">
                         <img src="Assets/Images/fabninjas1.png" alt="FabNinjas Single Page">
                         <div class="project-overlay">
                             <button class="preview-btn" data-project="fabninjas-single">
                                 View Details
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
                         </div>
@@ -927,7 +1025,9 @@
                     <div class="project-content">
                         <span class="project-tag">FabNinjas Website</span>
                         <h3 class="project-title">FabNinjas Single Page</h3>
-                        <p class="project-description">A comprehensive single-page company website featuring elegant design with purple and orange accents, showcasing services, vision, mission, and company culture with smooth scrolling and modern aesthetics.</p>
+                        <p class="project-description">A comprehensive single-page company website featuring elegant
+                            design with purple and orange accents, showcasing services, vision, mission, and company
+                            culture with smooth scrolling and modern aesthetics.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Single Page</span>
                             <span class="tech-badge">Company Site</span>
@@ -938,13 +1038,21 @@
 
                 <!-- Project 8: FabNinjas Single Page 2 -->
                 <div class="project-card">
+                    <a href="fabninjas/single-page/fabninjas-2.html" class="quick-access-btn" target="_blank"
+                        title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div class="project-visual">
                         <img src="Assets/Images/fabninjas2.png" alt="FabNinjas Single Page 2">
                         <div class="project-overlay">
                             <button class="preview-btn" data-project="fabninjas-single-2">
                                 View Details
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
                         </div>
@@ -952,7 +1060,9 @@
                     <div class="project-content">
                         <span class="project-tag">FabNinjas Website</span>
                         <h3 class="project-title">FabNinjas Single Page 2</h3>
-                        <p class="project-description">An alternative single-page design for FabNinjas with a clean white navigation bar, refined typography, and minimalist approach. Features the same comprehensive content with a fresh visual perspective.</p>
+                        <p class="project-description">An alternative single-page design for FabNinjas with a clean
+                            white navigation bar, refined typography, and minimalist approach. Features the same
+                            comprehensive content with a fresh visual perspective.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Single Page</span>
                             <span class="tech-badge">Minimalist</span>
@@ -963,13 +1073,21 @@
 
                 <!-- Project 9: FabNinjas Multi Page -->
                 <div class="project-card">
+                    <a href="fabninjas/multi-page/index.html" class="quick-access-btn" target="_blank"
+                        title="Open Demo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
                     <div class="project-visual">
                         <img src="Assets/Images/fabninjas-multi.png" alt="FabNinjas Multi Page">
                         <div class="project-overlay">
                             <button class="preview-btn" data-project="fabninjas-multi">
                                 View Details
                                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                 </svg>
                             </button>
                         </div>
@@ -977,7 +1095,9 @@
                     <div class="project-content">
                         <span class="project-tag">FabNinjas Website</span>
                         <h3 class="project-title">FabNinjas Multi Page</h3>
-                        <p class="project-description">A full-featured multi-page website for FabNinjas with dedicated pages for services, work portfolio, process, testimonials, and company life. Comprehensive navigation and structured content presentation.</p>
+                        <p class="project-description">A full-featured multi-page website for FabNinjas with dedicated
+                            pages for services, work portfolio, process, testimonials, and company life. Comprehensive
+                            navigation and structured content presentation.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Multi Page</span>
                             <span class="tech-badge">Full Featured</span>
@@ -997,7 +1117,8 @@
                 <div></div>
                 <button class="close-btn">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -1032,19 +1153,23 @@
             <div class="note-section">
                 <div class="note-title">
                     <svg class="note-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     Important Note
                 </div>
                 <div class="note-content">
-                    This is the main prompt used to come up with the basic foundation of the webpage design. The final result includes additional prompts, iterations, refinements, and developer efforts to achieve the polished design you see today.
+                    This is the main prompt used to come up with the basic foundation of the webpage design. The final
+                    result includes additional prompts, iterations, refinements, and developer efforts to achieve the
+                    polished design you see today.
                 </div>
             </div>
 
             <a id="open-design-link" href="" target="_blank" rel="noopener noreferrer" class="open-design-btn">
                 Open Design Page
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
             </a>
         </div>
@@ -1057,7 +1182,8 @@
             <div class="footer-links">
                 <a href="#top">
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 10l7-7m0 0l7 7m-7-7v18" />
                     </svg>
                 </a>
             </div>
@@ -1295,4 +1421,5 @@
         });
     </script>
 </body>
+
 </html>
