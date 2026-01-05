@@ -26,6 +26,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 100px;
         }
 
         body {
@@ -280,11 +281,12 @@
         /* About Section */
         .about {
             position: relative;
-            padding: 100px 5% 100px;
+            padding: 100px 5% 0;
             background: radial-gradient(ellipse at center, #0f0f0f 0%, #0a0a0a 100%);
             z-index: 20;
             content-visibility: auto;
             contain-intrinsic-size: 1000px;
+            scroll-margin-top: 100px;
         }
 
         /* Restore pointer events for content */
@@ -1170,11 +1172,12 @@
         /* --- Contact Section Styles --- */
         .contact {
             position: relative;
-            padding: 100px 5% 150px;
+            padding: 60px 5% 150px;
             background: radial-gradient(ellipse at center, #0f0f0f 0%, #0a0a0a 100%);
             z-index: 20;
             content-visibility: auto;
             contain-intrinsic-size: 1000px;
+            scroll-margin-top: 100px;
         }
 
         .contact-content-grid {
@@ -1464,7 +1467,7 @@
         /* Chart Section Styles */
         .about-chart-section {
             position: relative;
-            padding: 100px 5% 100px;
+            padding: 100px 5% 60px;
             background: radial-gradient(ellipse at center, #0f0f0f 0%, #0a0a0a 100%);
             z-index: 20;
             margin-top: 0;
@@ -1669,8 +1672,21 @@
 
         @media (max-width: 768px) {
             .about-chart-section {
-                padding: 60px 5% 60px;
+                padding: 60px 5% 40px;
                 margin-top: 0;
+            }
+
+            .contact {
+                padding: 40px 5% 100px;
+                scroll-margin-top: 80px;
+            }
+
+            .about {
+                scroll-margin-top: 80px;
+            }
+
+            html {
+                scroll-padding-top: 80px;
             }
 
             .chart-section-title {
@@ -2220,6 +2236,32 @@
                 nav.classList.remove('nav-glass');
             }
         }, { passive: true });
+
+        // Smooth scroll with offset for fixed navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = nav.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (menuToggle && navMid) {
+                        menuToggle.classList.remove('active');
+                        navMid.classList.remove('active');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 
