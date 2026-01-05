@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garage Shop | Premium Automotive</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&family=Orbitron:wght@300;400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Rajdhani', 'Orbitron', sans-serif;
+      background: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+      font-weight: 300;
+    }
+
+    /* Transparent Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 3rem;
+      background: transparent;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem 3rem;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #FFD700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 300;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #FFD700;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #FFD700;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 3rem 4rem;
+    }
+
+    /* Canvas Background */
+    .canvas-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1400px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    /* Left Content Section */
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+
+    /* Right Content Space - Maintains grid layout */
+    .hero-right-space {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+    }
+
+    .hero-badge {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: #FFD700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-title .accent {
+      color: #FFD700;
+    }
+
+    .hero-description {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 300;
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      background: #FFD700;
+      border: 2px solid #FFD700;
+      color: #000000;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .hero-cta:hover {
+      background: transparent;
+      color: #FFD700;
+    }
+
+    /* 3D Model Container - Now Full Background */
+    .model-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #canvas-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      cursor: grab;
+      border: none;
+      outline: none;
+      overflow: hidden;
+    }
+
+    #canvas-container:active {
+      cursor: grabbing;
+    }
+
+    #canvas-container canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border: none;
+      outline: none;
+      box-shadow: none;
+    }
+
+
+
+    /* Additional Sections */
+    .section {
+      padding: 6rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: #000000;
+    }
+
+    .section-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: #FFD700;
+      text-align: center;
+      margin-bottom: 4rem;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 6rem 1.5rem 3rem;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+
+      .hero-text {
+        order: 2;
+        text-align: center;
+      }
+
+      .canvas-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3; /* Reduce opacity on mobile for better text readability */
+      }
+
+      .hero-right-space {
+        display: none; /* Hide right space on mobile */
+      }
+
+      .hero-description {
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Glassy Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">GARAGE</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#models">Models</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <!-- Canvas Background -->
+    <div class="canvas-background">
+      <div class="model-container">
+        <div id="canvas-container"></div>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <!-- Left Content -->
+      <div class="hero-text">
+        <div class="hero-badge">Premium Automotive</div>
+        <h1 class="hero-title">Welcome to <span class="accent">GARAGE</span></h1>
+        <p class="hero-description">
+          Discover iconic vehicles with interactive 3D showcases. Experience automotive excellence through cutting-edge
+          technology and timeless design.
+        </p>
+        <a href="#models" class="hero-cta">Explore Collection</a>
+      </div>
+
+      <!-- Right Content Space (Canvas is now background) -->
+      <div class="hero-right-space"></div>
+    </div>
+  </section>
+
+  <!-- Additional Content Sections -->
+  <section class="section" id="models">
+    <h2 class="section-title">Our Collection</h2>
+    <p class="section-subtitle">Explore Premium Automotive Excellence</p>
+  </section>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    // Scene with garage-style background
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x1a1a1a); // Dark concrete garage background
+
+    // Camera - positioned for full-screen background canvas
+    const camera = new THREE.PerspectiveCamera(
+      50,
+      1, // Will be updated in resize handler
+      0.1,
+      100
+    );
+    // Start from upper side view perspective for better full-screen effect
+    camera.position.set(6, 2.5, 2);
+
+    // Renderer with proper pixel ratio for high DPI displays
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Prevent performance issues on very high DPI
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    const container = document.getElementById('canvas-container');
+    container.appendChild(renderer.domElement);
+    // Size will be set in handleResize function
+
+    // Optimized lighting setup
+    scene.add(new THREE.AmbientLight(0xffffff, 0.8));
+
+    const keyLight = new THREE.DirectionalLight(0xffffff, 1);
+    keyLight.position.set(5, 8, 5);
+    keyLight.castShadow = true;
+    keyLight.shadow.mapSize.set(2048, 2048);
+    const shadowCam = keyLight.shadow.camera;
+    shadowCam.left = -10; shadowCam.right = 10;
+    shadowCam.top = 10; shadowCam.bottom = -10;
+    shadowCam.near = 0.5; shadowCam.far = 50;
+    scene.add(keyLight);
+
+    const accentLight = new THREE.DirectionalLight(0xFFD700, 0.6);
+    accentLight.position.set(-5, 4, -5);
+    scene.add(accentLight);
+
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    fillLight.position.set(0, 2, -8);
+    scene.add(fillLight);
+
+    // Circular base floor for the car with shiny effect
+    const floorGeometry = new THREE.CircleGeometry(6, 64);
+    const floorMaterial = new THREE.MeshStandardMaterial({
+      color: 0x3a3a3a,
+      metalness: 0.7,
+      roughness: 0.2,
+      envMapIntensity: 0.8,
+      side: THREE.DoubleSide
+    });
+    const floorBase = new THREE.Mesh(floorGeometry, floorMaterial);
+    floorBase.rotation.x = -Math.PI / 2;
+    floorBase.position.y = -0.8;
+    floorBase.receiveShadow = true;
+    scene.add(floorBase);
+
+    // Add floor texture pattern with subtle grid
+    const gridGeometry = new THREE.CircleGeometry(6, 64);
+    const gridMaterial = new THREE.MeshBasicMaterial({
+      color: 0x1a1a1a,
+      transparent: true,
+      opacity: 0.3,
+      side: THREE.DoubleSide
+    });
+    const floorGrid = new THREE.Mesh(gridGeometry, gridMaterial);
+    floorGrid.rotation.x = -Math.PI / 2;
+    floorGrid.position.y = -0.79; // Slightly above the base floor
+    scene.add(floorGrid);
+
+    // Add matching glassy border around the cylinder floor
+    const borderGeometry = new THREE.RingGeometry(6, 6.2, 64);
+    const borderMaterial = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.12,
+      metalness: 0.95,
+      roughness: 0.05,
+      envMapIntensity: 1.2,
+      side: THREE.DoubleSide
+    });
+    const floorBorder = new THREE.Mesh(borderGeometry, borderMaterial);
+    floorBorder.rotation.x = -Math.PI / 2;
+    floorBorder.position.y = -0.795; // Position between grid and base floor
+    scene.add(floorBorder);
+
+
+    // Shadow plane for better shadow visibility on the floor
+    const shadowGeometry = new THREE.PlaneGeometry(12, 12);
+    const shadowMaterial = new THREE.ShadowMaterial({
+      color: 0x000000,
+      opacity: 0.4,
+      transparent: true
+    });
+    const shadowPlane = new THREE.Mesh(shadowGeometry, shadowMaterial);
+    shadowPlane.rotation.x = -Math.PI / 2;
+    shadowPlane.position.y = -0.78; // Just below the floor grid
+    shadowPlane.receiveShadow = true;
+    scene.add(shadowPlane);
+
+    // Load and setup car model
+    const loader = new GLTFLoader();
+    loader.load(
+      'Assets/Images/3d-porche.glb',
+      (gltf) => {
+        const carModel = gltf.scene;
+        const box = new THREE.Box3().setFromObject(carModel);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const scale = 4.0 / Math.max(size.x, size.y, size.z);
+
+        carModel.scale.setScalar(scale);
+        carModel.position.sub(center.clone().multiplyScalar(scale));
+
+        // Position the car to sit properly on the floor
+        const carBottom = box.min.y * scale;
+        carModel.position.y = -carBottom - 0.8; // Position so car sits on floor at y = -0.8
+
+        carModel.traverse((child) => {
+          if (child.isMesh) {
+            child.castShadow = child.receiveShadow = true;
+          }
+        });
+
+        scene.add(carModel);
+      },
+      undefined,
+      (err) => console.error('GLB load error:', err)
+    );
+
+    // OrbitControls for user interaction - rotate only when dragging
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.minDistance = controls.maxDistance = 6; // Fixed distance - no zoom
+    controls.enableZoom = false;
+    controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2; // Lock to horizontal rotation only
+    controls.enablePan = false;
+    controls.autoRotate = true; // Keep auto-rotation enabled
+    controls.autoRotateSpeed = 2.0;
+    controls.target.set(0, 0.5, 0); // Center on the car model for full-screen view
+    controls.update(); // Initialize controls with side view position
+
+    // Resize handler with proper pixel ratio - use container size
+    function handleResize() {
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(width, height);
+      controls.update();
+    }
+    window.addEventListener('resize', handleResize);
+    // Initial size - wait for DOM to be ready
+    setTimeout(handleResize, 100);
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        target?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Temporarily pause auto-rotation during active dragging, resume after
+    let isDragging = false;
+    let dragStartTime = 0;
+    const DRAG_THRESHOLD = 50; // milliseconds - consider it a drag if mouse is held longer than this
+
+    // Track mouse/touch events to detect dragging vs clicking
+    const canvas = renderer.domElement;
+
+    // Mouse events
+    canvas.addEventListener('mousedown', () => {
+      dragStartTime = Date.now();
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (e.buttons === 1 && (Date.now() - dragStartTime) > DRAG_THRESHOLD) { // Left mouse button held and threshold passed
+        if (!isDragging) {
+          isDragging = true;
+          controls.autoRotate = false; // Temporarily disable auto-rotation during drag
+        }
+      }
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      if (isDragging) {
+        isDragging = false;
+        dragStartTime = 0;
+        // Resume auto-rotation after a short delay
+        setTimeout(() => {
+          if (!isDragging) {
+            controls.autoRotate = true;
+          }
+        }, 1000); // Resume after 1 second of no interaction
+      }
+    });
+
+    // Touch events for mobile
+    canvas.addEventListener('touchstart', () => {
+      dragStartTime = Date.now();
+    });
+
+    canvas.addEventListener('touchmove', () => {
+      if ((Date.now() - dragStartTime) > DRAG_THRESHOLD) {
+        if (!isDragging) {
+          isDragging = true;
+          controls.autoRotate = false; // Temporarily disable auto-rotation during drag
+        }
+      }
+    });
+
+    canvas.addEventListener('touchend', () => {
+      if (isDragging) {
+        isDragging = false;
+        dragStartTime = 0;
+        // Resume auto-rotation after a short delay
+        setTimeout(() => {
+          if (!isDragging) {
+            controls.autoRotate = true;
+          }
+        }, 1000); // Resume after 1 second of no interaction
+      }
+    });
+
+    // Animate loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Update controls (for damping)
+      controls.update();
+
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+
+</body>
+
+</html>
