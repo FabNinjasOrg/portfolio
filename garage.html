@@ -97,6 +97,38 @@
       width: 100%;
     }
 
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 2px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
     /* Hero Section */
     .hero {
       min-height: 100vh;
@@ -742,24 +774,155 @@
       color: #FFD700;
     }
 
-    /* Responsive */
+    /* Responsive - Tablet */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .navbar {
+        padding: 1.2rem 2rem;
+      }
+
+      .nav-links {
+        gap: 2rem;
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        padding: 7rem 2rem 4rem;
+      }
+
+      .hero-content {
+        gap: 4rem;
+      }
+
+      .section {
+        padding: 5rem 2rem;
+      }
+
+      .services-ring-wrapper {
+        height: 400px;
+        max-width: 100%;
+      }
+
+      .services-ring {
+        width: 400px;
+        height: 360px;
+      }
+
+      .service-card {
+        width: 220px;
+        height: 350px;
+        padding: 1.8rem 1.6rem 2rem;
+      }
+
+      .services-ring .service-card {
+        transform: rotateY(calc(var(--base-rot, 0deg) + var(--offset-rot, 0deg))) translateZ(320px) translateY(-50%);
+      }
+
+      .services-arrow-left {
+        left: 2%;
+      }
+
+      .services-arrow-right {
+        right: 2%;
+      }
+
+      .about-content {
+        gap: 2.5rem;
+        padding: 0 1.5rem;
+      }
+
+      .card-image {
+        flex: 0 0 350px;
+        height: 250px;
+      }
+
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .contact-section {
+        padding: 4rem 2rem;
+      }
+
+      .contact-inner {
+        gap: 2.25rem;
+        padding: 2.5rem 2rem;
+      }
+
+      .contact-card {
+        padding-right: 1.5rem;
+      }
+
+      .contact-form-wrapper {
+        padding-left: 1.5rem;
+      }
+
+      .contact-form-row {
+        gap: 0.9rem;
+      }
+    }
+
+    /* Responsive - Mobile */
     @media (max-width: 768px) {
       .navbar {
         padding: 1rem 1.5rem;
       }
 
+      .navbar.scrolled {
+        padding: 0.8rem 1.5rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
       .nav-links {
-        gap: 1.5rem;
-        font-size: 0.9rem;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 5rem 2rem 2rem;
+        gap: 0;
+        transition: right 0.3s ease;
+        border-left: 1px solid rgba(255, 215, 0, 0.2);
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 0.75rem 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+      }
+
+      .nav-links a::after {
+        display: none;
       }
 
       .hero {
-        padding: 6rem 1.5rem 3rem;
+        padding: 5rem 1.5rem 3rem;
+        min-height: 90vh;
       }
 
       .hero-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 2rem;
         text-align: center;
       }
 
@@ -768,38 +931,162 @@
         text-align: center;
       }
 
+      .hero-badge {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+        margin-bottom: 1rem;
+      }
+
+      .hero-description {
+        max-width: 100%;
+        font-size: clamp(0.9rem, 4vw, 1rem);
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-cta {
+        padding: 0.75rem 1.75rem;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 280px;
+      }
+
       .canvas-background {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        opacity: 0.3;
+        opacity: 0.25;
       }
 
       .hero-right-space {
         display: none;
       }
 
-      .hero-description {
-        max-width: 100%;
+      .section {
+        padding: 4rem 1.5rem;
       }
 
-      /* About Section Mobile Styles */
+      .section-title {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+        margin-bottom: 0.5rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Services Section Mobile */
+      .services-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        min-height: auto;
+      }
+
+      .services-ring-wrapper {
+        height: 420px;
+        margin: 15px auto 30px;
+        perspective: 1200px;
+        overflow: visible;
+      }
+
+      .services-ring {
+        width: 100%;
+        max-width: 320px;
+        height: 380px;
+        transform: translateX(0);
+        margin: 0 auto;
+      }
+
+      .service-card {
+        width: 280px;
+        height: 380px;
+        padding: 1.8rem 1.5rem 2rem;
+        left: 50%;
+        max-width: calc(100vw - 100px);
+      }
+
+      .services-ring .service-card {
+        transform: rotateY(calc(var(--base-rot, 0deg) + var(--offset-rot, 0deg))) translateZ(140px) translateY(-50%) translateX(-50%);
+      }
+
+      .service-tag {
+        font-size: 0.7rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.25rem;
+      }
+
+      .service-title {
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 0.5rem;
+      }
+
+      .service-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+      }
+
+      .service-points {
+        gap: 0.4rem;
+        margin-top: 0.5rem;
+      }
+
+      .service-points li {
+        font-size: 0.85rem;
+        padding-left: 1rem;
+        line-height: 1.5;
+      }
+
+      .service-points li::before {
+        width: 5px;
+        height: 5px;
+        top: 0.5em;
+      }
+
+      .services-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        z-index: 10;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        touch-action: manipulation;
+      }
+
+      .services-arrow:active {
+        transform: translateY(-50%) scale(0.95);
+      }
+
+      .services-arrow-left {
+        left: 10px;
+      }
+
+      .services-arrow-right {
+        right: 10px;
+      }
+
+      /* About Section Mobile */
       .about-container {
-        gap: 3rem;
+        gap: 2.5rem;
       }
 
       .about-content {
         flex-direction: column !important;
-        gap: 2rem;
-        padding: 0 1rem;
+        gap: 1.5rem;
+        padding: 0 0;
       }
 
       .card-image {
         flex: none;
         width: 100%;
-        height: 200px;
+        height: 220px;
         margin-bottom: 0;
       }
 
@@ -809,41 +1096,382 @@
       }
 
       .card-title {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+        margin-bottom: 0.75rem;
       }
 
+      .card-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      /* Stats Section Mobile */
       .stats-container {
         padding: 1rem 0;
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
       }
 
       .stats-slider {
         gap: 1rem;
-        animation-duration: 20s;
+        animation-duration: 22s;
       }
 
       .stat-item {
-        padding: 1.5rem 1rem;
-        flex: 0 0 200px;
+        padding: 1.25rem 0.75rem;
+        flex: 0 0 180px;
       }
 
       .stat-number {
-        font-size: 2rem;
+        font-size: 1.75rem;
       }
 
-      /* Contact section mobile */
-      .contact-inner {
+      .stat-label {
+        font-size: 0.85rem;
+      }
+
+      /* Reviews Section Mobile */
+      .reviews-section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      .reviews-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .review-card {
+        padding: 1.5rem 1.5rem 1.8rem;
+      }
+
+      .review-avatar {
+        width: 50px;
+        height: 50px;
+      }
+
+      .review-name {
+        font-size: 0.95rem;
+      }
+
+      .review-tag {
+        font-size: 0.8rem;
+      }
+
+      .review-text {
+        font-size: 0.85rem;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+      }
+
+      /* Contact Section Mobile */
+      .contact-section {
+        padding: 3rem 1rem !important;
+      }
+
+      .contact-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 1.75rem 1.25rem !important;
+        border-radius: 12px;
+        max-width: 100% !important;
       }
 
       .contact-card {
-        padding: 1.5rem 1.25rem;
+        width: 100% !important;
+        padding: 0 !important;
+        padding-bottom: 2rem !important;
+        margin-bottom: 2rem !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.25) !important;
+      }
+
+      .contact-heading {
+        font-size: 1.25rem !important;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.75rem !important;
+      }
+
+      .contact-tagline {
+        font-size: 0.9rem !important;
+        max-width: 100% !important;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.6;
+      }
+
+      .contact-detail-group {
+        gap: 1.25rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .contact-detail {
+        gap: 0.35rem !important;
+        width: 100% !important;
+      }
+
+      .contact-label {
+        font-size: 0.7rem !important;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.3rem !important;
+        display: block !important;
+      }
+
+      .contact-value {
+        font-size: 0.9rem !important;
+        line-height: 1.6 !important;
+        word-break: break-word;
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .contact-note {
+        font-size: 0.8rem !important;
+        line-height: 1.6;
+        margin-top: 0.5rem !important;
+      }
+
+      .contact-form-wrapper {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      .contact-form {
+        width: 100% !important;
       }
 
       .contact-form-row {
-        grid-template-columns: 1fr;
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        width: 100% !important;
+      }
+
+      .contact-form-row .contact-form-field {
+        width: 100% !important;
+        flex: 1 1 100% !important;
+      }
+
+      .contact-form-field {
+        width: 100% !important;
+        margin-bottom: 1.25rem !important;
+        gap: 0.5rem;
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      .contact-form-label {
+        font-size: 0.7rem !important;
+        letter-spacing: 1px;
+        margin-bottom: 0.4rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .contact-input,
+      .contact-textarea,
+      .contact-select {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0.9rem 1rem !important;
+        font-size: 0.95rem !important;
+        border-radius: 8px;
+        -webkit-appearance: none;
+        appearance: none;
+        box-sizing: border-box !important;
+      }
+
+      .contact-textarea {
+        min-height: 130px !important;
+        resize: vertical;
+        width: 100% !important;
+      }
+
+      .service-type-pills {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+        margin-top: 0.5rem !important;
+        width: 100% !important;
+      }
+
+      .service-pill {
+        padding: 0.55rem 1rem !important;
+        font-size: 0.8rem !important;
+        letter-spacing: 0.3px;
+        white-space: normal !important;
+        flex: 0 1 auto !important;
+        min-width: auto !important;
+        max-width: 100% !important;
+        word-wrap: break-word;
+        text-align: center;
+      }
+
+      .contact-submit {
+        width: 100% !important;
+        max-width: 100% !important;
+        justify-content: center !important;
+        margin-top: 0.5rem !important;
+        padding: 0.9rem 1.5rem !important;
+        font-size: 0.85rem !important;
+        display: flex !important;
+      }
+    }
+
+    /* Extra Small Mobile */
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.9rem 1rem;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .hero {
+        padding: 4.5rem 1rem 2.5rem;
+        min-height: 85vh;
+      }
+
+      .hero-title {
+        font-size: 1.75rem;
+      }
+
+      .section {
+        padding: 3.5rem 1rem;
+      }
+
+      .services-section {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .services-ring-wrapper {
+        height: 400px;
+        margin: 10px auto 25px;
+      }
+
+      .services-ring {
+        max-width: 280px;
+        height: 360px;
+      }
+
+      .service-card {
+        width: 260px;
+        height: 360px;
+        padding: 1.6rem 1.3rem 1.8rem;
+        max-width: calc(100vw - 80px);
+      }
+
+      .services-ring .service-card {
+        transform: rotateY(calc(var(--base-rot, 0deg) + var(--offset-rot, 0deg))) translateZ(120px) translateY(-50%) translateX(-50%);
+      }
+
+      .service-title {
+        font-size: 1rem;
+      }
+
+      .service-text {
+        font-size: 0.85rem;
+      }
+
+      .service-points li {
+        font-size: 0.8rem;
+      }
+
+      .services-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
+
+      .services-arrow-left {
+        left: 5px;
+      }
+
+      .services-arrow-right {
+        right: 5px;
+      }
+
+      .stat-item {
+        flex: 0 0 160px;
+        padding: 1rem 0.6rem;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+      }
+
+      .contact-section {
+        padding: 2.5rem 1rem !important;
+      }
+
+      .contact-inner {
+        padding: 1.5rem 1rem !important;
+        gap: 1.75rem !important;
+      }
+
+      .contact-card {
+        padding-bottom: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .contact-heading {
+        font-size: 1.1rem !important;
+        letter-spacing: 1px;
+      }
+
+      .contact-tagline {
+        font-size: 0.85rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .contact-detail-group {
+        gap: 1rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+
+      .contact-label {
+        font-size: 0.65rem !important;
+      }
+
+      .contact-value {
+        font-size: 0.85rem !important;
+      }
+
+      .contact-note {
+        font-size: 0.75rem !important;
+      }
+
+      .contact-form-field {
+        margin-bottom: 1rem !important;
+      }
+
+      .contact-input,
+      .contact-textarea {
+        padding: 0.8rem 0.9rem !important;
+        font-size: 0.9rem !important;
+      }
+
+      .contact-textarea {
+        min-height: 120px !important;
+      }
+
+      .service-pill {
+        padding: 0.5rem 0.85rem !important;
+        font-size: 0.75rem !important;
+      }
+
+      .contact-submit {
+        padding: 0.8rem 1.25rem !important;
+        font-size: 0.8rem !important;
+      }
+
+      .card-image {
+        height: 200px;
       }
     }
 
@@ -935,6 +1563,25 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1rem;
+    }
+
+    /* Mobile-first: Stack form fields on small screens */
+    @media (max-width: 768px) {
+      .contact-inner {
+        display: flex !important;
+        flex-direction: column !important;
+      }
+
+      .contact-form-row {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+      }
+
+      .contact-form-row > * {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
     }
 
     .contact-form-field {
@@ -1092,7 +1739,12 @@
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <div class="logo">GARAGE</div>
-      <ul class="nav-links">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
@@ -1419,7 +2071,8 @@
           <div class="contact-detail">
             <span class="contact-label">Workshop Address</span>
             <span class="contact-value">
-              GARAGE Studio, Sector 21, Near City Auto Hub,<br>
+              GARAGE Studio, Sector 21,<br>
+              Near City Auto Hub,<br>
               Ahmedabad, Gujarat 380015
             </span>
           </div>
@@ -1488,24 +2141,89 @@
       const cards = document.querySelectorAll('.services-ring .service-card');
       const prevBtn = document.querySelector('.services-arrow-left');
       const nextBtn = document.querySelector('.services-arrow-right');
+      const ringWrapper = document.querySelector('.services-ring-wrapper');
 
       if (!ring || cards.length === 0 || !prevBtn || !nextBtn) return;
 
       const step = 360 / cards.length;
       let currentAngle = 0;
+      let isAnimating = false;
 
       function updateRing() {
         ring.style.setProperty('--offset-rot', currentAngle + 'deg');
+
+        // Update card visibility for mobile
+        if (window.innerWidth <= 768) {
+          cards.forEach((card, index) => {
+            const cardAngle = (index * step + currentAngle) % 360;
+            const normalizedAngle = cardAngle < 0 ? cardAngle + 360 : cardAngle;
+            // Show only the front card (within 30 degrees of 0)
+            if (normalizedAngle <= 30 || normalizedAngle >= 330) {
+              card.style.opacity = '1';
+              card.style.pointerEvents = 'auto';
+            } else {
+              card.style.opacity = '0.15';
+              card.style.pointerEvents = 'none';
+            }
+          });
+        } else {
+          // Reset for desktop
+          cards.forEach(card => {
+            card.style.opacity = '';
+            card.style.pointerEvents = '';
+          });
+        }
       }
 
-      prevBtn.addEventListener('click', () => {
-        currentAngle += step; // rotate to show previous card without reversing direction
-        updateRing();
-      });
+      function rotate(direction) {
+        if (isAnimating) return;
+        isAnimating = true;
 
-      nextBtn.addEventListener('click', () => {
-        currentAngle -= step; // rotate forward to next card
+        if (direction === 'next') {
+          currentAngle -= step;
+        } else {
+          currentAngle += step;
+        }
+
         updateRing();
+
+        setTimeout(() => {
+          isAnimating = false;
+        }, 320);
+      }
+
+      prevBtn.addEventListener('click', () => rotate('prev'));
+      nextBtn.addEventListener('click', () => rotate('next'));
+
+      // Touch swipe support for mobile
+      if (ringWrapper) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeThreshold = 50;
+
+        ringWrapper.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        ringWrapper.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          const swipeDistance = touchStartX - touchEndX;
+
+          if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance > 0) {
+              rotate('next'); // Swipe left = next
+            } else {
+              rotate('prev'); // Swipe right = previous
+            }
+          }
+        }, { passive: true });
+      }
+
+      // Update on window resize
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateRing, 100);
       });
 
       updateRing();
@@ -1682,6 +2400,37 @@
         scrollTimeout = null;
       });
     });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNavLinks = document.getElementById('navLinks');
+    const mobileNavLinksItems = document.querySelectorAll('.nav-links a');
+
+    if (menuToggle && mobileNavLinks) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        mobileNavLinks.classList.toggle('active');
+        document.body.style.overflow = mobileNavLinks.classList.contains('active') ? 'hidden' : '';
+      });
+
+      // Close menu when clicking on a link
+      mobileNavLinksItems.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          mobileNavLinks.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileNavLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          menuToggle.classList.remove('active');
+          mobileNavLinks.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
 
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
