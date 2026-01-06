@@ -116,6 +116,11 @@
       width: 100%;
       height: 100%;
       z-index: 1;
+      background-image: url('Assets/Images/garage-bg2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* opacity: 0.8; */
     }
 
     .hero-content {
@@ -193,6 +198,7 @@
       text-decoration: none;
       transition: all 0.3s ease;
       cursor: pointer;
+      width: fit-content;
     }
 
     .hero-cta:hover {
@@ -243,7 +249,11 @@
       padding: 6rem 3rem;
       max-width: 1400px;
       margin: 0 auto;
-      background: #000000;
+      background:
+        radial-gradient(circle at top, rgba(255, 215, 0, 0.10), transparent 55%),
+        #000000;
+      position: relative;
+      overflow: hidden;
     }
 
     .section-title {
@@ -252,7 +262,7 @@
       font-weight: 300;
       color: #ffffff;
       text-align: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem; /* space between title and subtitle */
       letter-spacing: 2px;
     }
 
@@ -262,8 +272,485 @@
       font-size: 1.1rem;
       color: #FFD700;
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem; /* space between subtitle and section content */
       letter-spacing: 1px;
+    }
+
+    /* About Section Styles - Horizontal Alternating Layout */
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .about-row {
+      width: 100%;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 0.8s ease-out forwards;
+    }
+
+    .about-row:nth-child(1) { animation-delay: 0.2s; }
+    .about-row:nth-child(2) { animation-delay: 0.4s; }
+    .about-row:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes slideInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .left-row .about-content {
+      flex-direction: row;
+    }
+
+    .right-row .about-content {
+      flex-direction: row;
+    }
+
+    .about-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .about-card:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-5px);
+    }
+
+    .card-image {
+      flex: 0 0 400px;
+      height: 280px;
+      border-radius: 5px;
+      overflow: hidden;
+      background: rgba(255, 215, 0, 0.05);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-text-content {
+      flex: 1;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .card-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #FFD700;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .card-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+
+    /* Statistics Section */
+    .stats-container {
+      overflow: hidden;
+      margin-bottom: 4rem;
+      max-width: 100%;
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .stats-slider {
+      display: flex;
+      gap: 2rem;
+      animation: slideHorizontal 18s infinite linear;
+      width: fit-content;
+      will-change: transform;
+    }
+
+    .stats-slider:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes slideHorizontal {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      flex: 0 0 250px;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 215, 0, 0.4);
+    }
+
+    .stat-number {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: #FFD700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .stat-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      position: relative;
+      background: radial-gradient(circle at top, rgba(255, 215, 0, 0.12), transparent 55%);
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1100px;
+      margin: 2rem auto 0;
+    }
+
+    .review-card {
+      position: relative;
+      padding: 1.8rem 1.8rem 2.1rem;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .review-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 215, 0, 0.18), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .review-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 215, 0, 0.55);
+      box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.95),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    }
+
+    .review-card:hover::before {
+      opacity: 1;
+    }
+
+    .review-main {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .review-avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 215, 0, 0.75);
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.8);
+      flex-shrink: 0;
+    }
+
+    .review-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .review-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      font-weight: 300;
+      color: #ffffff;
+    }
+
+    .review-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .review-stars {
+      margin-left: auto;
+      font-size: 1rem;
+      color: #FFD700;
+      letter-spacing: 0.08em;
+    }
+
+    .review-text {
+      margin-top: 1.1rem;
+      padding: 0.9rem 0 0;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      border-top: 1px solid rgba(255, 215, 0, 0.35);
+      position: relative;
+      background: transparent;
+      opacity: 1;
+      transform: none;
+    }
+
+    .review-quote-mark {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      color: rgba(255, 215, 0, 0.8);
+      margin-right: 0.25rem;
+    }
+
+    /* Services Section - 3D Rotating Circle */
+    .services-section {
+      position: relative;
+      background:
+        radial-gradient(circle at top, rgba(255, 215, 0, 0.10), transparent 55%),
+        #000000;
+      min-height: 100vh;
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .services-ring-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      height: 460px;
+      margin: 25px auto;
+      perspective: 1600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .services-ring {
+      position: relative;
+      width: 470px;
+      height: 420px;
+      transform-style: preserve-3d;
+      /* left shift to visually center the front card under the heading */
+      transform: translateX(-60px);
+    }
+
+    .service-card {
+      position: absolute;
+      top: 50%;
+      left: 35%;
+      width: 260px;
+      height: 410px;
+      padding: 2.1rem 1.9rem 2.3rem;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.9));
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transform-style: preserve-3d;
+      transform-origin: center;
+      backface-visibility: visible;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: transform 0.32s cubic-bezier(0.25, 0.8, 0.3, 1), box-shadow 0.32s ease-out, border-color 0.32s ease-out;
+      will-change: transform;
+    }
+
+    .service-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #FFD700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .service-text {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.7;
+    }
+
+    .service-tag {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #FFD700;
+      opacity: 0.9;
+    }
+
+    .service-points {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.3rem;
+    }
+
+    .service-points li {
+      position: relative;
+      padding-left: 1.1rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.6;
+    }
+
+    .service-points li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #FFD700;
+      box-shadow: 0 0 6px rgba(255, 215, 0, 0.7);
+      transform: translateY(-50%);
+    }
+
+
+    .services-ring .service-card:nth-child(1) {
+      --base-rot: 0deg;
+    }
+
+    .services-ring .service-card:nth-child(2) {
+      --base-rot: 60deg;
+    }
+
+    .services-ring .service-card:nth-child(3) {
+      --base-rot: 120deg;
+    }
+
+    .services-ring .service-card:nth-child(4) {
+      --base-rot: 180deg;
+    }
+
+    .services-ring .service-card:nth-child(5) {
+      --base-rot: 240deg;
+    }
+
+    .services-ring .service-card:nth-child(6) {
+      --base-rot: 300deg;
+    }
+
+    /* Position cards on ring: base angle + shared offset angle */
+    .services-ring .service-card {
+      transform: rotateY(calc(var(--base-rot, 0deg) + var(--offset-rot, 0deg))) translateZ(380px) translateY(-50%);
+    }
+
+    /* Arrow controls */
+    .services-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid #FFD700;
+      background: #FFD700;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      transition: background 0.2s ease, color 0.2s ease;
+      box-shadow: none;
+    }
+
+    .services-arrow-left {
+      left: 1.5%;
+    }
+
+    .services-arrow-right {
+      right: 1.5%;
+    }
+
+    .services-arrow:hover {
+      background: #000000;
+      color: #FFD700;
     }
 
     /* Responsive */
@@ -308,6 +795,260 @@
       .hero-description {
         max-width: 100%;
       }
+
+      /* About Section Mobile Styles */
+      .about-container {
+        gap: 3rem;
+      }
+
+      .about-content {
+        flex-direction: column !important;
+        gap: 2rem;
+        padding: 0 1rem;
+      }
+
+      .card-image {
+        flex: none;
+        width: 100%;
+        height: 200px;
+        margin-bottom: 0;
+      }
+
+      .card-text-content {
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .card-title {
+        font-size: 1.2rem;
+      }
+
+      .stats-container {
+        padding: 1rem 0;
+        margin-bottom: 3rem;
+      }
+
+      .stats-slider {
+        gap: 1rem;
+        animation-duration: 20s;
+      }
+
+      .stat-item {
+        padding: 1.5rem 1rem;
+        flex: 0 0 200px;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      /* Contact section mobile */
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+      }
+
+      .contact-card {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .contact-form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background:
+        radial-gradient(circle at top, rgba(255, 215, 0, 0.12), transparent 55%),
+        #000000;
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 2.5rem;
+      padding: 3rem 2.5rem;
+      border-radius: 18px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .contact-card {
+      padding-right: 1.75rem;
+      border-right: 1px solid rgba(255, 215, 0, 0.25);
+    }
+
+    .contact-heading {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-tagline {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 1.75rem;
+      max-width: 360px;
+    }
+
+    .contact-detail-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .contact-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #FFD700;
+    }
+
+    .contact-value {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .contact-note {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .contact-form-wrapper {
+      padding-left: 1.75rem;
+    }
+
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-form-field {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .contact-form-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .contact-input,
+    .contact-textarea,
+    .contact-select {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      background: rgba(0, 0, 0, 0.85);
+      color: #ffffff;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-input::placeholder,
+    .contact-textarea::placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .contact-input:focus,
+    .contact-textarea:focus,
+    .contact-select:focus {
+      border-color: rgba(255, 215, 0, 0.8);
+      box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.6);
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    .contact-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .contact-submit {
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: radial-gradient(circle at top, rgba(255, 215, 0, 0.08), transparent 50%),
+        #000000;
+      padding: 1.4rem 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer-inner {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .footer-brand {
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #FFD700;
+      font-size: 0.95rem;
+    }
+
+    .footer-copy span {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    @media (max-width: 768px) {
+      .site-footer {
+        padding: 1.2rem 1.5rem;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 0.85rem;
+      }
     }
   </style>
 
@@ -328,9 +1069,9 @@
       <div class="logo">GARAGE</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#models">Models</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -354,7 +1095,7 @@
           Discover iconic vehicles with interactive 3D showcases. Experience automotive excellence through cutting-edge
           technology and timeless design.
         </p>
-        <a href="#models" class="hero-cta">Explore Collection</a>
+        <a href="#models" class="hero-cta">Explore Services</a>
       </div>
 
       <!-- Right Content Space (Canvas is now background) -->
@@ -362,20 +1103,414 @@
     </div>
   </section>
 
-  <!-- Additional Content Sections -->
-  <section class="section" id="models">
-    <h2 class="section-title">Our Collection</h2>
-    <p class="section-subtitle">Explore Premium Automotive Excellence</p>
+  <!-- Services Section -->
+  <section class="section services-section" id="services">
+    <h2 class="section-title">Garage Services</h2>
+    <p class="section-subtitle">Precision care for every car</p>
+
+    <div class="services-ring-wrapper">
+      <button class="services-arrow services-arrow-left" type="button" aria-label="Previous service">&#10094;</button>
+
+      <div class="services-ring">
+        <div class="service-card">
+          <span class="service-tag">Diagnostics</span>
+          <h3 class="service-title">Engine Health Scan</h3>
+          <p class="service-text">Keep your engine and ECU healthy with deep, live-data analysis.</p>
+          <ul class="service-points">
+            <li>Full OBD-II scan for active and stored fault codes.</li>
+            <li>Live sensor monitoring for temperature, fuel trim, and boost.</li>
+            <li>Preventive fault detection before breakdowns happen.</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="service-tag">Body & Paint</span>
+          <h3 class="service-title">Custom Paint & Repair</h3>
+          <p class="service-text">Give your car a fresh, flawless finish from every angle.</p>
+          <ul class="service-points">
+            <li>Premium booth paint jobs in solid, metallic, and matte finishes.</li>
+            <li>Dent and scratch correction with OEM-level color matching.</li>
+            <li>Full body restorations for projects and show cars.</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="service-tag">Performance</span>
+          <h3 class="service-title">Tuning & Upgrades</h3>
+          <p class="service-text">Unlock sharper throttle, more power, and tighter control.</p>
+          <ul class="service-points">
+            <li>Stage 1–2 ECU remaps for safe, reliable gains.</li>
+            <li>Intake and exhaust upgrades for better flow and sound.</li>
+            <li>Suspension and brake tuning for street and track setups.</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="service-tag">Detailing</span>
+          <h3 class="service-title">Premium Detailing</h3>
+          <p class="service-text">Make your car feel brand new inside and out.</p>
+          <ul class="service-points">
+            <li>Deep interior vacuum, shampoo, and leather conditioning.</li>
+            <li>Multi-stage exterior polish to remove swirls and haze.</li>
+            <li>Paint sealant or ceramic coating for long-term gloss and protection.</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="service-tag">Support</span>
+          <h3 class="service-title">24/7 Roadside Assist</h3>
+          <p class="service-text">Stay protected wherever you drive, day or night.</p>
+          <ul class="service-points">
+            <li>On-call jump starts and emergency battery checks.</li>
+            <li>Local towing to our workshop or a safe location.</li>
+            <li>Quick roadside fixes for flats, minor leaks, and no-start issues.</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <span class="service-tag">Care Plan</span>
+          <h3 class="service-title">Scheduled Maintenance</h3>
+          <p class="service-text">Keep your car on schedule and trouble-free all year.</p>
+          <ul class="service-points">
+            <li>Factory-interval servicing with OEM or premium parts.</li>
+            <li>Oil, filter, and fluid changes matched to your driving style.</li>
+            <li>Multi-point safety inspection on every visit.</li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="services-arrow services-arrow-right" type="button" aria-label="Next service">&#10095;</button>
+    </div>
   </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <h2 class="section-title">About Us</h2>
+    <p class="section-subtitle">Professional Automotive Excellence</p>
+
+    <!-- Main About Content - Horizontal Alternating Layout -->
+    <div class="about-container">
+      <!-- Story & Mission - Left Side -->
+      <div class="about-row left-row">
+        <div class="about-content">
+          <div class="card-image">
+            <img src="Assets/Images/garage-story.jpg" alt="Our Story" />
+          </div>
+          <div class="card-text-content">
+            <h3 class="card-title">Our Story</h3>
+            <p class="card-text">
+              Founded with a passion for automotive excellence, GARAGE has been serving the community for over a decade.
+              We combine traditional craftsmanship with cutting-edge technology to deliver unparalleled automotive services.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expertise - Content Left, Image Right -->
+      <div class="about-row right-row">
+        <div class="about-content">
+          <div class="card-text-content">
+            <h3 class="card-title">Our Expertise</h3>
+            <p class="card-text">
+              Professional car repairing, custom painting, bodywork restoration, engine diagnostics, and complete vehicle
+              maintenance. We handle everything from minor repairs to full vehicle transformations.
+            </p>
+          </div>
+          <div class="card-image">
+            <img src="Assets/Images/garage-expert.jpg" alt="Our Expertise" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Team - Left Side -->
+      <div class="about-row left-row">
+        <div class="about-content">
+          <div class="card-image">
+            <img src="Assets/Images/garage-cert.jpg" alt="Certified Professionals" />
+          </div>
+          <div class="card-text-content">
+            <h3 class="card-title">Certified Professionals</h3>
+            <p class="card-text">
+              Our team consists of ASE-certified technicians with specialized training in automotive repair, painting,
+              and restoration. Each member brings years of hands-on experience to every project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics Row -->
+    <div class="stats-container">
+      <div class="stats-slider">
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5000+</div>
+          <div class="stat-label">Vehicles Repaired</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Emergency Service</div>
+        </div>
+        <!-- Duplicate items for seamless loop -->
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5000+</div>
+          <div class="stat-label">Vehicles Repaired</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Emergency Service</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="section reviews-section" id="reviews">
+    <h2 class="section-title">Driver Reviews</h2>
+    <p class="section-subtitle">Real stories from the owners we look after</p>
+
+    <div class="reviews-grid">
+      <!-- Review 1 -->
+      <article class="review-card">
+        <div class="review-main">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Rivera" class="review-avatar">
+          <div class="review-meta">
+            <h3 class="review-name">Alex Rivera</h3>
+            <span class="review-tag">Respray • BMW M3</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          <span class="review-quote-mark">“</span>
+          Paint match is flawless and the car looks like it just rolled out of the showroom.
+          They kept me updated at every step and treated the car like their own.
+        </p>
+      </article>
+
+      <!-- Review 2 -->
+      <article class="review-card">
+        <div class="review-main">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Meera Shah" class="review-avatar">
+          <div class="review-meta">
+            <h3 class="review-name">Meera Shah</h3>
+            <span class="review-tag">Detailing • Audi A6</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          <span class="review-quote-mark">“</span>
+          Interior feels brand new and the ceramic coating is insane in the sunlight.
+          Super professional team and zero shortcuts.
+        </p>
+      </article>
+
+      <!-- Review 3 -->
+      <article class="review-card">
+        <div class="review-main">
+          <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Jordan Lee" class="review-avatar">
+          <div class="review-meta">
+            <h3 class="review-name">Jordan Lee</h3>
+            <span class="review-tag">ECU tune • Golf GTI</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          <span class="review-quote-mark">“</span>
+          The tune completely transformed the car but still feels factory smooth.
+          They explained every change and backed it with data.
+        </p>
+      </article>
+
+      <!-- Review 4 -->
+      <article class="review-card">
+        <div class="review-main">
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Rohan Mehta" class="review-avatar">
+          <div class="review-meta">
+            <h3 class="review-name">Rohan Mehta</h3>
+            <span class="review-tag">Full service • Skoda Octavia</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          <span class="review-quote-mark">“</span>
+          Super honest guys – they showed me exactly what needed attention and what could wait.
+          The car feels tighter, smoother, and they delivered on time.
+        </p>
+      </article>
+
+      <!-- Review 5 -->
+      <article class="review-card">
+        <div class="review-main">
+          <img src="https://randomuser.me/api/portraits/women/18.jpg" alt="Sara D'Souza" class="review-avatar">
+          <div class="review-meta">
+            <h3 class="review-name">Sara D'Souza</h3>
+            <span class="review-tag">Accident repair • Hyundai Creta</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          <span class="review-quote-mark">“</span>
+          You can't tell the SUV was ever in an accident – panel gaps and paint are spot on.
+          Insurance paperwork was handled smoothly and stress-free.
+        </p>
+      </article>
+
+      <!-- Review 6 -->
+      <article class="review-card">
+        <div class="review-main">
+          <img src="https://randomuser.me/api/portraits/men/59.jpg" alt="Imran Qureshi" class="review-avatar">
+          <div class="review-meta">
+            <h3 class="review-name">Imran Qureshi</h3>
+            <span class="review-tag">Detailing & coating • Honda City</span>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <p class="review-text">
+          <span class="review-quote-mark">“</span>
+          They brought back the gloss my daily had lost over years of city driving.
+          Water just sheets off the paint now and cleaning it is so much easier.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact-section" id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Book your next visit or ask about a custom build</p>
+
+    <div class="contact-inner">
+      <div class="contact-card">
+        <h3 class="contact-heading">Garage Contact</h3>
+        <p class="contact-tagline">
+          Reach out for service slots, emergency support, or to plan your next upgrade.
+        </p>
+
+        <div class="contact-detail-group">
+          <div class="contact-detail">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+91 98765 43210</span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">hello@garageworks.in</span>
+          </div>
+          <div class="contact-detail">
+            <span class="contact-label">Workshop Address</span>
+            <span class="contact-value">
+              GARAGE Studio, Sector 21, Near City Auto Hub,<br>
+              Ahmedabad, Gujarat 380015
+            </span>
+          </div>
+        </div>
+
+        <p class="contact-note">
+          Open Monday to Saturday, 9:00 AM – 8:00 PM. Emergency assistance available 24/7 on call.
+        </p>
+      </div>
+
+      <div class="contact-form-wrapper">
+        <form class="contact-form" action="#" method="post">
+          <div class="contact-form-row">
+            <div class="contact-form-field">
+              <label class="contact-form-label" for="contact-name">Full Name</label>
+              <input class="contact-input" type="text" id="contact-name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="contact-form-field">
+              <label class="contact-form-label" for="contact-phone">Phone Number</label>
+              <input class="contact-input" type="tel" id="contact-phone" name="phone" placeholder="+91 9XXXXXXXXX" required>
+            </div>
+          </div>
+
+          <div class="contact-form-row">
+            <div class="contact-form-field">
+              <label class="contact-form-label" for="contact-email">Email</label>
+              <input class="contact-input" type="email" id="contact-email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="contact-form-field">
+              <label class="contact-form-label" for="contact-service">Service Type</label>
+              <select class="contact-select" id="contact-service" name="service">
+                <option value="">Select a service</option>
+                <option value="diagnostics">Engine diagnostics</option>
+                <option value="paint">Body &amp; paint</option>
+                <option value="performance">Tuning &amp; performance</option>
+                <option value="detailing">Detailing &amp; coating</option>
+                <option value="maintenance">Scheduled maintenance</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="contact-form-field">
+            <label class="contact-form-label" for="contact-message">Tell us about your car</label>
+            <textarea class="contact-textarea" id="contact-message" name="message" placeholder="Share your car model, current issues, or the upgrades you have in mind..." required></textarea>
+          </div>
+
+          <button class="hero-cta contact-submit" type="submit">
+            Send Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const ring = document.querySelector('.services-ring');
+      const cards = document.querySelectorAll('.services-ring .service-card');
+      const prevBtn = document.querySelector('.services-arrow-left');
+      const nextBtn = document.querySelector('.services-arrow-right');
+
+      if (!ring || cards.length === 0 || !prevBtn || !nextBtn) return;
+
+      const step = 360 / cards.length;
+      let currentAngle = 0;
+
+      function updateRing() {
+        ring.style.setProperty('--offset-rot', currentAngle + 'deg');
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentAngle += step; // rotate to show previous card without reversing direction
+        updateRing();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentAngle -= step; // rotate forward to next card
+        updateRing();
+      });
+
+      // Initial alignment
+      updateRing();
+    })();
+
+    // Reviews section is now static cards, no slider behavior required
+  </script>
 
   <script type="module">
     import * as THREE from 'three';
     import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-    // Scene with garage-style background
+    // Scene with transparent background to show garage image
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x1a1a1a); // Dark concrete garage background
+    scene.background = null; // Transparent background to show CSS garage image
 
     // Camera - positioned for full-screen background canvas
     const camera = new THREE.PerspectiveCamera(
@@ -514,7 +1649,7 @@
     controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2; // Lock to horizontal rotation only
     controls.enablePan = false;
     controls.autoRotate = true; // Keep auto-rotation enabled
-    controls.autoRotateSpeed = 2.0;
+    controls.autoRotateSpeed = -5.0;
     controls.target.set(0, 0.5, 0); // Center on the car model for full-screen view
     controls.update(); // Initialize controls with side view position
 
@@ -620,7 +1755,14 @@
     }
     animate();
   </script>
-
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Garage</div>
+      <div class="footer-copy">
+        © <span>FabNinjas</span> — All rights reserved.
+      </div>
+    </div>
+  </footer>
 </body>
 
 </html>
