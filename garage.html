@@ -108,7 +108,6 @@
       padding: 8rem 3rem 4rem;
     }
 
-    /* Canvas Background */
     .canvas-background {
       position: absolute;
       top: 0;
@@ -120,7 +119,6 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      /* opacity: 0.8; */
     }
 
     .hero-content {
@@ -135,7 +133,6 @@
       margin: 0 auto;
     }
 
-    /* Left Content Section */
     .hero-text {
       display: flex;
       flex-direction: column;
@@ -143,7 +140,6 @@
       text-align: left;
     }
 
-    /* Right Content Space - Maintains grid layout */
     .hero-right-space {
       width: 100%;
       height: 100%;
@@ -206,7 +202,6 @@
       color: #FFD700;
     }
 
-    /* 3D Model Container - Now Full Background */
     .model-container {
       position: absolute;
       top: 0;
@@ -262,7 +257,7 @@
       font-weight: 300;
       color: #ffffff;
       text-align: center;
-      margin-bottom: 0.75rem; /* space between title and subtitle */
+      margin-bottom: 0.75rem;
       letter-spacing: 2px;
     }
 
@@ -272,11 +267,10 @@
       font-size: 1.1rem;
       color: #FFD700;
       text-align: center;
-      margin-bottom: 3rem; /* space between subtitle and section content */
+      margin-bottom: 3rem;
       letter-spacing: 1px;
     }
 
-    /* About Section Styles - Horizontal Alternating Layout */
     .about-container {
       display: flex;
       flex-direction: column;
@@ -395,7 +389,6 @@
       gap: 2rem;
       animation: slideHorizontal 18s infinite linear;
       width: fit-content;
-      will-change: transform;
     }
 
     .stats-slider:hover {
@@ -601,7 +594,6 @@
       width: 470px;
       height: 420px;
       transform-style: preserve-3d;
-      /* left shift to visually center the front card under the heading */
       transform: translateX(-60px);
     }
 
@@ -628,7 +620,6 @@
       flex-direction: column;
       gap: 0.75rem;
       transition: transform 0.32s cubic-bezier(0.25, 0.8, 0.3, 1), box-shadow 0.32s ease-out, border-color 0.32s ease-out;
-      will-change: transform;
     }
 
     .service-title {
@@ -714,12 +705,10 @@
       --base-rot: 300deg;
     }
 
-    /* Position cards on ring: base angle + shared offset angle */
     .services-ring .service-card {
       transform: rotateY(calc(var(--base-rot, 0deg) + var(--offset-rot, 0deg))) translateZ(380px) translateY(-50%);
     }
 
-    /* Arrow controls */
     .services-arrow {
       position: absolute;
       top: 50%;
@@ -785,11 +774,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        opacity: 0.3; /* Reduce opacity on mobile for better text readability */
+        opacity: 0.3;
       }
 
       .hero-right-space {
-        display: none; /* Hide right space on mobile */
+        display: none;
       }
 
       .hero-description {
@@ -996,6 +985,43 @@
       resize: vertical;
     }
 
+    /* Service type pills */
+    .service-type-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .service-pill {
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      background: rgba(0, 0, 0, 0.85);
+      color: rgba(255, 255, 255, 0.8);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-pill:hover {
+      border-color: rgba(255, 215, 0, 0.8);
+      color: #ffffff;
+      box-shadow: 0 0 0 1px rgba(255, 215, 0, 0.4);
+    }
+
+    .service-pill.active {
+      background: linear-gradient(135deg, #FFD700, #b38b00);
+      color: #000000;
+      border-color: transparent;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.45);
+    }
+
+    .contact-select {
+      display: none;
+    }
+
     .contact-submit {
       margin-top: 0.5rem;
       display: inline-flex;
@@ -1062,8 +1088,7 @@
   </script>
 </head>
 
-<body>
-  <!-- Glassy Navbar -->
+  <body>
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <div class="logo">GARAGE</div>
@@ -1077,9 +1102,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero" id="home">
-    <!-- Canvas Background -->
     <div class="canvas-background">
       <div class="model-container">
         <div id="canvas-container"></div>
@@ -1087,7 +1110,6 @@
     </div>
 
     <div class="hero-content">
-      <!-- Left Content -->
       <div class="hero-text">
         <div class="hero-badge">Premium Automotive</div>
         <h1 class="hero-title">Welcome to <span class="accent">GARAGE</span></h1>
@@ -1095,15 +1117,13 @@
           Discover iconic vehicles with interactive 3D showcases. Experience automotive excellence through cutting-edge
           technology and timeless design.
         </p>
-        <a href="#models" class="hero-cta">Explore Services</a>
+        <a href="#services" class="hero-cta">Explore Services</a>
       </div>
 
-      <!-- Right Content Space (Canvas is now background) -->
       <div class="hero-right-space"></div>
     </div>
   </section>
 
-  <!-- Services Section -->
   <section class="section services-section" id="services">
     <h2 class="section-title">Garage Services</h2>
     <p class="section-subtitle">Precision care for every car</p>
@@ -1183,14 +1203,11 @@
     </div>
   </section>
 
-  <!-- About Section -->
   <section class="section" id="about">
     <h2 class="section-title">About Us</h2>
     <p class="section-subtitle">Professional Automotive Excellence</p>
 
-    <!-- Main About Content - Horizontal Alternating Layout -->
     <div class="about-container">
-      <!-- Story & Mission - Left Side -->
       <div class="about-row left-row">
         <div class="about-content">
           <div class="card-image">
@@ -1206,7 +1223,6 @@
         </div>
       </div>
 
-      <!-- Expertise - Content Left, Image Right -->
       <div class="about-row right-row">
         <div class="about-content">
           <div class="card-text-content">
@@ -1222,7 +1238,6 @@
         </div>
       </div>
 
-      <!-- Team - Left Side -->
       <div class="about-row left-row">
         <div class="about-content">
           <div class="card-image">
@@ -1239,7 +1254,6 @@
       </div>
     </div>
 
-    <!-- Statistics Row -->
     <div class="stats-container">
       <div class="stats-slider">
         <div class="stat-item">
@@ -1258,7 +1272,6 @@
           <div class="stat-number">24/7</div>
           <div class="stat-label">Emergency Service</div>
         </div>
-        <!-- Duplicate items for seamless loop -->
         <div class="stat-item">
           <div class="stat-number">10+</div>
           <div class="stat-label">Years Experience</div>
@@ -1280,13 +1293,11 @@
 
   </section>
 
-  <!-- Reviews Section -->
   <section class="section reviews-section" id="reviews">
     <h2 class="section-title">Driver Reviews</h2>
     <p class="section-subtitle">Real stories from the owners we look after</p>
 
     <div class="reviews-grid">
-      <!-- Review 1 -->
       <article class="review-card">
         <div class="review-main">
           <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Rivera" class="review-avatar">
@@ -1303,7 +1314,6 @@
         </p>
       </article>
 
-      <!-- Review 2 -->
       <article class="review-card">
         <div class="review-main">
           <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Meera Shah" class="review-avatar">
@@ -1320,7 +1330,6 @@
         </p>
       </article>
 
-      <!-- Review 3 -->
       <article class="review-card">
         <div class="review-main">
           <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Jordan Lee" class="review-avatar">
@@ -1337,7 +1346,6 @@
         </p>
       </article>
 
-      <!-- Review 4 -->
       <article class="review-card">
         <div class="review-main">
           <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Rohan Mehta" class="review-avatar">
@@ -1354,7 +1362,6 @@
         </p>
       </article>
 
-      <!-- Review 5 -->
       <article class="review-card">
         <div class="review-main">
           <img src="https://randomuser.me/api/portraits/women/18.jpg" alt="Sara D'Souza" class="review-avatar">
@@ -1371,7 +1378,6 @@
         </p>
       </article>
 
-      <!-- Review 6 -->
       <article class="review-card">
         <div class="review-main">
           <img src="https://randomuser.me/api/portraits/men/59.jpg" alt="Imran Qureshi" class="review-avatar">
@@ -1390,7 +1396,6 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
   <section class="section contact-section" id="contact">
     <h2 class="section-title">Contact Us</h2>
     <p class="section-subtitle">Book your next visit or ask about a custom build</p>
@@ -1438,23 +1443,30 @@
             </div>
           </div>
 
-          <div class="contact-form-row">
-            <div class="contact-form-field">
-              <label class="contact-form-label" for="contact-email">Email</label>
-              <input class="contact-input" type="email" id="contact-email" name="email" placeholder="you@example.com" required>
+          <div class="contact-form-field">
+            <label class="contact-form-label" for="contact-email">Email</label>
+            <input class="contact-input" type="email" id="contact-email" name="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="contact-form-field">
+            <label class="contact-form-label" for="contact-service">Service Type</label>
+            <div class="service-type-pills" id="service-pills">
+              <button type="button" class="service-pill" data-value="diagnostics">Engine diagnostics</button>
+              <button type="button" class="service-pill" data-value="paint">Body &amp; paint</button>
+              <button type="button" class="service-pill" data-value="performance">Tuning &amp; performance</button>
+              <button type="button" class="service-pill" data-value="detailing">Detailing &amp; coating</button>
+              <button type="button" class="service-pill" data-value="maintenance">Scheduled maintenance</button>
+              <button type="button" class="service-pill" data-value="other">Something else</button>
             </div>
-            <div class="contact-form-field">
-              <label class="contact-form-label" for="contact-service">Service Type</label>
-              <select class="contact-select" id="contact-service" name="service">
-                <option value="">Select a service</option>
-                <option value="diagnostics">Engine diagnostics</option>
-                <option value="paint">Body &amp; paint</option>
-                <option value="performance">Tuning &amp; performance</option>
-                <option value="detailing">Detailing &amp; coating</option>
-                <option value="maintenance">Scheduled maintenance</option>
-                <option value="other">Something else</option>
-              </select>
-            </div>
+            <select class="contact-select" id="contact-service" name="service">
+              <option value="">Select a service</option>
+              <option value="diagnostics">Engine diagnostics</option>
+              <option value="paint">Body &amp; paint</option>
+              <option value="performance">Tuning &amp; performance</option>
+              <option value="detailing">Detailing &amp; coating</option>
+              <option value="maintenance">Scheduled maintenance</option>
+              <option value="other">Something else</option>
+            </select>
           </div>
 
           <div class="contact-form-field">
@@ -1496,11 +1508,8 @@
         updateRing();
       });
 
-      // Initial alignment
       updateRing();
     })();
-
-    // Reviews section is now static cards, no slider behavior required
   </script>
 
   <script type="module">
@@ -1508,36 +1517,25 @@
     import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-    // Scene with transparent background to show garage image
     const scene = new THREE.Scene();
-    scene.background = null; // Transparent background to show CSS garage image
+    scene.background = null;
 
-    // Camera - positioned for full-screen background canvas
-    const camera = new THREE.PerspectiveCamera(
-      50,
-      1, // Will be updated in resize handler
-      0.1,
-      100
-    );
-    // Start from upper side view perspective for better full-screen effect
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
     camera.position.set(6, 2.5, 2);
 
-    // Renderer with proper pixel ratio for high DPI displays
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Prevent performance issues on very high DPI
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     const container = document.getElementById('canvas-container');
     container.appendChild(renderer.domElement);
-    // Size will be set in handleResize function
 
-    // Optimized lighting setup
     scene.add(new THREE.AmbientLight(0xffffff, 0.8));
 
     const keyLight = new THREE.DirectionalLight(0xffffff, 1);
     keyLight.position.set(5, 8, 5);
     keyLight.castShadow = true;
-    keyLight.shadow.mapSize.set(2048, 2048);
+    keyLight.shadow.mapSize.set(1024, 1024);
     const shadowCam = keyLight.shadow.camera;
     shadowCam.left = -10; shadowCam.right = 10;
     shadowCam.top = 10; shadowCam.bottom = -10;
@@ -1552,8 +1550,7 @@
     fillLight.position.set(0, 2, -8);
     scene.add(fillLight);
 
-    // Circular base floor for the car with shiny effect
-    const floorGeometry = new THREE.CircleGeometry(6, 64);
+    const floorGeometry = new THREE.CircleGeometry(6, 32);
     const floorMaterial = new THREE.MeshStandardMaterial({
       color: 0x3a3a3a,
       metalness: 0.7,
@@ -1567,8 +1564,7 @@
     floorBase.receiveShadow = true;
     scene.add(floorBase);
 
-    // Add floor texture pattern with subtle grid
-    const gridGeometry = new THREE.CircleGeometry(6, 64);
+    const gridGeometry = new THREE.CircleGeometry(6, 32);
     const gridMaterial = new THREE.MeshBasicMaterial({
       color: 0x1a1a1a,
       transparent: true,
@@ -1577,11 +1573,10 @@
     });
     const floorGrid = new THREE.Mesh(gridGeometry, gridMaterial);
     floorGrid.rotation.x = -Math.PI / 2;
-    floorGrid.position.y = -0.79; // Slightly above the base floor
+    floorGrid.position.y = -0.79;
     scene.add(floorGrid);
 
-    // Add matching glassy border around the cylinder floor
-    const borderGeometry = new THREE.RingGeometry(6, 6.2, 64);
+    const borderGeometry = new THREE.RingGeometry(6, 6.2, 32);
     const borderMaterial = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       transparent: true,
@@ -1593,11 +1588,9 @@
     });
     const floorBorder = new THREE.Mesh(borderGeometry, borderMaterial);
     floorBorder.rotation.x = -Math.PI / 2;
-    floorBorder.position.y = -0.795; // Position between grid and base floor
+    floorBorder.position.y = -0.795;
     scene.add(floorBorder);
 
-
-    // Shadow plane for better shadow visibility on the floor
     const shadowGeometry = new THREE.PlaneGeometry(12, 12);
     const shadowMaterial = new THREE.ShadowMaterial({
       color: 0x000000,
@@ -1606,11 +1599,10 @@
     });
     const shadowPlane = new THREE.Mesh(shadowGeometry, shadowMaterial);
     shadowPlane.rotation.x = -Math.PI / 2;
-    shadowPlane.position.y = -0.78; // Just below the floor grid
+    shadowPlane.position.y = -0.78;
     shadowPlane.receiveShadow = true;
     scene.add(shadowPlane);
 
-    // Load and setup car model
     const loader = new GLTFLoader();
     loader.load(
       'Assets/Images/3d-porche.glb',
@@ -1624,9 +1616,8 @@
         carModel.scale.setScalar(scale);
         carModel.position.sub(center.clone().multiplyScalar(scale));
 
-        // Position the car to sit properly on the floor
         const carBottom = box.min.y * scale;
-        carModel.position.y = -carBottom - 0.8; // Position so car sits on floor at y = -0.8
+        carModel.position.y = -carBottom - 0.8;
 
         carModel.traverse((child) => {
           if (child.isMesh) {
@@ -1640,41 +1631,60 @@
       (err) => console.error('GLB load error:', err)
     );
 
-    // OrbitControls for user interaction - rotate only when dragging
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
-    controls.minDistance = controls.maxDistance = 6; // Fixed distance - no zoom
+    controls.minDistance = controls.maxDistance = 6;
     controls.enableZoom = false;
-    controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2; // Lock to horizontal rotation only
+    controls.minPolarAngle = controls.maxPolarAngle = Math.PI / 2;
     controls.enablePan = false;
-    controls.autoRotate = true; // Keep auto-rotation enabled
+    controls.autoRotate = true;
     controls.autoRotateSpeed = -5.0;
-    controls.target.set(0, 0.5, 0); // Center on the car model for full-screen view
-    controls.update(); // Initialize controls with side view position
+    controls.target.set(0, 0.5, 0);
+    controls.update();
 
-    // Resize handler with proper pixel ratio - use container size
+    let isVisible = true;
+    const heroSection = document.querySelector('.hero');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (!isVisible) {
+          renderer.setPixelRatio(1);
+        } else {
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+      });
+    }, { threshold: 0.1 });
+    if (heroSection) observer.observe(heroSection);
+
     function handleResize() {
       const width = container.clientWidth;
       const height = container.clientHeight;
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(isVisible ? Math.min(window.devicePixelRatio, 2) : 1);
       renderer.setSize(width, height);
       controls.update();
     }
-    window.addEventListener('resize', handleResize);
-    // Initial size - wait for DOM to be ready
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(handleResize, 100);
+    });
     setTimeout(handleResize, 100);
 
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
+    let scrollTimeout;
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
+      if (scrollTimeout) return;
+      scrollTimeout = requestAnimationFrame(() => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        scrollTimeout = null;
+      });
     });
 
-    // Smooth scroll for nav links
-    document.querySelectorAll('.nav-links a').forEach(link => {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
@@ -1682,24 +1692,42 @@
       });
     });
 
-    // Temporarily pause auto-rotation during active dragging, resume after
+    const exploreBtn = document.querySelector('.hero-cta[href="#services"]');
+    if (exploreBtn) {
+      exploreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector('#services');
+        target?.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    const serviceSelect = document.getElementById('contact-service');
+    const servicePills = document.querySelectorAll('.service-pill');
+    if (serviceSelect && servicePills.length) {
+      servicePills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const value = pill.getAttribute('data-value') || '';
+          serviceSelect.value = value;
+          servicePills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+        });
+      });
+    }
+
     let isDragging = false;
     let dragStartTime = 0;
-    const DRAG_THRESHOLD = 50; // milliseconds - consider it a drag if mouse is held longer than this
-
-    // Track mouse/touch events to detect dragging vs clicking
+    const DRAG_THRESHOLD = 50;
     const canvas = renderer.domElement;
 
-    // Mouse events
     canvas.addEventListener('mousedown', () => {
       dragStartTime = Date.now();
     });
 
     canvas.addEventListener('mousemove', (e) => {
-      if (e.buttons === 1 && (Date.now() - dragStartTime) > DRAG_THRESHOLD) { // Left mouse button held and threshold passed
+      if (e.buttons === 1 && (Date.now() - dragStartTime) > DRAG_THRESHOLD) {
         if (!isDragging) {
           isDragging = true;
-          controls.autoRotate = false; // Temporarily disable auto-rotation during drag
+          controls.autoRotate = false;
         }
       }
     });
@@ -1708,16 +1736,14 @@
       if (isDragging) {
         isDragging = false;
         dragStartTime = 0;
-        // Resume auto-rotation after a short delay
         setTimeout(() => {
           if (!isDragging) {
             controls.autoRotate = true;
           }
-        }, 1000); // Resume after 1 second of no interaction
+        }, 1000);
       }
     });
 
-    // Touch events for mobile
     canvas.addEventListener('touchstart', () => {
       dragStartTime = Date.now();
     });
@@ -1726,7 +1752,7 @@
       if ((Date.now() - dragStartTime) > DRAG_THRESHOLD) {
         if (!isDragging) {
           isDragging = true;
-          controls.autoRotate = false; // Temporarily disable auto-rotation during drag
+          controls.autoRotate = false;
         }
       }
     });
@@ -1735,23 +1761,20 @@
       if (isDragging) {
         isDragging = false;
         dragStartTime = 0;
-        // Resume auto-rotation after a short delay
         setTimeout(() => {
           if (!isDragging) {
             controls.autoRotate = true;
           }
-        }, 1000); // Resume after 1 second of no interaction
+        }, 1000);
       }
     });
 
-    // Animate loop
     function animate() {
       requestAnimationFrame(animate);
-
-      // Update controls (for damping)
-      controls.update();
-
-      renderer.render(scene, camera);
+      if (isVisible) {
+        controls.update();
+        renderer.render(scene, camera);
+      }
     }
     animate();
   </script>
