@@ -1,219 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FabNinjas - Transforming Ideas into Ultimate Tech Products</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="192x192">
-    <link rel="apple-touch-icon" href="assets/favicon.png" sizes="180x180">
-    <meta name="theme-color" content="#282643">
+    <title>FabNinjas | Future Tech Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            /* Brand Colors Verified */
+            --primary-dark: #282643;
+            /* Deep Purple/Navy */
+            --primary-purple: #776482;
+            /* Muted Purple */
+            --light-purple: #baa9b8;
+            /* Light Purple */
+            --accent-orange: #e99d75;
+            /* Soft Salmon/Orange */
+            --light-cream: #f2e1ca;
+            /* Cream */
+            --white: #ffffff;
+
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Abstract Background Shapes */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: floatShape 10s infinite alternate ease-in-out;
+        }
+
+        .bg-shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary-purple);
+            top: -100px;
+            right: -100px;
+        }
+
+        .bg-shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-orange);
+            bottom: -50px;
+            left: -50px;
+            animation-duration: 15s;
+        }
+
+        .bg-shape-3 {
+            width: 250px;
+            height: 250px;
+            background: var(--light-purple);
+            top: 20%;
+            right: 20%;
+            opacity: 0.4;
+        }
+
+        @keyframes floatShape {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(30px, -30px) scale(1.1);
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-dark: #282643;
-            --primary-purple: #776482;
-            --accent-orange: #e99d75;
-            --light-cream: #f2e1ca;
-            --light-purple: #baa9b8;
-            --white: #ffffff;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Libre Franklin', sans-serif;
-            color: var(--primary-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(40, 38, 67, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 5%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            padding: 0.8rem 5%;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 70px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover img {
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
+            background-color: var(--primary-dark);
             color: var(--white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .gradient-text-orange {
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #ffcba4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 32px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-orange);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-orange);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--white);
+            font-weight: 600;
+            font-size: 1rem;
             transition: all 0.3s ease;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #3a3659 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(233, 157, 117, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(119, 100, 130, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 15s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(-50px, 50px) scale(1.1); }
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 2rem;
-            line-height: 1.1;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 .highlight {
-            color: var(--accent-orange);
-            position: relative;
             display: inline-block;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: var(--light-cream);
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            font-weight: 300;
-            line-height: 1.8;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
+            border: none;
             cursor: pointer;
-            border: 2px solid transparent;
-            font-family: 'Libre Franklin', sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
 
         .btn-primary {
@@ -222,1115 +145,748 @@
         }
 
         .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(233, 157, 117, 0.3);
+        }
+
+        .btn-outline {
             background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
             border-color: var(--accent-orange);
             color: var(--accent-orange);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(233, 157, 117, 0.3);
+            background: rgba(233, 157, 117, 0.1);
         }
 
-        .btn-secondary {
-            background: transparent;
-            border-color: var(--light-cream);
-            color: var(--light-cream);
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(40, 38, 67, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
 
-        .btn-secondary:hover {
-            background: var(--light-cream);
-            color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(242, 225, 202, 0.2);
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.5px;
         }
 
-        /* About Section */
-        .about {
-            padding: 8rem 5%;
-            background: linear-gradient(135deg, var(--primary-purple) 0%, #8a7593 100%);
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
             position: relative;
         }
 
-        .section-label {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--primary-purple);
-            margin-bottom: 1rem;
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-orange);
         }
 
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin-bottom: 3rem;
-            line-height: 1.2;
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+            background: radial-gradient(circle at top right, rgba(119, 100, 130, 0.2), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(233, 157, 117, 0.1), transparent 40%);
+        }
+
+        canvas#particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
             letter-spacing: -1px;
         }
 
-        .about-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 300;
         }
 
-        .about .section-label {
-            color: var(--accent-orange);
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .about .section-title {
-            color: var(--white);
-            margin-bottom: 5rem;
-        }
-
-        .who-we-are-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .who-card {
-            background: rgba(255, 255, 255, 0.1);
+        /* Glass Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 24px;
             backdrop-filter: blur(10px);
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
         }
 
-        .who-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(233, 157, 117, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .who-card:hover {
+        .glass-card:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--accent-orange);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            /* Slightly lighter on hover */
+            border-color: rgba(233, 157, 117, 0.3);
+            /* Orange hint */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
-        .who-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
+        /* Services */
+        .services {
+            min-height: 100vh;
+            padding: 0 5%;
+            position: relative;
+            scroll-snap-align: start;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
         }
 
-        .who-icon svg {
-            width: 100%;
-            height: 100%;
-            stroke: var(--white);
-            fill: none;
-            stroke-width: 2;
+        .section-header {
+            text-align: center;
+            margin-bottom: 5vh;
         }
 
-        .who-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 1.5rem;
+        .section-tag {
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: var(--accent-orange);
+            margin-bottom: 15px;
+            display: block;
+            font-weight: 600;
         }
 
-        .who-card p {
-            font-size: 1rem;
-            color: var(--light-cream);
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 8rem 5%;
-            background: var(--white);
-        }
-
-        .services-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .services-intro {
-            font-size: 1.2rem;
-            color: var(--primary-purple);
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            line-height: 1.8;
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-            text-align: left;
-        }
-
-        .service-card {
-            padding: 3rem;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-purple) 100%);
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(233, 157, 117, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-orange);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .service-description {
-            font-size: 1rem;
-            color: var(--light-cream);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-features {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service-features li {
-            font-size: 0.95rem;
-            color: var(--light-cream);
-            padding: 0.6rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            line-height: 1.6;
-        }
-
-        .service-features li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-orange);
-            font-weight: bold;
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            padding: 8rem 5%;
-            background: var(--primary-dark);
-        }
-
-        .portfolio-container {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .portfolio .section-label {
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(233, 157, 117, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
             color: var(--accent-orange);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .portfolio .section-title {
-            color: var(--white);
+        .glass-card:hover .service-icon {
+            background: var(--accent-orange);
+            color: var(--primary-dark);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            min-height: 100vh;
+            padding: 0 5%;
+            background: #23213a;
+            /* Slightly darker shade */
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .portfolio-item {
-            position: relative;
-            background: var(--white);
+        .project-card {
             border-radius: 20px;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            display: flex;
-            flex-direction: column;
+            position: relative;
+            background: #2a2845;
+            transition: all 0.4s ease;
         }
 
-        .portfolio-item:hover {
+        .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
 
-        .portfolio-image-wrapper {
-            width: 100%;
-            height: 400px;
-            background: var(--light-cream);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
+        .project-img-wrapper {
+            height: 300px;
+            background: #333;
             overflow: hidden;
+            position: relative;
         }
 
-        .portfolio-image {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            transition: transform 0.3s ease;
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .portfolio-item:hover .portfolio-image {
-            transform: scale(1.08);
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
 
-        .portfolio-info {
-            padding: 2rem;
-            background: var(--white);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .project-content {
+            padding: 30px;
         }
 
-        .portfolio-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-category {
-            font-size: 0.9rem;
+        .project-category {
             color: var(--accent-orange);
-            font-weight: 600;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-
-        /* Process Section */
-        .process {
-            padding: 8rem 5%;
-            background: var(--light-purple);
-        }
-
-        .process-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .process-timeline {
-            margin-top: 5rem;
-            position: relative;
-        }
-
-        .process-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--primary-dark);
-            transform: translateX(-50%);
-        }
-
-        .process-step {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 5rem;
-            position: relative;
-        }
-
-        .process-step:nth-child(even) .step-content {
-            order: 2;
-        }
-
-        .process-step:nth-child(even) .step-number-wrapper {
-            order: 1;
-        }
-
-        .step-content {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .step-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-        }
-
-        .step-description {
-            font-size: 1.1rem;
-            color: var(--primary-purple);
-            line-height: 1.8;
-        }
-
-        .step-number-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .step-number {
-            width: 100px;
-            height: 100px;
-            background: var(--accent-orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--white);
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 10px 30px rgba(233, 157, 117, 0.4);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 8rem 5%;
-            background: var(--light-cream);
-        }
-
-        .testimonials-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .testimonials-intro {
-            font-size: 1.2rem;
-            color: var(--primary-purple);
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            line-height: 1.8;
-        }
-
-        .testimonials-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .tab-button {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
             font-weight: 600;
-            background: transparent;
-            border: 2px solid var(--primary-dark);
-            border-radius: 50px;
-            color: var(--primary-dark);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Libre Franklin', sans-serif;
+            margin-bottom: 10px;
         }
 
-        .tab-button:hover {
-            background: var(--primary-dark);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
-
-        .tab-button.active {
-            background: var(--accent-orange);
-            border-color: var(--accent-orange);
-            color: var(--white);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial-card {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            text-align: left;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 30px;
-            font-size: 6rem;
-            color: var(--accent-orange);
-            opacity: 0.2;
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial-stars {
-            color: var(--accent-orange);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 3px;
-        }
-
-        .testimonial-text {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--primary-dark);
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-            padding-top: 1.5rem;
-            border-top: 2px solid var(--light-cream);
-        }
-
-        .author-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .author-role {
-            font-size: 0.95rem;
-            color: var(--primary-purple);
-            font-weight: 500;
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         /* Contact Section */
         .contact {
-            padding: 5rem 5% 4rem;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #3a3659 100%);
+            min-height: 100vh;
+            padding: 0 5%;
+            background: linear-gradient(0deg, #201e34 0%, var(--primary-dark) 100%);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .contact-container {
-            max-width: 800px;
+        .contact-wrapper {
+            max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact .section-label {
-            color: var(--accent-orange);
-        }
-
-        .contact .section-title {
-            color: var(--white);
-            margin-bottom: 2rem;
-        }
-
-        .contact-text {
-            font-size: 1.1rem;
-            color: var(--light-cream);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .contact-form {
             display: grid;
-            gap: 1.2rem;
-            margin-top: 2rem;
-            text-align: left;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+        }
+
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            color: var(--primary-dark);
         }
 
         .form-group {
-            display: grid;
-            gap: 0.4rem;
+            position: relative;
+            margin-bottom: 25px;
         }
 
-        .form-group label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--light-cream);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .form-control {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 2px solid #eee;
+            background: transparent;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            transition: all 0.3s;
         }
 
-        .form-group input,
-        .form-group textarea {
-            padding: 0.9rem 1rem;
-            font-size: 0.95rem;
-            border: 2px solid var(--primary-purple);
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--white);
-            font-family: 'Libre Franklin', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
+        .form-control:focus {
             outline: none;
             border-color: var(--accent-orange);
+        }
+
+        .form-label {
+            position: absolute;
+            top: 15px;
+            left: 0;
+            color: #999;
+            transition: all 0.3s;
+            pointer-events: none;
+        }
+
+        .form-control:focus~.form-label,
+        .form-control:not(:placeholder-shown)~.form-label {
+            top: -5px;
+            font-size: 0.8rem;
+            color: var(--accent-orange);
+        }
+
+        /* Process Section */
+        .process {
+            min-height: 100vh;
+            padding: 0 5%;
+            background: linear-gradient(180deg, var(--primary-dark) 0%, #2e2b4a 100%);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 50px auto 0;
+            position: relative;
+            gap: 20px;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
             background: rgba(255, 255, 255, 0.1);
+            z-index: 0;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
+        .process-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
         }
 
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--light-purple);
+        .step-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            background: var(--primary-dark);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent-orange);
+            transition: all 0.4s ease;
+            position: relative;
         }
 
-        .form-submit {
-            margin-top: 0.5rem;
+        .process-step:hover .step-icon-wrapper {
+            border-color: var(--accent-orange);
+            background: rgba(233, 157, 117, 0.1);
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(233, 157, 117, 0.2);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 30px;
+            height: 30px;
+            background: var(--accent-orange);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0 10px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .process-steps {
+                flex-direction: column;
+                gap: 50px;
+            }
+
+            .process-steps::before {
+                width: 2px;
+                height: calc(100% - 100px);
+                top: 50px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
 
         /* Footer */
         footer {
-            background: var(--primary-dark);
-            padding: 3rem 5%;
+            padding: 30px 5%;
+            background: #1e1c30;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            border-top: 1px solid var(--primary-purple);
+            scroll-snap-align: end;
         }
 
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
         }
 
-        .footer-text {
-            color: var(--light-cream);
-            font-size: 0.95rem;
-        }
-
-        .footer-text a {
-            color: var(--accent-orange);
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             text-decoration: none;
-            font-weight: 600;
+            transition: all 0.3s;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .who-we-are-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-timeline::before {
-                left: 30px;
-            }
-
-            .process-step {
-                grid-template-columns: 1fr;
-                padding-left: 80px;
-            }
-
-            .process-step:nth-child(even) .step-content,
-            .process-step:nth-child(even) .step-number-wrapper {
-                order: initial;
-            }
-
-            .step-number-wrapper {
-                position: absolute;
-                left: 0;
-                top: 0;
-            }
-
-            .step-number {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--primary-dark);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                transition: left 0.3s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .testimonials-tabs {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .tab-button {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Selection */
-        ::selection {
+        .social-link:hover {
             background: var(--accent-orange);
-            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <img src="assets/logo.png" alt="FabNinjas">
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+    <!-- Navbar -->
+    <nav>
+        <a href="#" class="logo"><img src="assets/logo.png" alt="FabNinjas" style="height: 45px;"></a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#portfolio">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Get Started</a>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="bg-shape bg-shape-1" style="background: var(--primary-purple); opacity: 0.4;"></div>
+        <div class="bg-shape bg-shape-2" style="background: var(--accent-orange); opacity: 0.3;"></div>
+        <canvas id="particles"></canvas>
         <div class="hero-content">
-            <h1>
-                Transforming <span class="highlight">Ideas</span><br>
-                Into Ultimate <span class="highlight">Tech Products</span>
-            </h1>
-            <p>
-                We craft scalable, robust, and high-performance tech solutions that evolve with your business.
-                Our expertise lies in tackling complex challenges that require innovation, dedication, and continuous refinement.
-            </p>
-            <div class="cta-buttons">
+            <h1>Transforming Ideas Into <br> <span class="gradient-text-orange">Ultimate Tech Products</span></h1>
+            <p>We craft scalable, robust, and high-performance tech solutions that evolve with your business. Innovation
+                meets precision.</p>
+            <div style="display: flex; gap: 20px;">
                 <a href="#portfolio" class="btn btn-primary">View Our Work</a>
-                <a href="#contact" class="btn btn-secondary">Start a Project</a>
+                <a href="#contact" class="btn btn-outline">Start a Project</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-content">
-            <div class="section-label">Who We Are</div>
-            <h2 class="section-title">WHO WE ARE</h2>
+    <section class="services" id="about">
+        <!-- Floating Shapes specifically for About -->
+        <div class="bg-shape"
+            style="width: 500px; height: 500px; background: var(--light-cream); top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.05; filter: blur(100px);">
+        </div>
 
-            <div class="who-we-are-grid">
-                <!-- Vision Card -->
-                <div class="who-card">
-                    <div class="who-icon">
-                        <svg viewBox="0 0 100 100">
-                            <!-- Eye/Target Icon -->
-                            <circle cx="50" cy="50" r="12" stroke-width="3"/>
-                            <circle cx="50" cy="50" r="25" stroke-width="2"/>
-                            <circle cx="50" cy="50" r="38" stroke-width="2"/>
-                            <path d="M 50 12 L 50 2 M 88 50 L 98 50 M 50 88 L 50 98 M 12 50 L 2 50"/>
-                            <path d="M 75 25 L 82 18 M 75 75 L 82 82 M 25 75 L 18 82 M 25 25 L 18 18"/>
-                        </svg>
-                    </div>
-                    <h3>OUR VISION</h3>
-                    <p>To create a community of developers with ninja-like competencies in their work. They will bring their A-game to their work and keep evolving with changing technology.</p>
-                </div>
-
-                <!-- Mission Card -->
-                <div class="who-card">
-                    <div class="who-icon">
-                        <svg viewBox="0 0 100 100">
-                            <!-- Rocket Body -->
-                            <path d="M 40 70 L 40 35 Q 40 15, 50 10 Q 60 15, 60 35 L 60 70" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-
-                            <!-- Window -->
-                            <circle cx="50" cy="35" r="8" stroke-width="2.5"/>
-
-                            <!-- Left Wing -->
-                            <path d="M 40 55 L 25 65 L 40 65 Z" stroke-width="2.5" stroke-linejoin="round"/>
-
-                            <!-- Right Wing -->
-                            <path d="M 60 55 L 75 65 L 60 65 Z" stroke-width="2.5" stroke-linejoin="round"/>
-
-                            <!-- Flames -->
-                            <path d="M 43 70 L 40 85" stroke-width="2.5" stroke-linecap="round"/>
-                            <path d="M 50 70 L 50 90" stroke-width="2.5" stroke-linecap="round"/>
-                            <path d="M 57 70 L 60 85" stroke-width="2.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>OUR MISSION</h3>
-                    <p>We are on a global mission to become a leading consultancy firm in the IT sector and to provide an efficient workforce of developers seeing the projects end-to-end.</p>
-                </div>
-
-                <!-- Culture Card -->
-                <div class="who-card">
-                    <div class="who-icon">
-                        <svg viewBox="0 0 100 100">
-                            <!-- Team/People Icon -->
-                            <circle cx="35" cy="30" r="10"/>
-                            <path d="M 35 42 L 35 55 M 25 48 L 35 45 L 45 48 M 35 55 L 28 75 M 35 55 L 42 75"/>
-                            <circle cx="65" cy="30" r="10"/>
-                            <path d="M 65 42 L 65 55 M 55 48 L 65 45 L 75 48 M 65 55 L 58 75 M 65 55 L 72 75"/>
-                            <circle cx="50" cy="45" r="10"/>
-                            <path d="M 50 57 L 50 70 M 40 63 L 50 60 L 60 63 M 50 70 L 43 90 M 50 70 L 57 90"/>
-                        </svg>
-                    </div>
-                    <h3>OUR CULTURE</h3>
-                    <p>A workspace which enables the team to unleash our true potential through joy in work and growth. Our culture is defined by collaboration, growth, wellbeing, no overwork & accountability.</p>
-                </div>
+        <div class="section-header">
+            <span class="section-tag">Who We Are</span>
+            <h2 class="section-title">Driven by Innovation</h2>
+        </div>
+        <div class="services-grid">
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-eye"></i></div>
+                <h3 class="service-title">Our Vision</h3>
+                <p class="service-desc">To create a community of developers with ninja-like competencies. We bring our
+                    A-game to every project, evolving with changing technology.</p>
+            </div>
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                <h3 class="service-title">Our Mission</h3>
+                <p class="service-desc">Global mission to become a leading consultancy firm, providing an efficient
+                    workforce that sees projects through from concept to completion.</p>
+            </div>
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-heart"></i></div>
+                <h3 class="service-title">Our Culture</h3>
+                <p class="service-desc">defined by collaboration, growth, and wellbeing. We believe in accountability
+                    without overwork, unleashing true potential through joy.</p>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="services-container">
-            <div class="section-label">Our Services</div>
-            <h2 class="section-title">What We Do Best</h2>
-            <p class="services-intro">Comprehensive technology solutions tailored to your business needs</p>
-
-            <div class="services-grid">
-                <!-- Web Development -->
-                <div class="service-card">
-                    <h3 class="service-title">Web Development</h3>
-                    <p class="service-description">
-                        We create stunning, responsive websites and web applications using cutting-edge technologies. From simple landing pages to complex e-commerce platforms.
-                    </p>
-                    <ul class="service-features">
-                        <li>Responsive Design</li>
-                        <li>React & Vue.js</li>
-                        <li>Laravel Backend</li>
-                        <li>E-commerce Solutions</li>
-                    </ul>
-                </div>
-
-                <!-- Mobile App Development -->
-                <div class="service-card">
-                    <h3 class="service-title">Mobile App Development</h3>
-                    <p class="service-description">
-                        Build powerful mobile applications for iOS and Android platforms. We create native and cross-platform apps that deliver exceptional user experiences.
-                    </p>
-                    <ul class="service-features">
-                        <li>iOS & Android</li>
-                        <li>React Native</li>
-                        <li>Flutter Development</li>
-                        <li>App Store Optimization</li>
-                    </ul>
-                </div>
-
-                <!-- Cloud Solutions -->
-                <div class="service-card">
-                    <h3 class="service-title">Cloud Solutions</h3>
-                    <p class="service-description">
-                        Leverage the power of cloud computing with our comprehensive solutions. We help you migrate, optimize, and scale your infrastructure.
-                    </p>
-                    <ul class="service-features">
-                        <li>AWS & Azure</li>
-                        <li>Cloud Architecture</li>
-                        <li>DevOps & CI/CD</li>
-                        <li>Cost Optimization</li>
-                    </ul>
-                </div>
-
-                <!-- API Development -->
-                <div class="service-card">
-                    <h3 class="service-title">API Development</h3>
-                    <p class="service-description">
-                        Building robust, scalable APIs that power your applications and enable seamless integration with third-party services and systems.
-                    </p>
-                    <ul class="service-features">
-                        <li>RESTful APIs</li>
-                        <li>GraphQL</li>
-                        <li>API Documentation</li>
-                        <li>Third-party Integration</li>
-                    </ul>
-                </div>
-
-                <!-- Database Development -->
-                <div class="service-card">
-                    <h3 class="service-title">Database Development</h3>
-                    <p class="service-description">
-                        Designing and optimizing database structures for maximum performance, security, and scalability. We handle complex data requirements.
-                    </p>
-                    <ul class="service-features">
-                        <li>MySQL & PostgreSQL</li>
-                        <li>MongoDB</li>
-                        <li>Database Optimization</li>
-                        <li>Data Migration</li>
-                    </ul>
-                </div>
-
-                <!-- Technology Consulting -->
-                <div class="service-card">
-                    <h3 class="service-title">Technology Consulting</h3>
-                    <p class="service-description">
-                        Strategic technology guidance to help your business make informed decisions and implement the right solutions for growth.
-                    </p>
-                    <ul class="service-features">
-                        <li>Tech Strategy</li>
-                        <li>Architecture Planning</li>
-                        <li>Digital Transformation</li>
-                        <li>Performance Analysis</li>
-                    </ul>
-                </div>
-            </div>
+    <section class="services" id="services"
+        style="background: radial-gradient(circle at center, #2e2b4a 0%, var(--primary-dark) 100%);">
+        <div class="bg-shape bg-shape-1"
+            style="background: var(--accent-orange); width: 200px; height: 200px; top: 10%; left: 10%; opacity: 0.2;">
         </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="portfolio-container">
-            <div class="section-label">Our Work</div>
-            <h2 class="section-title">Projects That Define Excellence</h2>
-
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image-wrapper">
-                        <img src="../../Assets/Images/gravity.png" alt="Gravity Project" class="portfolio-image">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3 class="portfolio-title">Gravity</h3>
-                        <p class="portfolio-category">Web Application</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image-wrapper">
-                        <img src="../../Assets/Images/apex.png" alt="Apex Project" class="portfolio-image">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3 class="portfolio-title">Apex</h3>
-                        <p class="portfolio-category">Full Stack</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-item">
-                    <div class="portfolio-image-wrapper">
-                        <img src="../../Assets/Images/dreamheaven.png" alt="Dreamheaven Project" class="portfolio-image">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3 class="portfolio-title">Dreamheaven</h3>
-                        <p class="portfolio-category">Innovation</p>
-                    </div>
-                </div>
+        <div class="bg-shape bg-shape-3"
+            style="background: var(--light-purple); bottom: 10%; right: 10%; top: auto; opacity: 0.15;"></div>
+        <div class="section-header">
+            <span class="section-tag">Our Expertise</span>
+            <h2 class="section-title">Comprehensive Solutions</h2>
+        </div>
+        <div class="services-grid">
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-code"></i></div>
+                <h3 class="service-title">Web Development</h3>
+                <p class="service-desc">Stunning, responsive websites and web applications using React, Vue.js, and
+                    Laravel. From landing pages to complex platforms.</p>
+            </div>
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3 class="service-title">Mobile Apps</h3>
+                <p class="service-desc">Powerful native and cross-platform apps for iOS and Android using Flutter and
+                    React Native. Exceptional user experiences.</p>
+            </div>
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                <h3 class="service-title">Cloud Solutions</h3>
+                <p class="service-desc">Leverage AWS & Azure for scalable infrastructure. We help you migrate, optimize,
+                    and scale your cloud operations.</p>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
     <section class="process" id="process">
-        <div class="process-container">
-            <div class="section-label">How We Work</div>
-            <h2 class="section-title">Our Development Process</h2>
+        <!-- Background elements -->
+        <div class="bg-shape bg-shape-2" style="top: 20%; left: -100px; opacity: 0.2; width: 400px; height: 400px;">
+        </div>
 
-            <div class="process-timeline">
-                <div class="process-step">
-                    <div class="step-content">
-                        <h3 class="step-title">Discovery & Brainstorming</h3>
-                        <p class="step-description">
-                            We dive deep into understanding your vision, challenges, and goals. This phase involves
-                            extensive brainstorming sessions to ensure we capture every nuance of your requirements.
-                        </p>
-                    </div>
-                    <div class="step-number-wrapper">
-                        <div class="step-number">01</div>
-                    </div>
-                </div>
+        <div class="section-header">
+            <span class="section-tag">How We Work</span>
+            <h2 class="section-title">Our Process</h2>
+        </div>
 
-                <div class="process-step">
-                    <div class="step-content">
-                        <h3 class="step-title">Architecture & Planning</h3>
-                        <p class="step-description">
-                            We design scalable architectures that can handle growth. Every technical decision is made
-                            with long-term scalability and performance in mind.
-                        </p>
-                    </div>
-                    <div class="step-number-wrapper">
-                        <div class="step-number">02</div>
-                    </div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-icon-wrapper">
+                    <span class="step-number">1</span>
+                    <i class="fas fa-lightbulb"></i>
                 </div>
+                <h3 class="step-title">Discovery</h3>
+                <p class="step-desc">We listen to your ideas, understand your goals, and map out the perfect strategy
+                    for success.</p>
+            </div>
 
-                <div class="process-step">
-                    <div class="step-content">
-                        <h3 class="step-title">Development & Iteration</h3>
-                        <p class="step-description">
-                            Through continuous development cycles, we build, test, and refine. We embrace the complexity
-                            and iterate until perfection is achieved.
-                        </p>
-                    </div>
-                    <div class="step-number-wrapper">
-                        <div class="step-number">03</div>
-                    </div>
+            <div class="process-step">
+                <div class="step-icon-wrapper">
+                    <span class="step-number">2</span>
+                    <i class="fas fa-pencil-ruler"></i>
                 </div>
+                <h3 class="step-title">Design</h3>
+                <p class="step-desc">Our designers craft intuitive UI/UX that blends aesthetics with functionality.</p>
+            </div>
 
-                <div class="process-step">
-                    <div class="step-content">
-                        <h3 class="step-title">Evolution & Growth</h3>
-                        <p class="step-description">
-                            Post-launch, we continue to evolve your product. As your business grows, your tech solution
-                            grows with it, maintaining optimal performance at every stage.
-                        </p>
-                    </div>
-                    <div class="step-number-wrapper">
-                        <div class="step-number">04</div>
-                    </div>
+            <div class="process-step">
+                <div class="step-icon-wrapper">
+                    <span class="step-number">3</span>
+                    <i class="fas fa-code"></i>
                 </div>
+                <h3 class="step-title">Development</h3>
+                <p class="step-desc">We build robust, scalable solutions using cutting-edge technologies and clean code.
+                </p>
+            </div>
+
+            <div class="process-step">
+                <div class="step-icon-wrapper">
+                    <span class="step-number">4</span>
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 class="step-title">Launch</h3>
+                <p class="step-desc">We deploy your product, ensure smooth performance, and provide ongoing support.</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="testimonials-container">
-            <div class="section-label">Testimonials</div>
-            <h2 class="section-title">What People Say About Us</h2>
-            <p class="testimonials-intro">Discover the experiences of our clients and the passion of our team</p>
-
-            <div class="testimonials-tabs">
-                <button class="tab-button active" data-tab="clients">Client Reviews</button>
-                <button class="tab-button" data-tab="team">Team Reviews</button>
-            </div>
-
-            <div class="testimonials-grid" id="clientReviews">
-                <!-- Client Review 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-                    <p class="testimonial-text">
-                        We've been working with FabNinjas Private Limited for several years, and they consistently deliver exceptional results. Their technical expertise and creativity have helped us achieve our online goals.
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="author-name">Business Owner</span>
-                        <span class="author-role">Long-term Client</span>
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="bg-shape"
+            style="background: var(--primary-purple); width: 600px; height: 600px; top: -200px; right: -200px; opacity: 0.1;">
+        </div>
+        <div class="bg-shape"
+            style="background: var(--light-cream); width: 300px; height: 300px; bottom: 0; left: 0; opacity: 0.05;">
+        </div>
+        <div class="section-header">
+            <span class="section-tag">Our Portfolio</span>
+            <h2 class="section-title">Featured Projects</h2>
+        </div>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <!-- Placeholder for actual image -->
+                    <img src="../../Assets/Images/gravity.png" class="project-img" onerror="this.style.opacity='0'">
+                    <div
+                        style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#555; font-size:3rem; z-index:-1;">
+                        <i class="fas fa-image"></i>
                     </div>
                 </div>
-
-                <!-- Client Review 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-                    <p class="testimonial-text">
-                        FabNinjas Pvt. Ltd. provided excellent communication and support from the initial consultation to the final launch. Their team brought our complex web application to life and delivered a seamless user experience.
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="author-name">Project Manager</span>
-                        <span class="author-role">Web Application Client</span>
-                    </div>
-                </div>
-
-                <!-- Client Review 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-                    <p class="testimonial-text">
-                        The team at FabNinjas truly understands our business needs & provides innovative solutions to help us stay ahead in the competitive online landscape. Their attention to detail and commitment towards excellence is unmatched.
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="author-name">CEO</span>
-                        <span class="author-role">Innovation Partner</span>
-                    </div>
+                <div class="project-content">
+                    <div class="project-category">Web Application</div>
+                    <h3 class="project-title">Gravity</h3>
+                    <p style="color:rgba(255,255,255,0.6); font-size:0.9rem;">A high-performance web app designed
+                        for
+                        maximum scalability.</p>
                 </div>
             </div>
-
-            <div class="testimonials-grid" id="teamReviews" style="display: none;">
-                <!-- Team Review 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-                    <p class="testimonial-text">
-                        It has been a fulfilling experience here. The collaborative environment allows to constantly learn and grow. The innovative projects challenge me to push my boundaries.
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="author-name">Senior Developer</span>
-                        <span class="author-role">Full-Stack Ninja</span>
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="../../Assets/Images/apex.png" class="project-img" onerror="this.style.opacity='0'">
+                    <div
+                        style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#555; font-size:3rem; z-index:-1;">
+                        <i class="fas fa-image"></i>
                     </div>
                 </div>
-
-                <!-- Team Review 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-                    <p class="testimonial-text">
-                        As a Laravel Developer at a company that fosters a culture of creativity and innovation, I am empowered to bring my ideas to life and make a meaningful impact on my projects.
-                    </p>
-                    <div class="testimonial-author">
-                        <span class="author-name">Laravel Developer</span>
-                        <span class="author-role">Backend Specialist</span>
-                    </div>
+                <div class="project-content">
+                    <div class="project-category">Full Stack</div>
+                    <h3 class="project-title">Apex</h3>
+                    <p style="color:rgba(255,255,255,0.6); font-size:0.9rem;">Comprehensive platform integrating
+                        multiple services seamlessly.</p>
                 </div>
             </div>
         </div>
@@ -1338,146 +894,234 @@
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="contact-container">
-            <div class="section-label">Get In Touch</div>
-            <h2 class="section-title">Let's Build Something Extraordinary</h2>
-            <p class="contact-text">
-                Have a complex project in mind? Let's discuss how we can transform your ideas into
-                scalable, high-performance tech solutions.
-            </p>
+        <div class="bg-shape bg-shape-2"
+            style="width: 400px; height: 400px; opacity: 0.2; filter: blur(120px); left: 50%; top: 50%; transform: translate(-50%, -50%);">
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <span class="section-tag">Get In Touch</span>
+                <h3>Let's Build Something <br> <span class="gradient-text-orange">Extraordinary</span></h3>
+                <p>Have a complex project in mind? Let's discuss how we can transform your ideas into tangible
+                    success.
+                </p>
 
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h4 style="margin-bottom: 5px;">Email Us</h4>
+                        <span style="color:rgba(255,255,255,0.7)">hello@fabninjas.com</span>
+                    </div>
                 </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h4 style="margin-bottom: 5px;">Visit Us</h4>
+                        <span style="color:rgba(255,255,255,0.7)">Tech Park, Innovation Hub</span>
+                    </div>
+                </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="john@company.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="company">Company Name</label>
-                    <input type="text" id="company" name="company" placeholder="Your Company">
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your complex project..." required></textarea>
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </div>
-            </form>
+            <div class="form-container">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder=" " required>
+                        <label for="name" class="form-label">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" placeholder=" " required>
+                        <label for="email" class="form-label">Email Address</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="subject" placeholder=" " required>
+                        <label for="subject" class="form-label">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" rows="4" placeholder=" " required></textarea>
+                        <label for="message" class="form-label">How can we help?</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p class="footer-text">
-                © 2026 <a href="#">FabNinjas</a>. Transforming ideas into ultimate tech products.
-            </p>
+        <a href="#" class="logo" style="justify-content: center;"><img src="assets/logo.png" alt="FabNinjas"
+                style="height: 50px;"></a>
+        <div class="footer-socials">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
         </div>
+        <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem;">© 2026 FabNinjas. All rights reserved.</p>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+        // Particle System
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        // Brand Colors for particles
+        const colors = ['rgba(233, 157, 117, 0.4)', 'rgba(119, 100, 130, 0.4)']; // Orange & Purple
 
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+        let particlesArray;
 
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.directionX = (Math.random() * 0.4) - 0.2; // Slower speed
+                this.directionY = (Math.random() * 0.4) - 0.2;
+                this.size = Math.random() * 3 + 1;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
+                if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 15000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+
+                // Draw connections
+                for (let j = i; j < particlesArray.length; j++) {
+                    // Check distance
+                    let dx = particlesArray[i].x - particlesArray[j].x;
+                    let dy = particlesArray[i].y - particlesArray[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                        ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        init();
+        animate();
+
+        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(40, 38, 67, 0.95)';
+                nav.style.padding = '15px 5%';
             } else {
-                navbar.classList.remove('scrolled');
+                nav.style.backgroundColor = 'rgba(40, 38, 67, 0.85)';
+                nav.style.padding = '20px 5%';
             }
         });
 
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
+        // Form Handling
+        document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'Sent Successfully!';
+            btn.style.backgroundColor = '#4CAF50';
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.backgroundColor = 'var(--accent-orange)';
+                this.reset();
+            }, 3000);
         });
 
-        // Smooth scroll for navigation links
+        // Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop;
+
                     window.scrollTo({
-                        top: offsetTop,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
             });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // Active Nav Link Based on Scroll Position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        function updateActiveNavLink() {
+            const scrollPosition = window.scrollY + 150; // Offset for better detection
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        const href = link.getAttribute('href');
+                        if (href === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
-        }, observerOptions);
 
-        // Observe elements for fade-in animation
-        document.querySelectorAll('.service-card, .portfolio-item, .who-card, .process-step, .testimonial-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
+            // Handle home section (when at top of page)
+            if (window.scrollY < 100) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#home') {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }
 
-        // Testimonials tab switching
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const clientReviews = document.getElementById('clientReviews');
-        const teamReviews = document.getElementById('teamReviews');
+        // Update active link on scroll
+        window.addEventListener('scroll', updateActiveNavLink);
 
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                button.classList.add('active');
-
-                // Show/hide reviews based on tab
-                if (button.dataset.tab === 'clients') {
-                    clientReviews.style.display = 'grid';
-                    teamReviews.style.display = 'none';
-                } else {
-                    clientReviews.style.display = 'none';
-                    teamReviews.style.display = 'grid';
-                }
-            });
-        });
+        // Update active link on page load
+        updateActiveNavLink();
     </script>
 </body>
-</html>
 
+</html>
