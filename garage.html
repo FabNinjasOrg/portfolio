@@ -269,6 +269,40 @@
       box-shadow: none;
     }
 
+    .car-hint-tag {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.6rem 1.2rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 1px;
+      text-align: center;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    .car-hint-tag::before {
+      margin-right: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .car-hint-tag:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 215, 0, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
 
 
     /* Additional Sections */
@@ -968,6 +1002,12 @@
         display: none;
       }
 
+      .car-hint-tag {
+        bottom: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+      }
+
       .section {
         padding: 4rem 1.5rem;
       }
@@ -1473,6 +1513,12 @@
       .card-image {
         height: 200px;
       }
+
+      .car-hint-tag {
+        bottom: 0.75rem;
+        padding: 0.45rem 0.9rem;
+        font-size: 0.7rem;
+      }
     }
 
     /* Contact Section */
@@ -1758,6 +1804,7 @@
     <div class="canvas-background">
       <div class="model-container">
         <div id="canvas-container"></div>
+        <div class="car-hint-tag">Grab to drag</div>
       </div>
     </div>
 
