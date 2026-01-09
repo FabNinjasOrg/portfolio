@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Corner - Cakes and Treats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <h1 class="logo">Sweet Corner</h1>
+        </div>
+        <button class="menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#speciality-cakes">Speciality Cakes</a></li>
+            <li><a href="#find-us">Find Us</a></li>
+            <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">By Khushi Chhatbar</h1>
+            <p class="hero-subtitle">Cakes and Treats</p>
+            <p class="hero-description">
+                Where every bite is a little piece of happiness. Freshly baked with love,
+                our handcrafted cakes and treats are made to sweeten your special moments.
+            </p>
+            <a href="#home" class="cta-button">Explore Our Treats</a>
+        </div>
+        <div class="hero-video">
+            <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                    <source src="assets/cake-v.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-wrapper">
+                <video autoplay loop muted playsinline>
+                    <source src="assets/cake-v2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="waves-area">
+            <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave"
+                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" />
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-subtitle">Discover what makes Sweet Corner special</p>
+
+        <div class="about-content">
+            <div class="about-card">
+                <div class="about-icon">🎂</div>
+                <h3>Premium Quality</h3>
+                <p>
+                    We use only the finest ingredients to create our delicious cakes and treats.
+                    Every item is handcrafted with attention to detail and baked fresh daily to ensure
+                    the highest quality for our customers.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="about-icon">🍰</div>
+                <h3>Wide Variety</h3>
+                <p>
+                    From classic chocolate cakes to exotic fruit tarts, we offer a diverse range of
+                    sweet treats to satisfy every palate. Custom orders are our specialty, and we love
+                    bringing your sweet dreams to life.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <div class="about-icon">💝</div>
+                <h3>Made with Love</h3>
+                <p>
+                    Every creation is baked with passion and care by Khushi Chhatbar. We believe that
+                    the secret ingredient to great baking is love, and it shows in every delicious bite
+                    of our products.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
