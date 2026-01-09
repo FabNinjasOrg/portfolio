@@ -13,19 +13,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            /* Brand Colors Verified */
             --primary-dark: #282643;
-            /* Deep Purple/Navy */
             --primary-purple: #776482;
-            /* Muted Purple */
             --light-purple: #baa9b8;
-            /* Light Purple */
             --accent-orange: #e99d75;
-            /* Soft Salmon/Orange */
             --light-cream: #f2e1ca;
-            /* Cream */
             --white: #ffffff;
-
             --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
             --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -39,6 +32,8 @@
             z-index: 0;
             opacity: 0.6;
             animation: floatShape 10s infinite alternate ease-in-out;
+            pointer-events: none;
+            overflow: hidden;
         }
 
         .bg-shape-1 {
@@ -47,6 +42,8 @@
             background: var(--primary-purple);
             top: -100px;
             right: -100px;
+            max-width: 50vw;
+            max-height: 50vh;
         }
 
         .bg-shape-2 {
@@ -56,6 +53,8 @@
             bottom: -50px;
             left: -50px;
             animation-duration: 15s;
+            max-width: 50vw;
+            max-height: 50vh;
         }
 
         .bg-shape-3 {
@@ -73,7 +72,7 @@
             }
 
             100% {
-                transform: translate(30px, -30px) scale(1.1);
+                transform: translate(20px, -20px) scale(1.05);
             }
         }
 
@@ -83,8 +82,32 @@
             box-sizing: border-box;
         }
 
+        section {
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        img,
+        video,
+        canvas,
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        img,
+        canvas,
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
         }
 
         body {
@@ -96,6 +119,9 @@
             scroll-snap-type: y mandatory;
             height: 100vh;
             overflow-y: scroll;
+            width: 100%;
+            max-width: 100vw;
+            position: relative;
         }
 
         /* Typography */
@@ -107,6 +133,10 @@
         h6 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
+        }
+
+        h1 {
+            font-weight: 600;
         }
 
         .gradient-text {
@@ -165,7 +195,10 @@
         nav {
             position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             width: 100%;
+            max-width: 100vw;
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
@@ -175,6 +208,13 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             z-index: 1000;
             transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                overflow: visible;
+            }
         }
 
         .logo {
@@ -200,6 +240,59 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            margin: 0;
+            padding: 0;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                position: fixed !important;
+                top: 70px !important;
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                background: rgba(40, 38, 67, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 30px 5%;
+                gap: 20px;
+                transform: translateX(-100%) !important;
+                transition: transform 0.3s ease;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                z-index: 999;
+                margin: 0;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                transform: translateX(0) !important;
+            }
+
+            .nav-links li {
+                width: 100%;
+                list-style: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 12px 0;
+                font-size: 1rem;
+                width: 100%;
+                border-left: 3px solid transparent;
+                padding-left: 15px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links a.active {
+                border-left-color: var(--accent-orange);
+                background: rgba(233, 157, 117, 0.1);
+                padding-left: 20px;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
         }
 
         .nav-links a {
@@ -234,15 +327,20 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 5%;
+            padding: 100px 5% 60px;
             position: relative;
             overflow: hidden;
             scroll-snap-align: start;
+            scroll-margin-top: 0;
             background: radial-gradient(circle at top right, rgba(119, 100, 130, 0.2), transparent 40%),
                 radial-gradient(circle at bottom left, rgba(233, 157, 117, 0.1), transparent 40%);
+            width: 100%;
+            max-width: 100vw;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         canvas#particles {
@@ -257,22 +355,30 @@
         .hero-content {
             z-index: 2;
             max-width: 800px;
+            width: 100%;
             animation: fadeUp 1s ease-out;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         .hero h1 {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            line-height: 1.1;
-            margin-bottom: 25px;
-            letter-spacing: -1px;
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
             color: rgba(255, 255, 255, 0.8);
             max-width: 600px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: 300;
+            line-height: 1.6;
         }
 
         @keyframes fadeUp {
@@ -291,8 +397,8 @@
         .glass-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 24px;
+            padding: 25px;
+            border-radius: 20px;
             backdrop-filter: blur(10px);
             transition: all 0.4s ease;
             height: 100%;
@@ -301,21 +407,141 @@
         .glass-card:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.08);
-            /* Slightly lighter on hover */
             border-color: rgba(233, 157, 117, 0.3);
-            /* Orange hint */
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Wave Illustrations */
+        .wave-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .wave-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+        }
+
+        .wave-cream {
+            top: 0;
+            animation: waveMove 20s ease-in-out infinite;
+            opacity: 0.25;
+        }
+
+        .wave-orange {
+            top: 20%;
+            animation: waveMove 25s ease-in-out infinite reverse;
+            opacity: 0.3;
+        }
+
+        .wave-purple {
+            top: 40%;
+            animation: waveMove 30s ease-in-out infinite;
+            opacity: 0.25;
+        }
+
+        @keyframes waveMove {
+            0%, 100% {
+                transform: translateX(0) translateY(0) scale(1);
+            }
+            50% {
+                transform: translateX(-50px) translateY(20px) scale(1.05);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(20px, -20px) rotate(5deg);
+            }
+            66% {
+                transform: translate(-20px, 20px) rotate(-5deg);
+            }
+        }
+
+        /* Code-themed decorative elements */
+        .code-decoration {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            opacity: 0.1;
+            color: var(--light-cream);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .code-decoration.code-orange {
+            color: var(--accent-orange);
+        }
+
+        .code-decoration.code-purple {
+            color: var(--primary-purple);
         }
 
         /* Services */
         .services {
             min-height: 100vh;
-            padding: 0 5%;
+            padding: 80px 5%;
             position: relative;
             scroll-snap-align: start;
+            scroll-margin-top: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        #about {
+            position: relative;
+        }
+
+        #about .section-header,
+        #about .services-grid {
+            position: relative;
+            z-index: 2;
+        }
+
+        #services {
+            position: relative;
+        }
+
+        #services .section-header,
+        #services .services-grid {
+            position: relative;
+            z-index: 2;
+        }
+
+        #process {
+            position: relative;
+        }
+
+        #process .section-header,
+        #process .process-steps {
+            position: relative;
+            z-index: 2;
+        }
+
+        #portfolio {
+            position: relative;
+        }
+
+        #portfolio .section-header,
+        #portfolio .portfolio-grid {
+            position: relative;
+            z-index: 2;
         }
 
         .section-header {
@@ -334,29 +560,36 @@
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
+        @media (min-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         .service-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: rgba(233, 157, 117, 0.1);
-            border-radius: 16px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 18px;
             color: var(--accent-orange);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             transition: all 0.3s ease;
         }
 
@@ -367,52 +600,93 @@
         }
 
         .service-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
         }
 
         .service-desc {
             color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-top: 15px;
+            padding: 0;
+        }
+
+        .service-features li {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            padding: 6px 0;
+            padding-left: 22px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-weight: bold;
+            font-size: 0.9rem;
         }
 
         /* Portfolio */
         .portfolio {
             min-height: 100vh;
-            padding: 0 5%;
+            padding: 80px 5%;
             background: #23213a;
-            /* Slightly darker shade */
             scroll-snap-align: start;
+            scroll-margin-top: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
             gap: 40px;
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .project-card {
             border-radius: 20px;
             overflow: hidden;
             position: relative;
-            background: #2a2845;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px) translateZ(0);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(233, 157, 117, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(233, 157, 117, 0.1);
         }
 
         .project-img-wrapper {
             height: 300px;
-            background: #333;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
             overflow: hidden;
             position: relative;
         }
@@ -420,7 +694,7 @@
         .project-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.5s ease;
         }
 
@@ -430,6 +704,7 @@
 
         .project-content {
             padding: 30px;
+            background: transparent;
         }
 
         .project-category {
@@ -449,12 +724,17 @@
         /* Contact Section */
         .contact {
             min-height: 100vh;
-            padding: 0 5%;
+            padding: 80px 5%;
             background: linear-gradient(0deg, #201e34 0%, var(--primary-dark) 100%);
             scroll-snap-align: start;
+            scroll-margin-top: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
         .contact-wrapper {
@@ -467,14 +747,16 @@
         }
 
         .contact-info h3 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .contact-info p {
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 40px;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            line-height: 1.6;
         }
 
         .contact-item {
@@ -518,11 +800,16 @@
             font-size: 1rem;
             color: var(--primary-dark);
             transition: all 0.3s;
+            resize: vertical;
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent-orange);
+        }
+
+        textarea.form-control {
+            min-height: 100px;
         }
 
         .form-label {
@@ -544,13 +831,18 @@
         /* Process Section */
         .process {
             min-height: 100vh;
-            padding: 0 5%;
+            padding: 80px 5%;
             background: linear-gradient(180deg, var(--primary-dark) 0%, #2e2b4a 100%);
             scroll-snap-align: start;
+            scroll-margin-top: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             position: relative;
+            width: 100%;
+            max-width: 100vw;
+            overflow: hidden;
+            box-sizing: border-box;
         }
 
         .process-steps {
@@ -569,8 +861,14 @@
             left: 50px;
             right: 50px;
             height: 2px;
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 20%,
+                rgba(233, 157, 117, 0.3) 50%,
+                rgba(255, 255, 255, 0.1) 80%,
+                transparent 100%);
             z-index: 0;
+            box-shadow: 0 0 10px rgba(233, 157, 117, 0.2);
         }
 
         .process-step {
@@ -578,14 +876,31 @@
             z-index: 1;
             text-align: center;
             flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-step:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(233, 157, 117, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
         }
 
         .step-icon-wrapper {
             width: 100px;
             height: 100px;
             margin: 0 auto 25px;
-            background: var(--primary-dark);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(40, 38, 67, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -594,13 +909,16 @@
             color: var(--accent-orange);
             transition: all 0.4s ease;
             position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
         .process-step:hover .step-icon-wrapper {
             border-color: var(--accent-orange);
-            background: rgba(233, 157, 117, 0.1);
+            background: rgba(233, 157, 117, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(233, 157, 117, 0.2);
+            box-shadow: 0 0 30px rgba(233, 157, 117, 0.3);
         }
 
         .step-number {
@@ -635,7 +953,7 @@
         @media (max-width: 768px) {
             .process-steps {
                 flex-direction: column;
-                gap: 50px;
+                gap: 30px;
             }
 
             .process-steps::before {
@@ -644,6 +962,16 @@
                 top: 50px;
                 left: 50%;
                 transform: translateX(-50%);
+                background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.1) 20%,
+                    rgba(233, 157, 117, 0.3) 50%,
+                    rgba(255, 255, 255, 0.1) 80%,
+                    transparent 100%);
+            }
+
+            .process-step {
+                padding: 25px 15px;
             }
         }
 
@@ -654,6 +982,10 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
             scroll-snap-align: end;
+            width: 100%;
+            max-width: 100vw;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
         .footer-socials {
@@ -681,14 +1013,228 @@
             transform: translateY(-3px);
         }
 
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .contact-wrapper {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            .nav-links {
+            .menu-toggle {
+                display: block;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 120px 5% 40px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-header {
+                margin-bottom: 3vh;
+            }
+
+            .contact-info h3 {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            nav .btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+
+            nav .logo img {
+                height: 35px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav .btn-primary {
                 display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 4% 30px;
+            }
+
+            .hero h1 {
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                margin-bottom: 25px;
+            }
+
+            .services,
+            .portfolio,
+            .process,
+            .contact {
+                padding: 60px 4% 40px;
+            }
+
+            .section-header {
+                margin-bottom: 2.5vh;
+            }
+
+            .section-tag {
+                font-size: 0.8rem;
+                margin-bottom: 10px;
+            }
+
+            .glass-card {
+                padding: 20px;
+            }
+
+            .service-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+
+            .service-title {
+                font-size: 1.1rem;
+                margin-bottom: 10px;
+            }
+
+            .service-desc {
+                font-size: 0.85rem;
+                margin-bottom: 12px;
+            }
+
+            .project-content {
+                padding: 20px;
+            }
+
+            .project-title {
+                font-size: 1.3rem;
+            }
+
+            .contact-item {
+                gap: 15px;
+                margin-bottom: 25px;
+            }
+
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .step-icon-wrapper {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+            }
+
+            .step-desc {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 10px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 90px 3% 25px;
+            }
+
+            .hero h1 {
+                line-height: 1.15;
+            }
+
+            .services,
+            .portfolio,
+            .process,
+            .contact {
+                padding: 50px 3% 30px;
+            }
+
+            .section-header {
+                margin-bottom: 2vh;
+            }
+
+            .glass-card {
+                padding: 18px;
+            }
+
+            .project-img-wrapper {
+                height: 250px;
+            }
+
+            .project-content {
+                padding: 18px;
+            }
+
+            .form-container {
+                padding: 25px 15px;
+            }
+
+            .contact-info p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+
+            footer {
+                padding: 25px 3%;
             }
         }
     </style>
@@ -699,14 +1245,19 @@
     <nav>
         <a href="#" class="logo"><img src="assets/logo.png" alt="FabNinjas" style="height: 45px;"></a>
         <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#portfolio">Work</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Get Started</a>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Get Started</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -718,7 +1269,7 @@
             <h1>Transforming Ideas Into <br> <span class="gradient-text-orange">Ultimate Tech Products</span></h1>
             <p>We craft scalable, robust, and high-performance tech solutions that evolve with your business. Innovation
                 meets precision.</p>
-            <div style="display: flex; gap: 20px;">
+            <div class="hero-buttons">
                 <a href="#portfolio" class="btn btn-primary">View Our Work</a>
                 <a href="#contact" class="btn btn-outline">Start a Project</a>
             </div>
@@ -727,9 +1278,38 @@
 
     <!-- About Section -->
     <section class="services" id="about">
-        <!-- Floating Shapes specifically for About -->
-        <div class="bg-shape"
-            style="width: 500px; height: 500px; background: var(--light-cream); top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.05; filter: blur(100px);">
+        <!-- Wave Illustrations Background -->
+        <div class="wave-container">
+            <!-- Cream Wave -->
+            <svg class="wave-svg wave-cream" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,100 Q300,50 600,100 T1200,100 L1200,200 L0,200 Z" fill="#f2e1ca">
+                    <animate attributeName="d"
+                        values="M0,100 Q300,50 600,100 T1200,100 L1200,200 L0,200 Z;M0,100 Q300,150 600,100 T1200,100 L1200,200 L0,200 Z;M0,100 Q300,50 600,100 T1200,100 L1200,200 L0,200 Z"
+                        dur="8s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Orange Wave -->
+            <svg class="wave-svg wave-orange" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,120 Q400,80 800,120 T1200,120 L1200,200 L0,200 Z" fill="#e99d75">
+                    <animate attributeName="d"
+                        values="M0,120 Q400,80 800,120 T1200,120 L1200,200 L0,200 Z;M0,120 Q400,160 800,120 T1200,120 L1200,200 L0,200 Z;M0,120 Q400,80 800,120 T1200,120 L1200,200 L0,200 Z"
+                        dur="10s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Purple Wave -->
+            <svg class="wave-svg wave-purple" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,140 Q500,100 1000,140 T1200,140 L1200,200 L0,200 Z" fill="#776482">
+                    <animate attributeName="d"
+                        values="M0,140 Q500,100 1000,140 T1200,140 L1200,200 L0,200 Z;M0,140 Q500,180 1000,140 T1200,140 L1200,200 L0,200 Z;M0,140 Q500,100 1000,140 T1200,140 L1200,200 L0,200 Z"
+                        dur="12s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Code-themed decorative elements -->
+            <div class="code-decoration" style="top: 10%; left: 5%; animation: float 15s ease-in-out infinite;">{ }</div>
+            <div class="code-decoration code-orange" style="top: 30%; right: 8%; animation: float 18s ease-in-out infinite reverse;">[ ]</div>
+            <div class="code-decoration code-purple" style="top: 50%; left: 10%; animation: float 20s ease-in-out infinite;">( )</div>
+            <div class="code-decoration" style="bottom: 20%; right: 5%; animation: float 16s ease-in-out infinite reverse;">&lt; /&gt;</div>
+            <div class="code-decoration code-orange" style="bottom: 10%; left: 15%; animation: float 22s ease-in-out infinite;">{ }</div>
         </div>
 
         <div class="section-header">
@@ -761,11 +1341,39 @@
     <!-- Services Section -->
     <section class="services" id="services"
         style="background: radial-gradient(circle at center, #2e2b4a 0%, var(--primary-dark) 100%);">
-        <div class="bg-shape bg-shape-1"
-            style="background: var(--accent-orange); width: 200px; height: 200px; top: 10%; left: 10%; opacity: 0.2;">
+        <!-- Wave Illustrations Background -->
+        <div class="wave-container">
+            <!-- Orange Wave -->
+            <svg class="wave-svg wave-orange" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,80 Q350,40 700,80 T1200,80 L1200,200 L0,200 Z" fill="#e99d75">
+                    <animate attributeName="d"
+                        values="M0,80 Q350,40 700,80 T1200,80 L1200,200 L0,200 Z;M0,80 Q350,120 700,80 T1200,80 L1200,200 L0,200 Z;M0,80 Q350,40 700,80 T1200,80 L1200,200 L0,200 Z"
+                        dur="9s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Purple Wave -->
+            <svg class="wave-svg wave-purple" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,110 Q450,70 900,110 T1200,110 L1200,200 L0,200 Z" fill="#776482">
+                    <animate attributeName="d"
+                        values="M0,110 Q450,70 900,110 T1200,110 L1200,200 L0,200 Z;M0,110 Q450,150 900,110 T1200,110 L1200,200 L0,200 Z;M0,110 Q450,70 900,110 T1200,110 L1200,200 L0,200 Z"
+                        dur="11s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Light Purple Wave -->
+            <svg class="wave-svg" viewBox="0 0 1200 200" preserveAspectRatio="none" style="opacity: 0.2; fill: #baa9b8;">
+                <path d="M0,140 Q550,100 1100,140 T1200,140 L1200,200 L0,200 Z">
+                    <animate attributeName="d"
+                        values="M0,140 Q550,100 1100,140 T1200,140 L1200,200 L0,200 Z;M0,140 Q550,180 1100,140 T1200,140 L1200,200 L0,200 Z;M0,140 Q550,100 1100,140 T1200,140 L1200,200 L0,200 Z"
+                        dur="13s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Code-themed decorative elements -->
+            <div class="code-decoration code-orange" style="top: 15%; left: 8%; animation: float 14s ease-in-out infinite;">&lt; /&gt;</div>
+            <div class="code-decoration code-purple" style="top: 35%; right: 12%; animation: float 17s ease-in-out infinite reverse;">{ }</div>
+            <div class="code-decoration" style="top: 55%; left: 15%; animation: float 19s ease-in-out infinite; color: #baa9b8;">[ ]</div>
+            <div class="code-decoration code-orange" style="bottom: 25%; right: 8%; animation: float 16s ease-in-out infinite reverse;">( )</div>
+            <div class="code-decoration code-purple" style="bottom: 15%; left: 20%; animation: float 21s ease-in-out infinite;">&lt; /&gt;</div>
         </div>
-        <div class="bg-shape bg-shape-3"
-            style="background: var(--light-purple); bottom: 10%; right: 10%; top: auto; opacity: 0.15;"></div>
         <div class="section-header">
             <span class="section-tag">Our Expertise</span>
             <h2 class="section-title">Comprehensive Solutions</h2>
@@ -776,26 +1384,110 @@
                 <h3 class="service-title">Web Development</h3>
                 <p class="service-desc">Stunning, responsive websites and web applications using React, Vue.js, and
                     Laravel. From landing pages to complex platforms.</p>
+                <ul class="service-features">
+                    <li>Responsive Design</li>
+                    <li>React & Vue.js</li>
+                    <li>Laravel Backend</li>
+                    <li>E-commerce Solutions</li>
+                </ul>
             </div>
             <div class="glass-card">
                 <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                 <h3 class="service-title">Mobile Apps</h3>
                 <p class="service-desc">Powerful native and cross-platform apps for iOS and Android using Flutter and
                     React Native. Exceptional user experiences.</p>
+                <ul class="service-features">
+                    <li>iOS & Android</li>
+                    <li>React Native</li>
+                    <li>Flutter Development</li>
+                    <li>App Store Optimization</li>
+                </ul>
             </div>
             <div class="glass-card">
                 <div class="service-icon"><i class="fas fa-cloud"></i></div>
                 <h3 class="service-title">Cloud Solutions</h3>
                 <p class="service-desc">Leverage AWS & Azure for scalable infrastructure. We help you migrate, optimize,
                     and scale your cloud operations.</p>
+                <ul class="service-features">
+                    <li>AWS & Azure</li>
+                    <li>Cloud Architecture</li>
+                    <li>DevOps & CI/CD</li>
+                    <li>Cost Optimization</li>
+                </ul>
+            </div>
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-plug"></i></div>
+                <h3 class="service-title">API Development</h3>
+                <p class="service-desc">Building robust, scalable APIs that power your applications and enable seamless
+                    integration with third-party services.</p>
+                <ul class="service-features">
+                    <li>RESTful APIs</li>
+                    <li>GraphQL</li>
+                    <li>API Documentation</li>
+                    <li>Third-party Integration</li>
+                </ul>
+            </div>
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-database"></i></div>
+                <h3 class="service-title">Database Development</h3>
+                <p class="service-desc">Designing and optimizing database structures for maximum performance, security,
+                    and scalability.</p>
+                <ul class="service-features">
+                    <li>MySQL & PostgreSQL</li>
+                    <li>MongoDB</li>
+                    <li>Database Optimization</li>
+                    <li>Data Migration</li>
+                </ul>
+            </div>
+            <div class="glass-card">
+                <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3 class="service-title">Technology Consulting</h3>
+                <p class="service-desc">Strategic technology guidance to help your business make informed decisions and
+                    implement the right solutions.</p>
+                <ul class="service-features">
+                    <li>Tech Strategy</li>
+                    <li>Architecture Planning</li>
+                    <li>Digital Transformation</li>
+                    <li>Performance Analysis</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
     <section class="process" id="process">
-        <!-- Background elements -->
-        <div class="bg-shape bg-shape-2" style="top: 20%; left: -100px; opacity: 0.2; width: 400px; height: 400px;">
+        <!-- Wave Illustrations Background -->
+        <div class="wave-container">
+            <!-- Cream Wave -->
+            <svg class="wave-svg wave-cream" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,90 Q400,50 800,90 T1200,90 L1200,200 L0,200 Z" fill="#f2e1ca">
+                    <animate attributeName="d"
+                        values="M0,90 Q400,50 800,90 T1200,90 L1200,200 L0,200 Z;M0,90 Q400,130 800,90 T1200,90 L1200,200 L0,200 Z;M0,90 Q400,50 800,90 T1200,90 L1200,200 L0,200 Z"
+                        dur="10s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Orange Wave -->
+            <svg class="wave-svg wave-orange" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,120 Q500,80 1000,120 T1200,120 L1200,200 L0,200 Z" fill="#e99d75">
+                    <animate attributeName="d"
+                        values="M0,120 Q500,80 1000,120 T1200,120 L1200,200 L0,200 Z;M0,120 Q500,160 1000,120 T1200,120 L1200,200 L0,200 Z;M0,120 Q500,80 1000,120 T1200,120 L1200,200 L0,200 Z"
+                        dur="12s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Purple Wave -->
+            <svg class="wave-svg wave-purple" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,150 Q600,110 1200,150 L1200,200 L0,200 Z" fill="#776482">
+                    <animate attributeName="d"
+                        values="M0,150 Q600,110 1200,150 L1200,200 L0,200 Z;M0,150 Q600,190 1200,150 L1200,200 L0,200 Z;M0,150 Q600,110 1200,150 L1200,200 L0,200 Z"
+                        dur="14s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Code-themed decorative elements -->
+            <div class="code-decoration" style="top: 12%; right: 10%; animation: float 15s ease-in-out infinite; color: #f2e1ca;">{ }</div>
+            <div class="code-decoration code-orange" style="top: 32%; left: 12%; animation: float 18s ease-in-out infinite reverse;">[ ]</div>
+            <div class="code-decoration code-purple" style="top: 52%; right: 15%; animation: float 20s ease-in-out infinite;">( )</div>
+            <div class="code-decoration" style="bottom: 28%; left: 8%; animation: float 16s ease-in-out infinite reverse; color: #f2e1ca;">&lt; /&gt;</div>
+            <div class="code-decoration code-orange" style="bottom: 12%; right: 18%; animation: float 22s ease-in-out infinite;">{ }</div>
         </div>
 
         <div class="section-header">
@@ -846,11 +1538,38 @@
 
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
-        <div class="bg-shape"
-            style="background: var(--primary-purple); width: 600px; height: 600px; top: -200px; right: -200px; opacity: 0.1;">
-        </div>
-        <div class="bg-shape"
-            style="background: var(--light-cream); width: 300px; height: 300px; bottom: 0; left: 0; opacity: 0.05;">
+        <!-- Wave Illustrations Background -->
+        <div class="wave-container">
+            <!-- Purple Wave -->
+            <svg class="wave-svg wave-purple" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,100 Q300,60 600,100 T1200,100 L1200,200 L0,200 Z" fill="#776482">
+                    <animate attributeName="d"
+                        values="M0,100 Q300,60 600,100 T1200,100 L1200,200 L0,200 Z;M0,100 Q300,140 600,100 T1200,100 L1200,200 L0,200 Z;M0,100 Q300,60 600,100 T1200,100 L1200,200 L0,200 Z"
+                        dur="8s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Orange Wave -->
+            <svg class="wave-svg wave-orange" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,130 Q450,90 900,130 T1200,130 L1200,200 L0,200 Z" fill="#e99d75">
+                    <animate attributeName="d"
+                        values="M0,130 Q450,90 900,130 T1200,130 L1200,200 L0,200 Z;M0,130 Q450,170 900,130 T1200,130 L1200,200 L0,200 Z;M0,130 Q450,90 900,130 T1200,130 L1200,200 L0,200 Z"
+                        dur="10s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Cream Wave -->
+            <svg class="wave-svg wave-cream" viewBox="0 0 1200 200" preserveAspectRatio="none">
+                <path d="M0,160 Q550,120 1100,160 T1200,160 L1200,200 L0,200 Z" fill="#f2e1ca">
+                    <animate attributeName="d"
+                        values="M0,160 Q550,120 1100,160 T1200,160 L1200,200 L0,200 Z;M0,160 Q550,200 1100,160 T1200,160 L1200,200 L0,200 Z;M0,160 Q550,120 1100,160 T1200,160 L1200,200 L0,200 Z"
+                        dur="12s" repeatCount="indefinite"/>
+                </path>
+            </svg>
+            <!-- Code-themed decorative elements -->
+            <div class="code-decoration code-purple" style="top: 8%; left: 10%; animation: float 13s ease-in-out infinite;">[ ]</div>
+            <div class="code-decoration code-orange" style="top: 28%; right: 12%; animation: float 15s ease-in-out infinite reverse;">&lt; /&gt;</div>
+            <div class="code-decoration" style="top: 48%; left: 15%; animation: float 17s ease-in-out infinite; color: #f2e1ca;">( )</div>
+            <div class="code-decoration code-purple" style="bottom: 30%; right: 10%; animation: float 19s ease-in-out infinite reverse;">{ }</div>
+            <div class="code-decoration code-orange" style="bottom: 10%; left: 18%; animation: float 21s ease-in-out infinite;">[ ]</div>
         </div>
         <div class="section-header">
             <span class="section-tag">Our Portfolio</span>
@@ -889,13 +1608,28 @@
                         multiple services seamlessly.</p>
                 </div>
             </div>
+            <div class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="../../Assets/Images/spendwise.png" class="project-img" onerror="this.style.opacity='0'">
+                    <div
+                        style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#555; font-size:3rem; z-index:-1;">
+                        <i class="fas fa-image"></i>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <div class="project-category">Mobile Application</div>
+                    <h3 class="project-title">SpendWise</h3>
+                    <p style="color:rgba(255,255,255,0.6); font-size:0.9rem;">A smart financial management app designed
+                        for modern budgeting and expense tracking.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="bg-shape bg-shape-2"
-            style="width: 400px; height: 400px; opacity: 0.2; filter: blur(120px); left: 50%; top: 50%; transform: translate(-50%, -50%);">
+            style="width: min(400px, 70vw); height: min(400px, 70vh); opacity: 0.2; filter: blur(120px); left: 50%; top: 50%; transform: translate(-50%, -50%);">
         </div>
         <div class="contact-wrapper">
             <div class="contact-info">
@@ -958,28 +1692,16 @@
     </footer>
 
     <script>
-        // Particle System
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
-
-        // Brand Colors for particles
-        const colors = ['rgba(233, 157, 117, 0.4)', 'rgba(119, 100, 130, 0.4)']; // Orange & Purple
-
+        const colors = ['rgba(233, 157, 117, 0.4)', 'rgba(119, 100, 130, 0.4)'];
         let particlesArray;
-
-        // Set canvas size
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
 
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.directionX = (Math.random() * 0.4) - 0.2; // Slower speed
+                this.directionX = (Math.random() * 0.4) - 0.2;
                 this.directionY = (Math.random() * 0.4) - 0.2;
                 this.size = Math.random() * 3 + 1;
                 this.color = colors[Math.floor(Math.random() * colors.length)];
@@ -1007,19 +1729,26 @@
             }
         }
 
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
         function animate() {
             requestAnimationFrame(animate);
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             for (let i = 0; i < particlesArray.length; i++) {
                 particlesArray[i].update();
 
-                // Draw connections
-                for (let j = i; j < particlesArray.length; j++) {
-                    // Check distance
-                    let dx = particlesArray[i].x - particlesArray[j].x;
-                    let dy = particlesArray[i].y - particlesArray[j].y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
+                for (let j = i + 1; j < particlesArray.length; j++) {
+                    const dx = particlesArray[i].x - particlesArray[j].x;
+                    const dy = particlesArray[i].y - particlesArray[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < 120) {
                         ctx.beginPath();
@@ -1036,9 +1765,49 @@
         init();
         animate();
 
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const nav = document.querySelector('nav');
+
+        function updateActiveNavLink() {
+            const scrollY = window.scrollY;
+            const navHeight = nav ? nav.offsetHeight : 80;
+            const windowHeight = window.innerHeight;
+            const isMobile = window.innerWidth <= 900;
+            // Use a smaller offset for mobile, larger for desktop
+            const offset = isMobile ? navHeight + 80 : navHeight + 150;
+            const scrollPosition = scrollY + offset;
+            let activeId = null;
+
+            // Only set active if we're significantly past the top (to avoid false positives)
+            const minScrollThreshold = isMobile ? 150 : 100;
+            if (scrollY >= minScrollThreshold) {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    // More strict check: section must be in viewport and scroll position must be within section bounds
+                    const isInViewport = rect.top < windowHeight * 0.6 && rect.bottom > navHeight + 50;
+                    const isInScrollRange = scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight;
+
+                    if (isInViewport && isInScrollRange) {
+                        activeId = section.getAttribute('id');
+                    }
+                });
+            }
+
+            // Update active class - if activeId is null, no link will be active
+            navLinks.forEach(link => {
+                if (activeId) {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${activeId}`);
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        function updateNavbar() {
             if (window.scrollY > 50) {
                 nav.style.backgroundColor = 'rgba(40, 38, 67, 0.95)';
                 nav.style.padding = '15px 5%';
@@ -1046,23 +1815,35 @@
                 nav.style.backgroundColor = 'rgba(40, 38, 67, 0.85)';
                 nav.style.padding = '20px 5%';
             }
+        }
+
+        window.addEventListener('scroll', () => {
+            updateActiveNavLink();
+            updateNavbar();
+        }, { passive: true });
+
+        // Clear all active states on initial load
+        navLinks.forEach(link => {
+            link.classList.remove('active');
         });
 
-        // Form Handling
-        document.querySelector('form').addEventListener('submit', function (e) {
+        // Then update based on scroll position
+        updateActiveNavLink();
+
+        document.querySelector('form')?.addEventListener('submit', function (e) {
             e.preventDefault();
             const btn = this.querySelector('button');
             const originalText = btn.innerText;
+            const originalBg = btn.style.backgroundColor;
             btn.innerText = 'Sent Successfully!';
             btn.style.backgroundColor = '#4CAF50';
             setTimeout(() => {
                 btn.innerText = originalText;
-                btn.style.backgroundColor = 'var(--accent-orange)';
+                btn.style.backgroundColor = originalBg || 'var(--accent-orange)';
                 this.reset();
             }, 3000);
         });
 
-        // Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1071,56 +1852,51 @@
 
                 const targetSection = document.querySelector(targetId);
                 if (targetSection) {
-                    const navHeight = document.querySelector('nav').offsetHeight;
-                    const targetPosition = targetSection.offsetTop;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    const originalScrollSnap = document.body.style.scrollSnapType;
+                    document.body.style.scrollSnapType = 'none';
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => {
+                        document.body.style.scrollSnapType = originalScrollSnap || 'y mandatory';
+                    }, 1000);
                 }
             });
         });
 
-        // Active Nav Link Based on Scroll Position
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-links a');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-links');
 
-        function updateActiveNavLink() {
-            const scrollPosition = window.scrollY + 150; // Offset for better detection
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        const href = link.getAttribute('href');
-                        if (href === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-
-            // Handle home section (when at top of page)
-            if (window.scrollY < 100) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#home') {
-                        link.classList.add('active');
-                    }
-                });
+        function toggleMenuIcon(isActive) {
+            const icon = menuToggle?.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars', !isActive);
+                icon.classList.toggle('fa-times', isActive);
             }
         }
 
-        // Update active link on scroll
-        window.addEventListener('scroll', updateActiveNavLink);
+        function closeMenu() {
+            navMenu?.classList.remove('active');
+            toggleMenuIcon(false);
+        }
 
-        // Update active link on page load
-        updateActiveNavLink();
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navMenu.classList.toggle('active');
+                toggleMenuIcon(navMenu.classList.contains('active'));
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            document.addEventListener('click', (e) => {
+                if (navMenu.classList.contains('active') &&
+                    !navMenu.contains(e.target) &&
+                    !menuToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+        }
     </script>
 </body>
 
