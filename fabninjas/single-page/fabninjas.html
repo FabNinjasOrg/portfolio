@@ -7,9 +7,7 @@
     <title>FabNinjas | Future Tech Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -113,7 +111,7 @@
         body {
             background-color: var(--primary-dark);
             color: var(--white);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Libre Franklin', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
             scroll-snap-type: y mandatory;
@@ -131,12 +129,12 @@
         h4,
         h5,
         h6 {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Libre Franklin', sans-serif;
             font-weight: 700;
         }
 
         h1 {
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .gradient-text {
@@ -166,7 +164,7 @@
             display: inline-block;
             border: none;
             cursor: pointer;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Libre Franklin', sans-serif;
         }
 
         .btn-primary {
@@ -218,7 +216,7 @@
         }
 
         .logo {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Libre Franklin', sans-serif;
             font-size: 1.5rem;
             font-weight: 800;
             color: var(--white);
@@ -366,7 +364,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-size: clamp(2rem, 8vw, 3.5rem);
             line-height: 1.2;
             margin-bottom: 20px;
             letter-spacing: -0.5px;
@@ -402,6 +400,14 @@
             backdrop-filter: blur(10px);
             transition: all 0.4s ease;
             height: 100%;
+        }
+
+        /* About section cards - taller with more content */
+        #about .glass-card {
+            min-height: 380px;
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
         }
 
         .glass-card:hover {
@@ -881,7 +887,11 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 20px;
-            padding: 30px 20px;
+            padding: 30px 25px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
             transition: all 0.4s ease;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
@@ -947,7 +957,16 @@
             font-size: 0.95rem;
             color: rgba(255, 255, 255, 0.6);
             padding: 0 10px;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .step-desc-additional {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 0 10px;
+            line-height: 1.6;
+            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
@@ -971,7 +990,8 @@
             }
 
             .process-step {
-                padding: 25px 15px;
+                padding: 30px 20px;
+                min-height: 350px;
             }
         }
 
@@ -1135,6 +1155,11 @@
                 padding: 20px;
             }
 
+            #about .glass-card {
+                min-height: 350px;
+                padding: 25px 20px;
+            }
+
             .service-icon {
                 width: 45px;
                 height: 45px;
@@ -1186,6 +1211,15 @@
                 font-size: 0.9rem;
             }
 
+            .step-desc-additional {
+                font-size: 0.85rem;
+            }
+
+            .process-step {
+                min-height: 320px;
+                padding: 25px 18px;
+            }
+
             .btn {
                 padding: 10px 24px;
                 font-size: 0.9rem;
@@ -1214,6 +1248,11 @@
 
             .glass-card {
                 padding: 18px;
+            }
+
+            #about .glass-card {
+                min-height: 320px;
+                padding: 22px 18px;
             }
 
             .project-img-wrapper {
@@ -1320,20 +1359,20 @@
             <div class="glass-card">
                 <div class="service-icon"><i class="fas fa-eye"></i></div>
                 <h3 class="service-title">Our Vision</h3>
-                <p class="service-desc">To create a community of developers with ninja-like competencies. We bring our
-                    A-game to every project, evolving with changing technology.</p>
+                <p class="service-desc">To create a community of developers with ninja-like competencies in their work. They will bring their A-game to their work and keep evolving with changing technology.</p>
+                <p class="service-desc" style="margin-top: 15px; font-size: 0.9rem; line-height: 1.6;">We envision a future where every developer in our community possesses exceptional skills, continuously adapts to emerging technologies, and delivers outstanding results that exceed expectations. Our vision drives us to foster excellence, innovation, and continuous learning in everything we do.</p>
             </div>
             <div class="glass-card">
                 <div class="service-icon"><i class="fas fa-rocket"></i></div>
                 <h3 class="service-title">Our Mission</h3>
-                <p class="service-desc">Global mission to become a leading consultancy firm, providing an efficient
-                    workforce that sees projects through from concept to completion.</p>
+                <p class="service-desc">We are on a global mission to become a leading consultancy firm in the IT sector and to provide an efficient workforce of developers seeing the projects end-to-end.</p>
+                <p class="service-desc" style="margin-top: 15px; font-size: 0.9rem; line-height: 1.6;">Our mission extends beyond just delivering projects. We aim to transform businesses through innovative technology solutions, build lasting partnerships with our clients, and create a sustainable ecosystem where technology meets excellence. We are committed to seeing every project through from initial concept to successful deployment and beyond.</p>
             </div>
             <div class="glass-card">
                 <div class="service-icon"><i class="fas fa-heart"></i></div>
                 <h3 class="service-title">Our Culture</h3>
-                <p class="service-desc">defined by collaboration, growth, and wellbeing. We believe in accountability
-                    without overwork, unleashing true potential through joy.</p>
+                <p class="service-desc">A workspace which enables the team to unleash our true potential through joy in work and growth. Our culture is defined by collaboration, growth, wellbeing, no overwork & accountability.</p>
+                <p class="service-desc" style="margin-top: 15px; font-size: 0.9rem; line-height: 1.6;">We believe that great work comes from happy, motivated teams. Our culture emphasizes work-life balance, continuous learning opportunities, and a supportive environment where every team member can thrive. We celebrate achievements, learn from challenges, and always prioritize the wellbeing of our people while maintaining the highest standards of accountability and professionalism.</p>
             </div>
         </div>
     </section>
@@ -1504,6 +1543,7 @@
                 <h3 class="step-title">Discovery</h3>
                 <p class="step-desc">We listen to your ideas, understand your goals, and map out the perfect strategy
                     for success.</p>
+                <p class="step-desc-additional">During this phase, we conduct in-depth research, analyze market trends, and identify target audiences.</p>
             </div>
 
             <div class="process-step">
@@ -1513,6 +1553,7 @@
                 </div>
                 <h3 class="step-title">Design</h3>
                 <p class="step-desc">Our designers craft intuitive UI/UX that blends aesthetics with functionality.</p>
+                <p class="step-desc-additional">We create wireframes, prototypes, and detailed design specifications that prioritize user experience.</p>
             </div>
 
             <div class="process-step">
@@ -1523,6 +1564,7 @@
                 <h3 class="step-title">Development</h3>
                 <p class="step-desc">We build robust, scalable solutions using cutting-edge technologies and clean code.
                 </p>
+                <p class="step-desc-additional">Our development team follows agile methodologies, ensuring regular updates and continuous integration.</p>
             </div>
 
             <div class="process-step">
@@ -1532,6 +1574,7 @@
                 </div>
                 <h3 class="step-title">Launch</h3>
                 <p class="step-desc">We deploy your product, ensure smooth performance, and provide ongoing support.</p>
+                <p class="step-desc-additional">We handle seamless deployment, monitor performance metrics, and provide comprehensive documentation.</p>
             </div>
         </div>
     </section>
