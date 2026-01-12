@@ -6,7 +6,7 @@
 }
 
 .products-hero {
-    padding: 4rem 5% 3rem 5%;
+    padding: 5rem 5% 3rem 5%;
     text-align: center;
 }
 
@@ -19,11 +19,12 @@
 
 .products-main-title {
     font-family: 'Pacifico', cursive;
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     color: #C84A4A;
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     line-height: 1.2;
+    white-space: nowrap;
 }
 
 /* Filter Bar */
@@ -373,6 +374,7 @@
 
     .products-main-title {
         font-size: 2.8rem;
+        white-space: normal;
     }
 
     .products-grid {
@@ -401,6 +403,7 @@
 
     .products-main-title {
         font-size: 2.2rem;
+        white-space: normal;
     }
 
     .filter-bar {
@@ -452,7 +455,8 @@
 
 @media (max-width: 480px) {
     .products-main-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        white-space: normal;
     }
 }
 
