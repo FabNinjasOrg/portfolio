@@ -466,7 +466,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     background: var(--bg-cream);
     position: relative;
     overflow: visible;
@@ -608,6 +608,245 @@ section {
 
 .owner-photo:hover {
     transform: scale(1.05);
+}
+
+/* Speciality Section */
+.speciality {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    background: var(--bg-cream);
+    position: relative;
+    overflow: visible;
+    scroll-margin-top: 80px;
+}
+
+.speciality-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.speciality-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2rem;
+}
+
+.speciality-instagram-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--body-text);
+    font-weight: 500;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.instagram-icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--berry-accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+}
+
+.instagram-icon-link:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.instagram-svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
+.instagram-icon-link:hover .instagram-svg {
+    transform: scale(1.1);
+}
+
+.speciality-title {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: var(--section-header);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    position: relative;
+}
+
+.speciality-points {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.speciality-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.speciality-points li i {
+    color: var(--berry-accent);
+    font-size: 1.8rem;
+    width: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.speciality-points li:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.speciality-point-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.speciality-point-title {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--main-heading);
+    font-weight: 600;
+    display: block;
+}
+
+.speciality-point-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--body-text);
+    font-weight: 400;
+    margin: 0;
+}
+
+.speciality-right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 500px;
+    gap: 2rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.speciality-gallery-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    min-height: 650px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.speciality-gallery-grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+    height: auto;
+}
+
+.speciality-gallery-item {
+    position: relative;
+    width: 160px;
+    border-radius: 25px 10px 25px 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(47, 93, 80, 0.25),
+                0 5px 15px rgba(200, 74, 74, 0.15);
+    flex-shrink: 0;
+}
+
+.speciality-overlay-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    color: var(--main-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.6rem 0.5rem;
+    z-index: 2;
+}
+
+
+/* Staggered Layout - Reel Style */
+.speciality-item-1 {
+    height: 450px;
+    transform: translateY(80px) rotate(-4deg);
+}
+
+.speciality-item-2 {
+    height: 520px;
+    transform: translateY(0px) rotate(2deg);
+}
+
+.speciality-item-3 {
+    height: 480px;
+    transform: translateY(120px) rotate(-3deg);
+}
+
+.speciality-gallery-image,
+.speciality-gallery-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Add decorative glow effect */
+.speciality-gallery-item::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 25px 10px 25px 10px;
+    background: linear-gradient(135deg,
+            rgba(200, 74, 74, 0.3) 0%,
+            rgba(127, 168, 146, 0.3) 100%);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* Speciality Section Waves */
+.speciality .waves-area {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
 }
 
 /* Services Section */
@@ -945,6 +1184,53 @@ section {
         max-width: 350px;
     }
 
+    .speciality-container {
+        gap: 3rem;
+    }
+
+    .speciality-title {
+        font-size: 3rem;
+    }
+
+    .speciality-points li {
+        font-size: 1.1rem;
+    }
+
+    .speciality-gallery-wrapper {
+        max-width: 550px;
+        height: auto;
+        min-height: 550px;
+        margin-top: 3rem;
+    }
+
+    .speciality-gallery-grid {
+        gap: 1.2rem;
+    }
+
+    .speciality-gallery-item {
+        width: 135px;
+    }
+
+    .speciality-overlay-title {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .speciality-item-1 {
+        height: 400px;
+        transform: translateY(60px) rotate(-4deg);
+    }
+
+    .speciality-item-2 {
+        height: 470px;
+        transform: translateY(0px) rotate(2deg);
+    }
+
+    .speciality-item-3 {
+        height: 430px;
+        transform: translateY(90px) rotate(-3deg);
+    }
+
     /* Tablet/iPad Pro Fixes */
     .hero {
         flex-direction: column;
@@ -1087,8 +1373,113 @@ section {
         height: 60px;
     }
 
-    .waves-svg {
-        /* height: 60px; */
+    .speciality {
+        min-height: auto;
+        padding: 4rem 0rem 8rem 0rem;
+        scroll-margin-top: 70px;
+        overflow: visible;
+    }
+
+    .speciality-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 1.5rem;
+        overflow: hidden;
+    }
+
+    .speciality-left {
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .speciality-instagram-text {
+        justify-content: center;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .speciality-title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .speciality-points {
+        align-items: flex-start;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .speciality-points li {
+        text-align: left;
+    }
+
+    .speciality-points li i {
+        font-size: 1.5rem;
+        width: 1.8rem;
+    }
+
+    .speciality-point-title {
+        font-size: 1.1rem;
+    }
+
+    .speciality-point-description {
+        font-size: 0.95rem;
+    }
+
+    .speciality-right {
+        min-height: 400px;
+        margin-top: 2rem;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .instagram-svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .speciality-gallery-wrapper {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        min-height: 480px;
+        margin-top: 0;
+        overflow: hidden;
+    }
+
+    .speciality-gallery-grid {
+        max-width: 100%;
+        width: 100%;
+        gap: 0.7rem;
+        flex-wrap: nowrap;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .speciality-gallery-item {
+        width: 95px;
+        flex-shrink: 0;
+    }
+
+    .speciality-overlay-title {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.2rem;
+    }
+
+    .speciality-item-1 {
+        height: 300px;
+        transform: translateY(35px) rotate(-3deg);
+    }
+
+    .speciality-item-2 {
+        height: 360px;
+        transform: translateY(0px) rotate(1.5deg);
+    }
+
+    .speciality-item-3 {
+        height: 330px;
+        transform: translateY(50px) rotate(-2deg);
     }
 }
 
