@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Sweet Corner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <h1 class="logo">Sweet Corner</h1>
+        </div>
+        <button class="menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#about">About Me</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="../contact.html">Contact Me</a></li>
+            <li><a href="../cart/cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+    </nav>
+
+    <main class="product-detail-page">
+
+        <!-- Product Detail Container -->
+        <div class="product-detail-container">
+            <!-- Product Image Section -->
+            <div class="product-detail-image-section">
+                <div class="main-product-image">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1000&auto=format&fit=crop"
+                        alt="Strawberry Dream Cake" id="mainImage">
+                </div>
+                <div class="thumbnail-images">
+                    <div class="thumbnail active" data-image="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1000&auto=format&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=300&auto=format&fit=crop" alt="Strawberry Dream Cake">
+                    </div>
+                    <div class="thumbnail" data-image="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=300&auto=format&fit=crop" alt="Thumbnail 2">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="product-detail-info-section">
+                <h1 class="product-detail-name">Classic Chocolate Cake</h1>
+                <div class="product-detail-category">
+                    <i class="fa-solid fa-tag"></i>
+                    <span>Category: Cakes</span>
+                </div>
+                <div class="product-detail-price">
+                    <span class="detail-current-price">₹3,500</span>
+                </div>
+                <div class="product-detail-description">
+                    <h3>Description</h3>
+                    <p>
+                        Indulge in our Classic Chocolate Cake, a timeless favorite made with the finest quality cocoa
+                        and premium ingredients. This rich, moist cake is layered with smooth chocolate buttercream
+                        and finished with a decadent chocolate ganache. Perfect for birthdays, celebrations, or
+                        whenever you need a sweet treat to brighten your day.
+                    </p>
+                    <p>
+                        Each cake is freshly baked to order, ensuring the highest quality and freshness. Our Classic
+                        Chocolate Cake is a crowd-pleaser that never goes out of style.
+                    </p>
+                </div>
+                <div class="product-detail-features">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Made with premium Belgian chocolate</li>
+                        <li><i class="fa-solid fa-check"></i> Freshly baked to order</li>
+                        <li><i class="fa-solid fa-check"></i> Moist and rich texture</li>
+                        <li><i class="fa-solid fa-check"></i> Perfect for 8-10 servings</li>
+                        <li><i class="fa-solid fa-check"></i> Customizable decorations available</li>
+                    </ul>
+                </div>
+                <div class="product-detail-actions">
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" id="decreaseQty">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button class="quantity-btn" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                    <button class="detail-add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products Section -->
+        <section class="related-products-section">
+            <h2 class="related-products-title">You May Also Like</h2>
+            <div class="related-products-grid">
+                <div class="related-product-card">
+                    <div class="related-product-image">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1000&auto=format&fit=crop"
+                            alt="Strawberry Dream Cake">
+                    </div>
+                    <div class="related-product-info">
+                        <h4>Strawberry Dream Cake</h4>
+                        <p class="related-product-price">₹3,200</p>
+                        <a href="product-detail.html" class="related-product-link">View Details</a>
+                    </div>
+                </div>
+                <div class="related-product-card">
+                    <div class="related-product-image">
+                        <img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Red Velvet Delight">
+                    </div>
+                    <div class="related-product-info">
+                        <h4>Red Velvet Delight</h4>
+                        <p class="related-product-price">₹4,000</p>
+                        <a href="product-detail.html" class="related-product-link">View Details</a>
+                    </div>
+                </div>
+                <div class="related-product-card">
+                    <div class="related-product-image">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Lemon Drizzle Cake">
+                    </div>
+                    <div class="related-product-info">
+                        <h4>Lemon Drizzle Cake</h4>
+                        <p class="related-product-price">₹3,000</p>
+                        <a href="product-detail.html" class="related-product-link">View Details</a>
+                    </div>
+                </div>
+                <div class="related-product-card">
+                    <div class="related-product-image">
+                        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?q=80&w=1000&auto=format&fit=crop"
+                            alt="Carrot Cake Delight">
+                    </div>
+                    <div class="related-product-info">
+                        <h4>Carrot Cake Delight</h4>
+                        <p class="related-product-price">₹3,400</p>
+                        <a href="product-detail.html" class="related-product-link">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Waves -->
+    <div class="waves-area">
+        <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave-detail"
+                    d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave-detail" x="48" y="0" />
+                <use xlink:href="#gentle-wave-detail" x="48" y="3" />
+                <use xlink:href="#gentle-wave-detail" x="48" y="5" />
+                <use xlink:href="#gentle-wave-detail" x="48" y="7" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h3 class="footer-logo">Sweet Corner</h3>
+                    <p class="footer-description">
+                        Creating delicious memories with our handcrafted cakes and treats. Made with love and the finest ingredients.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="WhatsApp" class="social-link">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About Me</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="../contact.html">Contact Me</a></li>
+                        <li><a href="../cart/cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=cakes">Cakes</a></li>
+                        <li><a href="products.html?category=cupcakes">Cupcakes</a></li>
+                        <li><a href="products.html?category=pastry">Pastry</a></li>
+                        <li><a href="products.html?category=cookies">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>hello@sweetcorner.com</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Sweet Street, Mumbai, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sweet Corner. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="product-detail.js"></script>
+</body>
+
+</html>

@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Corner - Cakes and Treats</title>
+    <title>Contact Us - Sweet Corner</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -27,95 +27,89 @@
             <span></span>
         </button>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About Me</a></li>
             <li><a href="product/products.html">All Products</a></li>
             <li><a href="contact.html">Contact Me</a></li>
             <li><a href="cart/cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">By Khushi Chhatbar</h1>
-            <p class="hero-subtitle">Cakes and Treats</p>
-            <p class="hero-description">
-                Where every bite is a little piece of happiness. Freshly baked with love,
-                our handcrafted cakes and treats are made to sweeten your special moments.
-            </p>
-            <a href="product/products.html" class="cta-button">Explore Our Treats</a>
-        </div>
-        <div class="hero-video">
-            <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                    <source src="assets/cake-v.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="video-wrapper">
-                <video autoplay loop muted playsinline>
-                    <source src="assets/cake-v2.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="waves-area">
-            <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave"
-                        d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                </defs>
-                <g class="parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" />
-                    <use xlink:href="#gentle-wave" x="48" y="3" />
-                    <use xlink:href="#gentle-wave" x="48" y="5" />
-                    <use xlink:href="#gentle-wave" x="48" y="7" />
-                </g>
-            </svg>
-        </div>
-    </section>
+    <div class="contact-page-wrapper">
+        <div class="contact-container">
+            <!-- Contact Info Side -->
+            <div class="contact-info-section">
+                <h2 class="contact-title">Get in Touch</h2>
+                <p class="contact-subtitle">We'd love to hear from you!</p>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-left">
-                <h2 class="about-title">Who am I?</h2>
-                <p class="about-description">
-                    I am Khushi Chhatbar, a professional baker and related content creator.
-                    With a passion for creating delightful treats, I bring creativity and expertise
-                    to every cake and confection. My journey in baking combines traditional techniques
-                    with modern flair, ensuring each creation is not just delicious, but a work of art
-                    that brings joy to every celebration.
-                </p>
-                <a href="#products" class="cta-button">Explore Our Treats</a>
-            </div>
-            <div class="about-right">
-                <div class="about-image-wrapper">
-                    <div class="about-bg-illustration">
-                        <div class="bg-shape bg-shape-1"></div>
-                        <div class="bg-shape bg-shape-2"></div>
-                        <div class="bg-shape bg-shape-3"></div>
+                <div class="info-items">
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Phone</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
                     </div>
-                    <img src="assets/owner.png" alt="Khushi Chhatbar - Professional Baker" class="owner-photo">
+
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email</h3>
+                            <p>hello@sweetcorner.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Address</h3>
+                            <p>123 Baker Street, Sweet City, SC 90210</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram/Social Side -->
+            <div class="contact-social-section">
+                <div class="social-card">
+                    <div class="insta-image-wrapper">
+                        <img src="assets/insta.png" alt="Follow us on Instagram" class="insta-img">
+                    </div>
+                    <div class="social-content">
+                        <h3>DM us on Instagram</h3>
+                        <p>For custom orders and daily updates!</p>
+                        <a href="https://instagram.com" target="_blank" class="insta-btn">
+                            <i class="fa-brands fa-instagram"></i> Follow @SweetCorner
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Decorative Background Elements -->
+        <!-- Component Waves -->
         <div class="waves-area">
             <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                 <defs>
-                    <path id="gentle-wave-about"
+                    <path id="gentle-wave-contact"
                         d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                 </defs>
                 <g class="parallax">
-                    <use xlink:href="#gentle-wave-about" x="48" y="0" />
-                    <use xlink:href="#gentle-wave-about" x="48" y="3" />
-                    <use xlink:href="#gentle-wave-about" x="48" y="5" />
-                    <use xlink:href="#gentle-wave-about" x="48" y="7" />
+                    <use xlink:href="#gentle-wave-contact" x="48" y="0" />
+                    <use xlink:href="#gentle-wave-contact" x="48" y="3" />
+                    <use xlink:href="#gentle-wave-contact" x="48" y="5" />
+                    <use xlink:href="#gentle-wave-contact" x="48" y="7" />
                 </g>
             </svg>
         </div>
-    </section>
+    </div>
 
     <!-- Footer Section -->
     <footer class="footer">

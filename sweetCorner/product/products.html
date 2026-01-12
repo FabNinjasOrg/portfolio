@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Treats - Sweet Corner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <h1 class="logo">Sweet Corner</h1>
+        </div>
+        <button class="menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#about">About Me</a></li>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="../contact.html">Contact Me</a></li>
+            <li><a href="../cart/cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+    </nav>
+
+    <main class="products-page">
+        <!-- Hero Header -->
+        <header class="products-hero">
+            <h1 class="products-main-title">Discover the perfect treats for every occasion</h1>
+        </header>
+
+        <!-- Filter Bar -->
+        <section class="filter-bar">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="productSearch" placeholder="Search treats...">
+            </div>
+
+            <div class="filter-options">
+                <i class="fa-solid fa-filter"></i>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="cakes">Cakes</option>
+                    <option value="cupcakes">Cupcakes</option>
+                    <option value="pastry">Pastries</option>
+                </select>
+            </div>
+
+            <div class="sort-container">
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
+                <select id="priceSort">
+                    <option value="default">Sort by</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-grid" id="productsGrid">
+            <!-- Product 1 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop"
+                            alt="Classic Chocolate Cake">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Classic Chocolate Cake</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹3,500</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=1000&auto=format&fit=crop"
+                            alt="Strawberry Dream Cake">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Strawberry Dream Cake</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹3,200</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <span class="sold-out-badge">Sold Out</span>
+                        <img src="https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Red Velvet Delight">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Red Velvet Delight</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹4,000</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-category="cupcakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?q=80&w=1000&auto=format&fit=crop"
+                            alt="Chocolate Cupcakes">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Chocolate Cupcakes</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹1,600</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=1000&auto=format&fit=crop"
+                            alt="Vanilla Layer Cake">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Vanilla Layer Cake</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹3,300</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1000&auto=format&fit=crop"
+                            alt="Lemon Drizzle Cake">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Lemon Drizzle Cake</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹3,000</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?q=80&w=1000&auto=format&fit=crop"
+                            alt="Carrot Cake Delight">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Carrot Cake Delight</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹3,400</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?q=80&w=1000&auto=format&fit=crop"
+                            alt="Tiramisu Cake">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Tiramisu Cake</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹3,800</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card" data-category="cakes">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=1000&auto=format&fit=crop"
+                            alt="Black Forest Cake">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Black Forest Cake</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹3,600</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 13 -->
+            <div class="product-card" data-category="pastry">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1000&auto=format&fit=crop"
+                            alt="Chocolate Éclair Pastry">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Chocolate Éclair Pastry</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹1,400</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 14 -->
+            <div class="product-card" data-category="pastry">
+                <a href="product-detail.html" class="product-image-link">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=1000&auto=format&fit=crop"
+                            alt="Cream Puff Pastry">
+                    </div>
+                </a>
+                <div class="product-info">
+                    <a href="product-detail.html" class="product-name-link">
+                        <h3 class="product-name">Cream Puff Pastry</h3>
+                    </a>
+                    <div class="product-meta">
+                        <div class="price-container">
+                            <span class="current-price">₹1,200</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">
+                        <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn">
+                <span>Load More</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer Waves -->
+    <div class="waves-area">
+        <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave-products"
+                    d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave-products" x="48" y="0" />
+                <use xlink:href="#gentle-wave-products" x="48" y="3" />
+                <use xlink:href="#gentle-wave-products" x="48" y="5" />
+                <use xlink:href="#gentle-wave-products" x="48" y="7" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h3 class="footer-logo">Sweet Corner</h3>
+                    <p class="footer-description">
+                        Creating delicious memories with our handcrafted cakes and treats. Made with love and the finest ingredients.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="WhatsApp" class="social-link">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About Me</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                        <li><a href="../contact.html">Contact Me</a></li>
+                        <li><a href="../cart/cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html?category=cakes">Cakes</a></li>
+                        <li><a href="products.html?category=cupcakes">Cupcakes</a></li>
+                        <li><a href="products.html?category=pastry">Pastry</a></li>
+                        <li><a href="products.html?category=cookies">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>hello@sweetcorner.com</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Sweet Street, Mumbai, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sweet Corner. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

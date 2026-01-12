@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Sweet Corner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="cart.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo-container">
+            <h1 class="logo">Sweet Corner</h1>
+        </div>
+        <button class="menu-btn" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="../index.html#home">Home</a></li>
+            <li><a href="../index.html#about">About Me</a></li>
+            <li><a href="../product/products.html">All Products</a></li>
+            <li><a href="../contact.html">Contact Me</a></li>
+            <li><a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        </ul>
+    </nav>
+
+    <main class="cart-page">
+        <div class="cart-container">
+            <div class="cart-content">
+                <!-- Left Column - Cart Items -->
+                <div class="cart-items-section">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart Item 1 -->
+                        <div class="cart-item">
+                            <div class="item-image">
+                                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=300&auto=format&fit=crop"
+                                    alt="Strawberry Dream Cake">
+                            </div>
+                            <div class="item-info">
+                                <h3 class="item-name">Strawberry Dream Cake</h3>
+                                <p class="item-category">Category: Cakes</p>
+                                <p class="item-price-mobile">₹3,200</p>
+                            </div>
+                            <div class="item-quantity">
+                                <button class="quantity-btn" data-action="decrease">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <input type="number" value="1" min="1" class="quantity-input" readonly>
+                                <button class="quantity-btn" data-action="increase">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="item-price">
+                                <span class="price-amount">₹3,200</span>
+                            </div>
+                            <button class="remove-btn" aria-label="Remove item">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+
+                        <!-- Cart Item 2 -->
+                        <div class="cart-item">
+                            <div class="item-image">
+                                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=300&auto=format&fit=crop"
+                                    alt="Vanilla Layer Cake">
+                            </div>
+                            <div class="item-info">
+                                <h3 class="item-name">Vanilla Layer Cake</h3>
+                                <p class="item-category">Category: Cakes</p>
+                                <p class="item-price-mobile">₹2,800</p>
+                            </div>
+                            <div class="item-quantity">
+                                <button class="quantity-btn" data-action="decrease">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                                <input type="number" value="2" min="1" class="quantity-input" readonly>
+                                <button class="quantity-btn" data-action="increase">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="item-price">
+                                <span class="price-amount">₹5,600</span>
+                            </div>
+                            <button class="remove-btn" aria-label="Remove item">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Empty Cart Message (hidden by default) -->
+                    <div class="empty-cart" id="emptyCart" style="display: none;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <h2>Your cart is empty</h2>
+                        <p>Add some delicious treats to your cart!</p>
+                    </div>
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h2 class="summary-title">Order Summary</h2>
+
+                        <div class="summary-details">
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="subtotal">₹8,800</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span>₹200</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax</span>
+                                <span>₹880</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-row total-row">
+                                <span>Total</span>
+                                <span id="total">₹9,880</span>
+                            </div>
+                        </div>
+
+                        <button class="checkout-btn" id="proceedToCheckout">
+                            <i class="fa-solid fa-lock"></i>
+                            Proceed to Checkout
+                        </button>
+
+                        <a href="../product/products.html" class="continue-shopping">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Continue Shopping
+                        </a>
+
+                        <p class="security-note">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Secure checkout with encrypted payment
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h3 class="footer-logo">Sweet Corner</h3>
+                    <p class="footer-description">
+                        Creating delicious memories with our handcrafted cakes and treats. Made with love and the finest ingredients.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="WhatsApp" class="social-link">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#about">About Me</a></li>
+                        <li><a href="../product/products.html">All Products</a></li>
+                        <li><a href="../contact.html">Contact Me</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="../product/products.html?category=cakes">Cakes</a></li>
+                        <li><a href="../product/products.html?category=cupcakes">Cupcakes</a></li>
+                        <li><a href="../product/products.html?category=pastry">Pastry</a></li>
+                        <li><a href="../product/products.html?category=cookies">Cookies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>hello@sweetcorner.com</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>123 Sweet Street, Mumbai, India</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sweet Corner. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+    <script src="../script.js"></script>
+</body>
+
+</html>
