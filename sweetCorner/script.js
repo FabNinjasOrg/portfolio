@@ -47,43 +47,31 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
         const totalItems = cakeSliderItems.length;
 
-        const getItemsPerView = () => {
-            if (window.innerWidth >= 1024) return 3; // Desktop: show 3 items
-            return 1; // Mobile and Tablet: scroll 1 item at a time
-        };
-
-        const getScrollAmount = () => {
-            if (cakeSliderItems.length === 0) return 0;
-
-            // Get the first item to calculate width
-            const firstItem = cakeSliderItems[0];
-            const itemWidth = firstItem.offsetWidth;
-            const itemStyle = window.getComputedStyle(firstItem);
-            const marginRight = parseFloat(itemStyle.marginRight) || 0;
-
-            return itemWidth + marginRight;
-        };
-
         const updateSlider = () => {
-            const scrollAmount = getScrollAmount();
-            const translateX = -(currentIndex * scrollAmount);
+            // Remove active class from all items
+            cakeSliderItems.forEach(item => item.classList.remove('active'));
+
+            // Add active class to current item
+            cakeSliderItems[currentIndex].classList.add('active');
+
+            // Calculate centering offset
+            const wrapperWidth = cakeSliderWrapper.offsetWidth;
+            const itemWidth = cakeSliderItems[currentIndex].offsetWidth;
+            const itemOffsetLeft = cakeSliderItems[currentIndex].offsetLeft;
+            const itemCenter = itemOffsetLeft + (itemWidth / 2);
+
+            const translateX = (wrapperWidth / 2) - itemCenter;
 
             cakeSlider.style.transform = `translateX(${translateX}px)`;
-            cakeSlider.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
 
             // Update arrow states
-            const itemsPerView = getItemsPerView();
-            const maxIndex = totalItems - itemsPerView;
-
             if (cakeLeftArrow) {
                 cakeLeftArrow.disabled = currentIndex === 0;
                 cakeLeftArrow.style.opacity = currentIndex === 0 ? '0.5' : '1';
-                cakeLeftArrow.style.cursor = currentIndex === 0 ? 'not-allowed' : 'pointer';
             }
             if (cakeRightArrow) {
-                cakeRightArrow.disabled = currentIndex >= maxIndex;
-                cakeRightArrow.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
-                cakeRightArrow.style.cursor = currentIndex >= maxIndex ? 'not-allowed' : 'pointer';
+                cakeRightArrow.disabled = currentIndex === totalItems - 1;
+                cakeRightArrow.style.opacity = currentIndex === totalItems - 1 ? '0.5' : '1';
             }
         };
 
@@ -95,13 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const scrollRight = () => {
-            const itemsPerView = getItemsPerView();
-            const maxIndex = totalItems - itemsPerView;
-            if (currentIndex < maxIndex) {
+            if (currentIndex < totalItems - 1) {
                 currentIndex++;
                 updateSlider();
             }
         };
+
+        // Click on items to select them
+        cakeSliderItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
 
         // Event listeners
         if (cakeLeftArrow) {
@@ -116,11 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                const itemsPerView = getItemsPerView();
-                const maxIndex = totalItems - itemsPerView;
-                if (currentIndex > maxIndex) {
-                    currentIndex = Math.max(0, maxIndex);
-                }
                 updateSlider();
             }, 250);
         });
