@@ -971,7 +971,7 @@ section {
 .speciality-cake-slider {
     width: 100%;
     margin: 4rem auto 0;
-    padding: 3rem 0;
+    /* padding: 3rem 0; */
     position: relative;
     z-index: 2;
     background: var(--bg-cream);

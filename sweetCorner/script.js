@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.addEventListener('click', () => {
                 currentIndex = index;
                 updateSlider();
+                window.location.href = 'product/products.html';
             });
         });
 
