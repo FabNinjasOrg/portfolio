@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wings Hair Studio - Experience luxury hair care with our premium salon services including haircuts, coloring, and hair spa treatments.">
+    <meta name="keywords" content="hair salon, luxury hair care, haircut, hair coloring, keratin treatment, hair spa">
+    <title>Wings Hair Studio | Luxury Hair Care & Styling</title>
+    <link rel="icon" href="assets/wings.png" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="wings-studio.html" class="logo">
+                    <img src="assets/wings.png" alt="Wings Hair Studio Logo" class="logo-image">
+                    <span>Wings Hair Studio</span>
+                </a>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="wings-studio.html" class="nav-link active">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="wings-studio.html#booking" class="btn-primary">Book Now</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-wrapper">
+                <div class="hero-text" data-animate="fade-right">
+                    <h1 class="hero-title">
+                        Discover Your<br>
+                        Signature <span class="text-gold">Look.</span>
+                    </h1>
+                    <p class="hero-subtitle">Experience personalized hair care that enhances your style, confidence, and
+                        natural beauty.</p>
+                    <div class="hero-buttons">
+                        <a href="#booking" class="btn-custom-primary" id="hero-cta-booking"> Book an appointment
+                        </a>
+                        <a href="services.html" class="btn-custom-outline" id="hero-cta-services">
+                            Services
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual" data-animate="fade-left">
+                    <div class="hero-image-container">
+                        <div class="hero-image-border"></div>
+                        <img src="assets/hair.jpeg" alt="Professional Barber Styling" class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories Section -->
+    <section id="stories" class="stories">
+        <div class="containerWide">
+            <div class="section-header reveal-on-scroll">
+                <span class="section-label">Signature Stories</span>
+                <h2 class="section-title">Our Work Speaks For Itself</h2>
+                <p class="section-description">See our recent work in action. From precision cuts to vibrant colors,
+                    witness the Wings transformation.</p>
+            </div>
+
+            <div class="stories-grid creative-layout">
+                <!-- Reel 1 -->
+                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.1s">
+                    <div class="video-container">
+                        <video loop muted playsinline class="reel-video">
+                            <source src="assets/services/reel1.mp4" type="video/mp4">
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h3>Style Refresh</h3>
+                                <span>Hair Transformation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel 2 -->
+                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.2s">
+                    <div class="video-container">
+                        <video loop muted playsinline class="reel-video">
+                            <source src="assets/services/reel2.mp4" type="video/mp4">
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h3>Vibrant Color</h3>
+                                <span>Master Coloring</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel 3 -->
+                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.3s">
+                    <div class="video-container">
+                        <video loop muted playsinline class="reel-video">
+                            <source src="assets/services/reel3.mp4" type="video/mp4">
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h3>Luxury Spa</h3>
+                                <span>Hair Treatment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel 4 -->
+                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.4s">
+                    <div class="video-container">
+                        <video loop muted playsinline class="reel-video">
+                            <source src="assets/services/reel4.mp4" type="video/mp4">
+                        </video>
+                        <div class="reel-overlay">
+                            <div class="reel-content">
+                                <h3>Glamour Cut</h3>
+                                <span>Signature Look</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="booking-wrapper">
+                <div class="booking-info" data-animate="fade-right">
+                    <span class="section-label">Schedule</span>
+                    <h2 class="section-title">Book Your Appointment</h2>
+                    <p class="booking-description">
+                        Experience luxury hair care at Wings Hair Studio. Fill out the form and we'll confirm your
+                        appointment shortly.
+                    </p>
+                    <div class="booking-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Expert stylists</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Premium products</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Luxury experience</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Flexible scheduling</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="booking-form" id="bookingForm" data-animate="fade-left">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="haircut">Haircut</option>
+                                <option value="coloring">Hair Color</option>
+                                <option value="spa">Hair Spa</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Preferred Time</label>
+                            <select id="time" name="time" required>
+                                <option value="">Select time</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">01:00 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                                <option value="17:00">05:00 PM</option>
+                                <option value="17:00">06:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="stylist">Preferred Stylist (Optional)</label>
+                        <select id="stylist" name="stylist">
+                            <option value="">No preference</option>
+                            <option value="sarah">Bobby Sharma</option>
+                            <option value="emily">Rohit</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Special Requests</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Any special requirements or notes..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-large btn-full">
+                        <i class="fas fa-calendar-check"></i>
+                        Confirm Booking
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">
+                        <img src="assets/wings.png" alt="Wings Hair Studio Logo" class="footer-logo-image">
+                        Wings Hair Studio
+                    </h3>
+                    <p class="footer-description">
+                        Your destination for luxury hair care and exceptional styling. Experience the art of
+                        transformation.
+                    </p>
+                    <div class="newsletter">
+                        <h4>Subscribe to Newsletter</h4>
+                        <form class="newsletter-form" id="newsletterFormMain">
+                            <input type="email" placeholder="Enter your email" required id="newsletter-email">
+                            <button type="submit" id="newsletter-submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="wings-studio.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Hair Styling</a></li>
+                        <li><a href="services.html">Hair Cut</a></li>
+                        <li><a href="services.html">Hair Color</a></li>
+                        <li><a href="services.html">Hair Spa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            pp plaza, 1/20, opp. Sri shanimathma temple, Remco Bhel Layout, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
+                        </li>
+                        <li><i class="fas fa-phone"></i>096326 91130</li>
+                        <li><i class="fas fa-envelope"></i>info@wingshairstudio.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wings Hair Studio. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/wingshairstudio_rnr/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
