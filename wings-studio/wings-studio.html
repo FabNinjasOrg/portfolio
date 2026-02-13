@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wings Hair Studio - Experience luxury hair care with our premium salon services including haircuts, coloring, and hair spa treatments.">
+    <meta name="description"
+        content="Wings Hair Studio - Experience luxury hair care with our premium salon services including haircuts, coloring, and hair spa treatments.">
     <meta name="keywords" content="hair salon, luxury hair care, haircut, hair coloring, keratin treatment, hair spa">
     <title>Wings Hair Studio | Luxury Hair Care & Styling</title>
     <link rel="icon" href="assets/wings.png" type="image/svg+xml">
@@ -66,9 +67,16 @@
                 <div class="hero-visual" data-animate="fade-left">
                     <div class="hero-image-container">
                         <div class="hero-image-border"></div>
-                        <img src="assets/hair.jpeg" alt="Professional Barber Styling" class="hero-img">
+
+                        <div class="hero-slider" id="heroSlider">
+                            <img src="assets/hair.jpeg" class="hero-img active">
+                            <img src="assets/wings-studio2.jpg" class="hero-img">
+                            <img src="assets/wings-studio5.jpeg" class="hero-img">
+                            <img src="assets/wings-studio4.jpeg" class="hero-img">
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -83,69 +91,136 @@
                     witness the Wings transformation.</p>
             </div>
 
-            <div class="stories-grid creative-layout">
-                <!-- Reel 1 -->
-                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.1s">
-                    <div class="video-container">
-                        <video loop muted playsinline class="reel-video">
-                            <source src="assets/services/reel1.mp4" type="video/mp4">
-                        </video>
-                        <div class="reel-overlay">
-                            <div class="reel-content">
-                                <h3>Style Refresh</h3>
-                                <span>Hair Transformation</span>
-                            </div>
+            <div class="stories-list">
+                <!-- Story 1 -->
+                <div class="story-item reveal-on-scroll">
+                    <div class="story-visual">
+                        <div class="reel-wrapper">
+                            <video loop muted playsinline class="reel-video">
+                                <source src="assets/services/reel1.mp4" type="video/mp4">
+                            </video>
                         </div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-category">
+                            <i class="fas fa-scissors"></i>
+                            <span>DURABLE FINISH</span>
+                        </div>
+                        <h3 class="story-title">Best Hair <span>Styling.</span></h3>
+                        <p class="story-text">Experience a personalized transformation that combines precision cutting
+                            with our signature gloss treatment for a look that defines your confidence.</p>
                     </div>
                 </div>
 
-                <!-- Reel 2 -->
-                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.2s">
-                    <div class="video-container">
-                        <video loop muted playsinline class="reel-video">
-                            <source src="assets/services/reel2.mp4" type="video/mp4">
-                        </video>
-                        <div class="reel-overlay">
-                            <div class="reel-content">
-                                <h3>Vibrant Color</h3>
-                                <span>Master Coloring</span>
-                            </div>
+                <!-- Story 2 -->
+                <div class="story-item reveal-on-scroll reverse">
+                    <div class="story-visual">
+                        <div class="reel-wrapper">
+                            <video loop muted playsinline class="reel-video">
+                                <source src="assets/services/reel2.mp4" type="video/mp4">
+                            </video>
                         </div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-category">
+                            <i class="fas fa-magic"></i>
+                            <span>PRECISION CUT</span>
+                        </div>
+                        <h3 class="story-title">Master Art of <span>Styling.</span></h3>
+                        <p class="story-text">Includes shaping and expert application that is resistant to fading.
+                            Perfect for long-lasting style and movement for several weeks.</p>
                     </div>
                 </div>
 
-                <!-- Reel 3 -->
-                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.3s">
-                    <div class="video-container">
-                        <video loop muted playsinline class="reel-video">
-                            <source src="assets/services/reel3.mp4" type="video/mp4">
-                        </video>
-                        <div class="reel-overlay">
-                            <div class="reel-content">
-                                <h3>Luxury Spa</h3>
-                                <span>Hair Treatment</span>
-                            </div>
+                <!-- Story 3 -->
+                <div class="story-item reveal-on-scroll">
+                    <div class="story-visual">
+                        <div class="reel-wrapper">
+                            <video loop muted playsinline class="reel-video">
+                                <source src="assets/services/reel3.mp4" type="video/mp4">
+                            </video>
                         </div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-category">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>VIBRANT COLOR</span>
+                        </div>
+                        <h3 class="story-title">Dimensional <span>Color.</span></h3>
+                        <p class="story-text">Our color specialists use premium products to achieve stunning,
+                            long-lasting results that glow and enhance your natural beauty.</p>
                     </div>
                 </div>
 
-                <!-- Reel 4 -->
-                <div class="reel-card reveal-on-scroll" style="transition-delay: 0.4s">
-                    <div class="video-container">
-                        <video loop muted playsinline class="reel-video">
-                            <source src="assets/services/reel4.mp4" type="video/mp4">
-                        </video>
-                        <div class="reel-overlay">
-                            <div class="reel-content">
-                                <h3>Glamour Cut</h3>
-                                <span>Signature Look</span>
-                            </div>
+                <!-- Story 4 -->
+                <div class="story-item reveal-on-scroll reverse">
+                    <div class="story-visual">
+                        <div class="reel-wrapper">
+                            <video loop muted playsinline class="reel-video">
+                                <source src="assets/services/reel4.mp4" type="video/mp4">
+                            </video>
                         </div>
+                    </div>
+                    <div class="story-content">
+                        <div class="story-category">
+                            <i class="fas fa-spa"></i>
+                            <span>HAIR TREATMENT</span>
+                        </div>
+                        <h3 class="story-title">Luxury Hair <span>Spa.</span></h3>
+                        <p class="story-text">Rejuvenate your scalp and hair with our luxurious spa treatments designed
+                            to nourish, repair, and restore natural shine.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Highlight Services Section (UI Inspired) -->
+    <section class="highlight-services reveal-on-scroll">
+        <div class="container">
+            <div class="highlight-wrapper">
+                <div class="highlight-content">
+                    <span class="highlight-label">BOOK NOW</span>
+                    <h2 class="highlight-title">Services</h2>
+                    <p class="highlight-text">
+                        Discover a full range of expert hair care services at Wings Hair Studio, your destination for
+                        precision and beauty. From our signature <strong>Gloss Treatments</strong>, known for their
+                        flawless finish and unmatched longevity, to <strong>Master Cuts</strong> and custom styling, we
+                        deliver top-tier results. Our <strong>Hair Spa</strong> ensures healthy, vibrant hair with
+                        lasting beauty, while our custom <strong>Color Art</strong> allows you to express your unique
+                        style.
+                        </p>
+                    <div class="services-tags">
+                        <div class="service-tag">
+                            <i class="fas fa-scissors"></i>
+                            <span>Hair Cut</span>
+                        </div>
+                        <div class="service-tag">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Hair Color</span>
+                        </div>
+                        <div class="service-tag">
+                            <i class="fas fa-spa"></i>
+                            <span>Hair Spa</span>
+                        </div>
+                        <div class="service-tag">
+                            <i class="fas fa-star"></i>
+                            <span>Hair Style</span>
+                        </div>
+                    </div>
+                    
+                    <a href="services.html" class="btn-read-more">Check Our Services</a>
+                </div>
+                <div class="highlight-visual">
+                    <div class="arch-frame">
+                        <img src="assets/wings-hair-style.jpeg" alt="Luxury Hair Styling" class="arch-img">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Booking Section -->
     <section id="booking" class="booking">
@@ -233,11 +308,6 @@
                             <option value="emily">Rohit</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Special Requests</label>
-                        <textarea id="message" name="message" rows="4"
-                            placeholder="Any special requirements or notes..."></textarea>
-                    </div>
                     <button type="submit" class="btn-primary btn-large btn-full">
                         <i class="fas fa-calendar-check"></i>
                         Confirm Booking
@@ -277,6 +347,8 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="about.html">About Us</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -293,17 +365,19 @@
                     <ul class="footer-contact">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            pp plaza, 1/20, opp. Sri shanimathma temple, Remco Bhel Layout, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
+                            PP Plaza, 1/20, opp. Sri Shanimathma Temple, Remco Bhel Layout, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098
                         </li>
-                        <li><i class="fas fa-phone"></i>096326 91130</li>
-                        <li><i class="fas fa-envelope"></i>info@wingshairstudio.com</li>
+                        <li><i class="fas fa-phone"></i><a href="tel:+919632691130">096326 91130</a></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:info@wingshairstudio.com">info@wingshairstudio.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Wings Hair Studio. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/wingshairstudio_rnr/"><i class="fab fa-instagram"></i></a>
+                <p>&copy; 2026 FabNinjas. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="wings-studio.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="wings-studio.html">Terms of Service</a>
                 </div>
             </div>
         </div>
