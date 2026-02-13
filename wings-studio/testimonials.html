@@ -53,18 +53,12 @@
                     <span class="section-label">Client Reviews</span>
                     <h2 class="section-title">Hear from the Wings Family</h2>
                 </div>
-                <div class="header-right">
-                    <div class="carousel-controls">
-                        <button class="carousel-nav prev" id="prevBtn"><i class="fas fa-arrow-left"></i></button>
-                        <button class="carousel-nav next" id="nextBtn"><i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
             </div>
 
             <div class="testimonials-carousel-v2">
                 <div class="testimonials-slider" id="testimonialsWrapper">
                     <!-- Review 1 -->
-                    <div class="testimonial-card-v2">
+                    <div class="testimonial-card-v2" data-animate="fade-up">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -90,7 +84,7 @@
                     </div>
 
                     <!-- Review 2 -->
-                    <div class="testimonial-card-v2">
+                    <div class="testimonial-card-v2" data-animate="fade-up" style="transition-delay: 0.1s">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -115,7 +109,7 @@
                     </div>
 
                     <!-- Review 3 -->
-                    <div class="testimonial-card-v2">
+                    <div class="testimonial-card-v2" data-animate="fade-up" style="transition-delay: 0.2s">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -140,7 +134,7 @@
                     </div>
 
                     <!-- Review 4 -->
-                    <div class="testimonial-card-v2">
+                    <div class="testimonial-card-v2 hidden-review" data-animate="fade-up" style="transition-delay: 0.3s">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -164,8 +158,8 @@
                         </div>
                     </div>
 
-                    <!-- Review 5 -->
-                    <div class="testimonial-card-v2">
+                    <!-- Hidden Reviews (shown after Load More) -->
+                    <div class="testimonial-card-v2 hidden-review" data-animate="fade-up" style="transition-delay: 0.4s">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -189,8 +183,7 @@
                         </div>
                     </div>
 
-                    <!-- Review 6 -->
-                    <div class="testimonial-card-v2">
+                    <div class="testimonial-card-v2 hidden-review" data-animate="fade-up" style="transition-delay: 0.5s">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -215,8 +208,7 @@
                         </div>
                     </div>
 
-                    <!-- Review 7 -->
-                    <div class="testimonial-card-v2">
+                    <div class="testimonial-card-v2 hidden-review" data-animate="fade-up" style="transition-delay: 0.6s">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -241,8 +233,7 @@
                         </div>
                     </div>
 
-                    <!-- Review 8 -->
-                    <div class="testimonial-card-v2">
+                    <div class="testimonial-card-v2 hidden-review" data-animate="fade-up" style="transition-delay: 0.7s">
                         <div class="card-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -256,7 +247,7 @@
                         <p class="testimonial-text">
                             "I had a great experience at the salon! I got my haircut , colour & botox hair treatment
                             done by Bobby—he was professional, attentive, and gave me exactly the style I was looking
-                            for. I’m really happy with the result!!"
+                            for. I'm really happy with the result!!"
                         </p>
                         <div class="testimonial-footer">
                             <div class="footer-avatar">S</div>
@@ -267,6 +258,14 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="btn-load-more" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i>
+                    Load More Reviews
+                </button>
             </div>
         </div>
     </section>
@@ -301,6 +300,8 @@
                         <li><a href="services.html">Services</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="about.html">About Us</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -315,17 +316,18 @@
                 <div class="footer-section">
                     <h4 class="footer-heading">Contact Info</h4>
                     <ul class="footer-contact">
-                        <li><i class="fas fa-map-marker-alt"></i>pp plaza, 1/20, opp. Sri shanimathma temple, Remco Bhel
-                            Layout, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098</li>
-                        <li><i class="fas fa-phone"></i>096326 91130</li>
-                        <li><i class="fas fa-envelope"></i> info@wingshairstudio.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i>PP Plaza, 1/20, opp. Sri Shanimathma Temple, Remco Bhel Layout, Ideal Homes Twp, Rajarajeshwari Nagar, Bengaluru, Karnataka 560098</li>
+                        <li><i class="fas fa-phone"></i><a href="tel:+919632691130">096326 91130</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@wingshairstudio.com">info@wingshairstudio.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Wings Hair Studio. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/wingshairstudio_rnr/"><i class="fab fa-instagram"></i></a>
+                <p>&copy; 2026 FabNinjas. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="wings-studio.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="wings-studio.html">Terms of Service</a>
                 </div>
             </div>
         </div>

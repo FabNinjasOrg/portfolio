@@ -29,6 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const slides = document.querySelectorAll('#heroSlider .hero-img');
+    let current = 0;
+
+    function showNextSlide() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 1500); // change every 3 sec
+
     // 3. Correct Smooth Scroll for Website
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -73,65 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // 5. Testimonials Slider (V2 Restore)
-    const slider = document.getElementById('testimonialsWrapper');
-    const testimonialCards = document.querySelectorAll('.testimonial-card-v2');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    if (slider && testimonialCards.length > 0) {
-        let currentPosition = 0;
-        const cardWidth = testimonialCards[0].offsetWidth + 32;
-        const maxScroll = (testimonialCards.length * cardWidth) - slider.parentElement.offsetWidth;
-
-        function updateSlider() {
-            slider.style.transform = `translateX(-${currentPosition}px)`;
-        }
-
-        const advanceSlider = () => {
-            currentPosition += cardWidth;
-            if (currentPosition > maxScroll) currentPosition = 0;
-            updateSlider();
-        };
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                advanceSlider();
-                resetAutoPlay();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                currentPosition -= cardWidth;
-                if (currentPosition < 0) currentPosition = maxScroll;
-                updateSlider();
-                resetAutoPlay();
-            });
-        }
-
-        // Auto-play (Live Scroll)
-        let autoPlayInterval = setInterval(advanceSlider, 5000);
-
-        const resetAutoPlay = () => {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = setInterval(advanceSlider, 5000);
-        };
-
-        // Pause on hover
-        slider.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-        slider.addEventListener('mouseleave', () => {
-            autoPlayInterval = setInterval(advanceSlider, 5000);
-        });
-
-        // Handle Resize
-        window.addEventListener('resize', () => {
-            currentPosition = 0;
-            updateSlider();
-        });
-    }
-
-    // 6. Video Auto-play
+    // 5. Video Auto-play
     const videoObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const video = entry.target;
@@ -147,6 +100,36 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reel-video').forEach(video => {
         videoObserver.observe(video);
     });
+
+    // 6. Load More Reviews Functionality
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const hiddenReviews = document.querySelectorAll('.hidden-review');
+
+    if (loadMoreBtn && hiddenReviews.length > 0) {
+        let reviewsVisible = false;
+
+        loadMoreBtn.addEventListener('click', () => {
+            if (!reviewsVisible) {
+                // Show hidden reviews
+                hiddenReviews.forEach((review, index) => {
+                    setTimeout(() => {
+                        review.style.display = 'flex';
+                        review.classList.add('animated');
+                    }, index * 100); // Staggered animation
+                });
+                loadMoreBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Reviews';
+                reviewsVisible = true;
+            } else {
+                // Hide reviews
+                hiddenReviews.forEach(review => {
+                    review.style.display = 'none';
+                    review.classList.remove('animated');
+                });
+                loadMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Load More Reviews';
+                reviewsVisible = false;
+            }
+        });
+    }
 
     // 7. Form Handling
     const bookingForm = document.getElementById('bookingForm');
