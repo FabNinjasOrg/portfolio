@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FabNinjas</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/PNGs/Logo + Favicon_Open File_3.png" alt="fabninjas">
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden>
+            <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </label>
+
+            <div class="nav-menu-wrap">
+                <ul class="menu">
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+                <a href="#" class="cta">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <!-- Orbits layer: sits directly on .hero, covers full right side of viewport -->
+        <div class="orbits-container">
+            <!-- Central orb -->
+            <div class="orbit-center">
+                <img src="assets/PNGs/Logo + Favicon_Open File_4 copy 2.png" alt="FabNinjas" class="orbit-center-logo">
+            </div>
+            <!-- Orbit 1 - inner -->
+            <div class="orbit orbit-1">
+                <a href="#" class="orbit-item tech-tile shape-circle" title="HTML5"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5"></a>
+                <a href="#" class="orbit-item tech-tile shape-circle" title="React"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React"></a>
+                <a href="#" class="orbit-item tech-tile shape-circle" title="PHP"><img src="https://cdn.simpleicons.org/php/777BB4" alt="PHP"></a>
+            </div>
+            <!-- Orbit 2 - middle -->
+            <div class="orbit orbit-2">
+                <a href="#" class="orbit-item tech-tile shape-rounded" title="Vue.js"><img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" alt="Vue.js"></a>
+                <a href="#" class="orbit-item tech-tile shape-rounded" title="Flutter"><img src="https://cdn.simpleicons.org/flutter/02569B" alt="Flutter"></a>
+                <a href="#" class="orbit-item tech-tile shape-circle" title="Docker"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker"></a>
+                <a href="#" class="orbit-item tech-tile shape-rounded" title="iOS"><img src="https://cdn.simpleicons.org/apple/000000" alt="iOS"></a>
+            </div>
+            <!-- Orbit 3 - outer -->
+            <div class="orbit orbit-3">
+                <a href="#" class="orbit-item tech-tile shape-pill" title="JavaScript"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript"></a>
+                <a href="#" class="orbit-item tech-tile shape-pill" title="Laravel"><img src="https://cdn.simpleicons.org/laravel/FF2D20" alt="Laravel"></a>
+                <a href="#" class="orbit-item tech-tile shape-circle" title="PostgreSQL"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL"></a>
+                <a href="#" class="orbit-item tech-tile shape-pill" title="GraphQL"><img src="https://cdn.simpleicons.org/graphql/E10098" alt="GraphQL"></a>
+                <a href="#" class="orbit-item tech-tile shape-circle" title="MongoDB"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB"></a>
+                <a href="#" class="orbit-item tech-tile shape-rounded" title="Performance"><img src="https://api.iconify.design/mdi:speedometer.svg?color=%23282643" alt="Performance"></a>
+            </div>
+        </div>
+
+        <!-- Text content -->
+        <div class="hero-inner">
+            <div class="hero-content">
+                <h1>
+                    Your Digital Transformation Partner
+                </h1>
+
+                <p class="hero-content-subtitle">
+                    We craft <strong>unique, scalable, and robust</strong> tech products for selective and complicated
+                    projects with ninja-like precision.
+                </p>
+
+                <div class="buttons">
+                    <button class="primary">Services</button>
+                    <button class="secondary">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who we are stats slider: pills with icons (orange), infinite auto-scroll (before Who we are) -->
+    <div class="who-we-are-slider-wrap" aria-hidden="true">
+        <div class="who-we-are-slider-track">
+            <div class="who-we-are-slider-set">
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">10+ project delivered</span>
+                </div>
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">5+ inhouse products</span>
+                </div>
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">Happy team of 6 people</span>
+                </div>
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">5+ happy clients</span>
+                </div>
+            </div>
+            <div class="who-we-are-slider-set" aria-hidden="true">
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">10+ project delivered</span>
+                </div>
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">5+ inhouse products</span>
+                </div>
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">Happy team of 6 people</span>
+                </div>
+                <div class="who-we-are-slider-pill">
+                    <span class="who-we-are-slider-pill-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </span>
+                    <span class="who-we-are-slider-pill-text">5+ happy clients</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHO WE ARE -->
+    <section class="who-we-are">
+        <div class="who-we-are-inner">
+            <div class="who-we-are-left">
+                <h2 class="who-we-are-title">
+                    <span class="who-we-are-title-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    Who we are
+                </h2>
+                <p class="who-we-are-desc">Everything you need to know about our values, purpose, and the culture that drives us to build exceptional technology solutions.</p>
+                <a href="#" class="who-we-are-cta-btn">
+                    <span class="who-we-are-cta-btn-text">Know more about us</span>
+                    <span class="who-we-are-cta-btn-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    </span>
+                </a>
+            </div>
+            <div class="who-we-are-right">
+                <div class="who-we-are-card who-we-are-card-1">
+                    <span class="who-we-are-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </span>
+                    <h3 class="who-we-are-card-title">Our Vision</h3>
+                    <p class="who-we-are-card-desc">To create a community of developers with ninja-like competencies in their work. They will bring their A-game to their work and keep evolving with changing technology.</p>
+                </div>
+                <div class="who-we-are-card who-we-are-card-2">
+                    <span class="who-we-are-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </span>
+                    <h3 class="who-we-are-card-title">Our Mission</h3>
+                    <p class="who-we-are-card-desc">We are on a global mission to become a leading consultancy firm in the IT sector and to provide an efficient workforce of developers seeing the projects end-to-end.</p>
+                </div>
+                <div class="who-we-are-card who-we-are-card-3">
+                    <span class="who-we-are-card-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </span>
+                    <h3 class="who-we-are-card-title">Our Culture</h3>
+                    <p class="who-we-are-card-desc">A workspace which enables the team to unleash our true potential through joy in work and growth. Our culture is defined by collaboration, growth, wellbeing, no overwork &amp; accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREVIEW -->
+    <section class="preview">
+        <div class="preview-inner">
+            <div class="preview-item preview-item-1">
+                <div class="preview-item-main">
+                    <div class="preview-item-header">
+                        <span class="preview-item-icon preview-item-icon-1" aria-hidden="true">
+                            <!-- Services icon: modular blocks -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="8" height="7" rx="1" />
+                                <rect x="13" y="4" width="8" height="7" rx="1" />
+                                <rect x="3" y="13" width="8" height="7" rx="1" />
+                                <rect x="13" y="13" width="8" height="7" rx="1" />
+                            </svg>
+                        </span>
+                        <h3 class="preview-item-title">Want to explore our services?</h3>
+                    </div>
+                    <p class="preview-item-desc">We craft unique, scalable, and robust tech products with ninja-like
+                        precision. From web apps to mobile solutions, we handle complex projects end-to-end.</p>
+                </div>
+                <div class="preview-item-actions">
+                    <button class="preview-item-btn">
+                        <span class="preview-item-btn-text">Checkout our services</span>
+                        <span class="preview-item-btn-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="preview-item preview-item-2">
+                <div class="preview-item-main">
+                    <div class="preview-item-header">
+                        <span class="preview-item-icon preview-item-icon-2" aria-hidden="true">
+                            <!-- Work icon: briefcase -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 8h16a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2z" />
+                                <path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+                                <path d="M4 12h16" />
+                            </svg>
+                        </span>
+                        <h3 class="preview-item-title">Want to explore our work?</h3>
+                    </div>
+                    <p class="preview-item-desc">Explore selected projects where FabNinjas turned complex ideas into
+                        shipped products that scale.</p>
+                </div>
+                <div class="preview-item-actions">
+                    <button class="preview-item-btn">
+                        <span class="preview-item-btn-text">Checkout our work</span>
+                        <span class="preview-item-btn-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="preview-item preview-item-3">
+                <div class="preview-item-main">
+                    <div class="preview-item-header">
+                        <span class="preview-item-icon preview-item-icon-3" aria-hidden="true">
+                            <!-- Testimonials icon: chat bubbles -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 5h10a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-3 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+                                <path d="M16 9h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-1v3l-3-3" />
+                            </svg>
+                        </span>
+                        <h3 class="preview-item-title">Want to hear from our clients?</h3>
+                    </div>
+                    <p class="preview-item-desc">Hear directly from teams who trust us as their long-term technology
+                        partners.</p>
+                </div>
+                <div class="preview-item-actions">
+                    <button class="preview-item-btn">
+                        <span class="preview-item-btn-text">Checkout testimonials</span>
+                        <span class="preview-item-btn-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact">
+        <div class="contact-inner">
+            <div class="contact-main">
+                <h2 class="contact-title">Contact us</h2>
+                <p class="contact-subtitle">
+                    Have a project in mind or looking for a long-term tech partner? Let’s start the conversation.
+                </p>
+
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <span class="contact-icon" aria-hidden="true">
+                            <!-- Phone icon -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.37 1.77.72 2.6l.06.14a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.34-1.37a2 2 0 0 1 2.11-.45l.14.06c.83.35 1.7.6 2.6.72A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                        </span>
+                        <div class="contact-detail-content">
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+919876543210" class="contact-value">+91 98765 43210</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="contact-icon" aria-hidden="true">
+                            <!-- Email icon -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="16" rx="2" ry="2" />
+                                <polyline points="3 6 12 13 21 6" />
+                            </svg>
+                        </span>
+                        <div class="contact-detail-content">
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:hello@fabninjas.com" class="contact-value">hello@fabninjas.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <span class="contact-icon" aria-hidden="true">
+                            <!-- Follow / connect icon -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="18" cy="5" r="3"/>
+                                <circle cx="6" cy="12" r="3"/>
+                                <circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                            </svg>
+                        </span>
+                        <div class="contact-detail-content">
+                            <span class="contact-label">Follow</span>
+                            <div class="contact-follow-icons">
+                            <a href="#" class="contact-follow-icon" aria-label="Instagram">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="contact-follow-icon" aria-label="LinkedIn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-6a6 6 0 0 1 6-6z"/>
+                                    <rect x="2" y="9" width="4" height="12"/>
+                                    <circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="contact-follow-icon" aria-label="GitHub">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-location-card">
+                    <span class="contact-icon" aria-hidden="true">
+                        <!-- Map pin icon -->
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </span>
+                    <div class="contact-detail-content">
+                        <span class="contact-label">Location</span>
+                        <a class="contact-value" href="https://www.google.com/maps/search/?api=1&query=B-1701%2C%20Paragraph%2C%20Mondeal%20Heights%2C%20Sarkhej%20-%20Gandhinagar%20Hwy%2C%20Ramdev%20Nagar%2C%20Ahmedabad%2C%20Gujarat%20380015" target="_blank" rel="noopener">B-1701, Paragraph, Mondeal Heights, Sarkhej - Gandhinagar Hwy, Ramdev Nagar, Ahmedabad, Gujarat 380015</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/PNGs/Logo + Favicon_Open File_3.png" alt="FabNinjas" class="footer-logo">
+                    <p class="footer-brand-text">Selective partners for complex, scalable digital products.</p>
+                </div>
+
+                <div class="footer-column footer-column--split">
+                    <div class="footer-column-half">
+                        <h4 class="footer-heading">Explore</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Services</a></li>
+                            <li><a href="#" class="footer-link">Work</a></li>
+                            <li><a href="#" class="footer-link">Testimonials</a></li>
+                            <li><a href="#" class="footer-link">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column-half">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Blogs</a></li>
+                            <li><a href="#" class="footer-link">Life at FabNinjas</a></li>
+                            <li><a href="#" class="footer-link">Careers</a></li>
+                            <li><a href="#" class="footer-link">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <p class="footer-contact-text">Looking for a tech partner for your next project?</p>
+                    <a href="#" class="footer-cta-btn">Contact FabNinjas</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 FabNinjas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
