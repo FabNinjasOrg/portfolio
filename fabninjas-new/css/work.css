@@ -1,0 +1,186 @@
+/*
+ * FabNinjas — Work page only
+ * New styling for the Work page. Load after style.css.
+ */
+
+/* ----- Navbar: in flow so work-intro sits right below (no padding needed) ----- */
+.page-work .navbar {
+    position: relative;
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+/* ----- Nav: selected "Work" link ----- */
+.page-work .menu .nav-active {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.page-work .menu .nav-active::after {
+    width: 100%;
+}
+
+/* ----- Work page intro (no hero) ----- */
+.work-intro {
+    background: #fff;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.work-intro-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.work-intro-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 12px 0;
+}
+
+.work-intro-desc {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 640px;
+}
+
+/* ----- Work page main section (empty scaffold, same shell as About) ----- */
+.work-page {
+    background: #fff;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.work-page-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.work-page-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.work-page-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.work-page-desc {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 680px;
+}
+
+/* Empty grid shell similar to about-us-boxes, ready for future work cards */
+.work-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.work-page-card {
+    border: 1px dashed rgba(40, 38, 67, 0.18);
+    border-radius: 16px;
+    padding: 28px 24px;
+    background: #faf7ff;
+    color: var(--color-text-muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+.work-page-card span {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .page-no-hero .work-intro {
+        padding-top: 88px;
+    }
+    .work-intro-inner {
+        padding: 28px 20px 32px;
+    }
+    .work-intro-title {
+        font-size: 30px;
+    }
+    .work-intro-desc {
+        font-size: 17px;
+    }
+    .work-page-inner {
+        padding: 56px 20px 72px;
+    }
+    .work-page-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-no-hero .work-intro {
+        padding-top: 80px;
+    }
+    .work-intro-inner {
+        padding: 24px 16px 28px;
+    }
+    .work-intro-title {
+        font-size: 26px;
+    }
+    .work-intro-desc {
+        font-size: 16px;
+    }
+    .work-page-inner {
+        padding: 48px 16px 56px;
+    }
+    .work-page-title {
+        font-size: 26px;
+        margin-bottom: 4px;
+    }
+    .work-page-desc {
+        font-size: 15px;
+    }
+    .work-page-grid {
+        grid-template-columns: 1fr;
+        margin-top: 28px;
+    }
+    .work-page-card {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-no-hero .work-intro {
+        padding-top: 72px;
+    }
+    .work-intro-inner {
+        padding: 20px 16px 24px;
+    }
+    .work-intro-title {
+        font-size: 22px;
+    }
+    .work-intro-desc {
+        font-size: 15px;
+    }
+    .work-page-inner {
+        padding: 40px 16px 48px;
+    }
+    .work-page-title {
+        font-size: 22px;
+    }
+}
+

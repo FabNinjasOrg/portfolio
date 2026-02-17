@@ -1,0 +1,223 @@
+/*
+ * FabNinjas — Life at FabNinjas page only
+ * New styling for the Life at FabNinjas page. Load after style.css.
+ */
+
+.page-life .navbar {
+    position: relative;
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+/* Intro */
+.life-intro {
+    background: #fff;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.life-intro-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.life-intro-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 12px 0;
+}
+
+.life-intro-desc {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 640px;
+}
+
+/* Main content */
+.life-page {
+    background: #fff;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.life-page-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.life-page-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.life-page-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.life-page-desc {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 680px;
+}
+
+.life-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.life-pill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.life-pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 18px;
+    border-radius: 999px;
+    background: var(--color-cream);
+    border: 1px solid rgba(40, 38, 67, 0.1);
+}
+
+.life-pill-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.life-pill-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.life-pill-text-main {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.life-pill-text-sub {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.life-photo-card {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(40, 38, 67, 0.12);
+    background: #fff;
+}
+
+.life-photo-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+
+.life-photo-caption {
+    padding: 16px 18px 18px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 900px) {
+    .page-no-hero .life-intro {
+        padding-top: 88px;
+    }
+    .life-intro-inner {
+        padding: 28px 20px 32px;
+    }
+    .life-intro-title {
+        font-size: 30px;
+    }
+    .life-intro-desc {
+        font-size: 17px;
+    }
+    .life-page-inner {
+        padding: 56px 20px 72px;
+    }
+    .life-page-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-no-hero .life-intro {
+        padding-top: 80px;
+    }
+    .life-intro-inner {
+        padding: 24px 16px 28px;
+    }
+    .life-intro-title {
+        font-size: 26px;
+    }
+    .life-intro-desc {
+        font-size: 16px;
+    }
+    .life-page-inner {
+        padding: 48px 16px 56px;
+    }
+    .life-page-title {
+        font-size: 26px;
+        margin-bottom: 4px;
+    }
+    .life-page-desc {
+        font-size: 15px;
+    }
+    .life-layout {
+        grid-template-columns: 1fr;
+    }
+    .life-photo-img {
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-no-hero .life-intro {
+        padding-top: 72px;
+    }
+    .life-intro-inner {
+        padding: 20px 16px 24px;
+    }
+    .life-intro-title {
+        font-size: 22px;
+    }
+    .life-intro-desc {
+        font-size: 15px;
+    }
+    .life-page-inner {
+        padding: 40px 16px 48px;
+    }
+    .life-page-title {
+        font-size: 22px;
+    }
+}
+

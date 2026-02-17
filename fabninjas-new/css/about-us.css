@@ -1,0 +1,407 @@
+/*
+ * FabNinjas — About Us page only
+ * New styling for the about page. Load after style.css.
+ */
+
+/* ----- Navbar: in flow so about-intro sits right below (no padding needed) ----- */
+.page-about .navbar {
+    position: relative;
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+/* ----- Nav: selected "About Us" link ----- */
+.page-about .menu .nav-active {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.page-about .menu .nav-active::after {
+    width: 100%;
+}
+
+/* ----- About page intro (no hero) ----- */
+.about-intro {
+    background: #fff;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.about-intro-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.about-intro-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 12px 0;
+}
+
+.about-intro-desc {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 640px;
+}
+
+/* ----- About us section ----- */
+.about-us {
+    background: #fff;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.about-us-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+/* ----- Our story ----- */
+.our-story {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+.our-story-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+.our-story-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.our-story-heading .about-us-box-icon {
+    margin-bottom: 0;
+}
+
+.our-story-text {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 680px;
+}
+
+.our-story-and-team {
+    display: flex;
+    align-items: stretch;
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.our-story {
+    flex: 1;
+    min-width: 0;
+}
+
+.about-us-team-img-wrap {
+    flex: 0 0 340px;
+    min-height: 0;
+    align-self: stretch;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.about-us-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-us-team-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.about-us-box {
+    border: 1px solid rgba(40, 38, 67, 0.12);
+    border-radius: 16px;
+    padding: 28px 24px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.about-us-box:hover {
+    border-color: rgba(233, 157, 117, 0.35);
+    box-shadow: 0 8px 24px rgba(40, 38, 67, 0.08);
+}
+
+.about-us-box-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--color-orange);
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+.about-us-box-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: #fff;
+}
+
+.about-us-box-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin: 0 0 12px 0;
+}
+
+.about-us-box-desc {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .page-no-hero .about-intro {
+        padding-top: 88px;
+    }
+    .about-intro-inner {
+        padding: 28px 20px 32px;
+    }
+    .about-intro-title {
+        font-size: 30px;
+    }
+    .about-intro-desc {
+        font-size: 17px;
+    }
+    .our-story-title,
+    .team-title {
+        font-size: 30px;
+    }
+    .about-us-inner {
+        padding: 56px 20px 72px;
+    }
+    .team-section-inner {
+        padding: 56px 20px 72px;
+    }
+    .our-story-and-team {
+        flex-direction: column;
+    }
+    .our-story {
+        margin-bottom: 0;
+    }
+    .about-us-team-img-wrap {
+        flex: none;
+        height: 260px;
+    }
+    .about-us-boxes {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-no-hero .about-intro {
+        padding-top: 80px;
+    }
+    .about-intro-inner {
+        padding: 24px 16px 28px;
+    }
+    .about-intro-title {
+        font-size: 26px;
+    }
+    .about-intro-desc {
+        font-size: 16px;
+    }
+    .about-us-inner {
+        padding: 48px 16px 56px;
+    }
+    .team-section-inner {
+        padding: 48px 16px 56px;
+    }
+    .our-story {
+        margin-bottom: 36px;
+        padding: 28px 16px;
+    }
+    .our-story-title {
+        font-size: 26px;
+        margin-bottom: 16px;
+    }
+    .our-story-text {
+        font-size: 15px;
+    }
+    .about-us-box {
+        padding: 24px 20px;
+    }
+    .about-us-box-icon {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 12px;
+    }
+    .about-us-box-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+    .about-us-box-title {
+        font-size: 17px;
+    }
+    .about-us-box-desc {
+        font-size: 14px;
+    }
+}
+
+/* ----- Team section: title + team grid ----- */
+.team-section {
+    background: #fff;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.team-section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.team-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 24px 0;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-start;
+}
+
+.team-grid--founders {
+    margin-bottom: 24px;
+}
+
+.meet-team-card {
+    flex: 1 1 180px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    padding: 20px 16px;
+    background: var(--color-purple);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.meet-team-card:hover {
+    border-color: rgba(233, 157, 117, 0.35);
+    box-shadow: 0 8px 24px rgba(40, 38, 67, 0.08);
+}
+
+.meet-team-card-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: 0 auto 14px;
+    background: var(--color-purple);
+}
+
+.meet-team-card-name {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+ .meet-team-card-role {
+    display: block;
+    font-size: 13px;
+    color: var(--color-cream);
+}
+
+@media (max-width: 768px) {
+    .team-title {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    .team-grid {
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .meet-team-card {
+        flex: 1 1 140px;
+        max-width: 180px;
+        padding: 16px 12px;
+    }
+    .meet-team-card-img {
+        width: 112px;
+        height: 112px;
+        margin-bottom: 10px;
+    }
+    .meet-team-card-name {
+        font-size: 15px;
+    }
+    .meet-team-card-role {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-no-hero .about-intro {
+        padding-top: 72px;
+    }
+    .about-intro-inner {
+        padding: 20px 16px 24px;
+    }
+    .about-intro-title {
+        font-size: 22px;
+    }
+    .about-intro-desc {
+        font-size: 15px;
+    }
+    .our-story-title,
+    .team-title {
+        font-size: 22px;
+    }
+    .our-story {
+        margin-bottom: 28px;
+        padding: 24px 16px;
+    }
+    .team-title {
+        margin-bottom: 16px;
+    }
+    .about-us-inner {
+        padding: 40px 16px 48px;
+    }
+    .team-section-inner {
+        padding: 40px 16px 48px;
+    }
+}

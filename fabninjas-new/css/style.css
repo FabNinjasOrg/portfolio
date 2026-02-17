@@ -60,7 +60,7 @@ body {
     -webkit-backdrop-filter: blur(8px);
     z-index: 1000;
     transition: background 0.25s ease;
-    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+    /* border-bottom: 1px solid rgba(40, 38, 67, 0.12); */
 }
 
 .nav-container {
@@ -152,12 +152,12 @@ body {
     bottom: 0;
     width: 0;
     height: 2px;
-    background: #e99d75;
+    background: rgba(40, 38, 67, 0.95);
     transition: width 0.25s ease;
 }
 
 .menu li a:hover {
-    color: #e99d75;
+    color: rgba(40, 38, 67, 0.95);
 }
 
 .menu li a:hover::after {
@@ -186,11 +186,10 @@ body {
     justify-content: center;
     text-align: left;
     padding: 0 24px;
-    /* background:
-    radial-gradient(ellipse at 30% 30%, rgba(233, 157, 117, 0.12), transparent 50%),
-    radial-gradient(ellipse at 75% 60%, rgba(119, 100, 130, 0.08), transparent 50%),
-    radial-gradient(ellipse at 50% 90%, rgba(186, 169, 184, 0.10), transparent 50%),
-    linear-gradient(170deg, #faf7f2 0%, #f2e1ca 40%, #faf7f2 100%); */
+    /* Upper half: circular orange gradient; lower half white */
+    background:
+        radial-gradient(ellipse 120% 100% at 50% 0%, rgba(233, 157, 117, 0.4) 0%, rgba(233, 157, 117, 0.2) 40%, transparent 70%),
+        #fff;
 }
 
 .hero::before {
@@ -835,6 +834,11 @@ body {
     box-shadow: 0 8px 22px rgba(40, 38, 67, 0.18);
 }
 
+a.preview-item-btn {
+    text-decoration: none;
+    color: inherit;
+}
+
 .preview-item-btn-icon {
     display: inline-flex;
     align-items: center;
@@ -1004,7 +1008,7 @@ body {
 }
 
 .contact-value:hover {
-    color: #e99d75;
+    color: rgba(40, 38, 67, 0.95);
 }
 
 .contact-follow {
@@ -1135,6 +1139,21 @@ body {
         gap: 12px;
     }
 
+    .culture-people-inner {
+        flex-direction: column;
+        padding: 56px 20px 72px;
+        gap: 32px;
+    }
+
+    .culture-people-content {
+        flex: none;
+        max-width: 100%;
+    }
+
+    .culture-people-title {
+        font-size: 26px;
+    }
+
     .who-we-are-inner {
         padding: 56px 20px 72px;
         gap: 28px;
@@ -1210,6 +1229,15 @@ body {
 @media (max-width: 768px) {
     .navbar {
         padding: 8px 16px;
+    }
+
+    .culture-people-inner {
+        padding: 48px 16px 56px;
+        gap: 28px;
+    }
+
+    .culture-people-title {
+        font-size: 24px;
     }
 
     .logo img {
@@ -1425,6 +1453,29 @@ body {
         height: 20px;
     }
 
+    .culture-people-inner {
+        padding: 40px 16px 48px;
+        gap: 24px;
+    }
+
+    .culture-people-title {
+        font-size: 20px;
+    }
+
+    .culture-people-title-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .culture-people-title-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .culture-people-desc {
+        font-size: 15px;
+    }
+
     .who-we-are-cta-btn {
         padding: 12px 22px;
         font-size: 15px;
@@ -1623,7 +1674,7 @@ body {
 }
 
 .footer-link:hover {
-    color: #e99d75;
+    color: rgba(40, 38, 67, 0.95);
 }
 
 .footer-contact-text {
