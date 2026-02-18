@@ -29,7 +29,7 @@
 .work-intro-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
@@ -60,7 +60,7 @@
 .work-page-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
@@ -68,8 +68,26 @@
 .work-page-heading {
     display: flex;
     align-items: center;
-    gap: 12px;
     margin-bottom: 12px;
+}
+
+.work-page-heading .about-us-box-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--color-orange);
+    color: #fff;
+    margin-right: 12px;
+}
+
+.work-page-heading .about-us-box-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #fff;
 }
 
 .work-page-title {
@@ -88,26 +106,245 @@
     max-width: 680px;
 }
 
-/* Empty grid shell similar to about-us-boxes, ready for future work cards */
+/* Work cards grid */
 .work-page-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 24px;
     margin-top: 40px;
 }
 
 .work-page-card {
-    border: 1px dashed rgba(40, 38, 67, 0.18);
+    border: 1px solid rgba(40, 38, 67, 0.18);
     border-radius: 16px;
-    padding: 28px 24px;
-    background: #faf7ff;
-    color: var(--color-text-muted);
-    font-size: 14px;
-    text-align: center;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 18px 40px rgba(40, 38, 67, 0.06);
+    position: relative;
 }
 
-.work-page-card span {
+.work-card-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(233, 157, 117, 0.3), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(119, 100, 130, 0.35), transparent 60%),
+        #f7f3ff;
+    overflow: hidden;
+    position: static;
+    flex: 0 0 38%;
+    max-width: 38%;
+}
+
+.work-card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+}
+
+.work-card-thumb-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(40, 38, 67, 0.96);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.work-card-thumb-link:hover {
+    background: rgba(40, 38, 67, 1);
+    transform: translateY(-1px);
+    box-shadow: 0 14px 26px rgba(40, 38, 67, 0.32);
+}
+
+.work-card-content {
+    padding: 20px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #ffffff;
+    flex: 1;
+}
+
+.work-card-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.work-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.work-card-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.work-card-title a:hover {
+    text-decoration: underline;
+}
+
+.work-card-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-dark);
+    margin-top: 4px;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.work-card-tech {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--color-dark);
+}
+
+.work-card-main-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.work-card-body {
+    flex: 1;
+}
+
+.work-card-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    min-width: 0;
+    align-self: flex-start;
+}
+
+.work-card-stack-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+}
+
+.work-card-stack-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+}
+
+.work-card-stack-chip {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(233, 157, 117, 0.12);
+    border: 1px solid rgba(233, 157, 117, 0.4);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-dark);
+}
+
+/* Work page contact CTA */
+.work-contact-cta {
+    background: #fff;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.work-contact-cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px var(--section-padding-x) 40px;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.work-contact-cta-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-dark);
+    margin: 0 0 4px;
+}
+
+.work-contact-cta-desc {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.work-contact-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: var(--color-orange);
+    color: #282643;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.work-contact-cta-button:hover {
+    background: #f28a52;
+    transform: translateY(-1px);
+    box-shadow: 0 16px 32px rgba(233, 157, 117, 0.4);
+}
+
+@media (max-width: 768px) {
+    .work-contact-cta-inner {
+        padding: 24px 16px 28px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+.work-card-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 4px;
+    white-space: nowrap;
+    transition:
+        color 0.2s ease;
+}
+
+.work-card-open-icon {
+    font-size: 14px;
+}
+
+.work-card-open:hover {
+    color: #ffffff;
 }
 
 @media (max-width: 900px) {
@@ -128,6 +365,20 @@
     }
     .work-page-title {
         font-size: 28px;
+    }
+    .work-page-card {
+        flex-direction: column;
+    }
+    .work-card-thumb {
+        flex: 0 0 auto;
+        max-width: 100%;
+    }
+    .work-card-main-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .work-card-stack {
+        align-items: flex-start;
     }
 }
 
@@ -159,7 +410,7 @@
         margin-top: 28px;
     }
     .work-page-card {
-        padding: 24px 20px;
+        border-radius: 14px;
     }
 }
 

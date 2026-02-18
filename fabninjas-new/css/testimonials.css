@@ -26,7 +26,7 @@
 .testimonials-intro-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }

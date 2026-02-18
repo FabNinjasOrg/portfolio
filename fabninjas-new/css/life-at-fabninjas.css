@@ -18,7 +18,7 @@
 .life-intro-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
@@ -49,19 +49,58 @@
 .life-page-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
 }
 
-.life-page-heading {
+/* ---- Row 1: Premium space / Work location (slider left, heading right) ---- */
+.life-row {
+    display: block;
+}
+
+.life-row-1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    overflow: visible;
+}
+
+/* Work location: title + description with orange square icon */
+.life-row-1-heading {
+    max-width: 100%;
+}
+
+.life-row-1-heading-top {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
 }
 
-.life-page-title {
+.life-row-1-heading .life-heading-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: var(--color-orange);
+    color: #fff;
+}
+
+.life-row-1-heading .life-heading-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: #fff;
+}
+
+.life-row-title {
     font-size: 32px;
     font-weight: 700;
     color: var(--color-dark);
@@ -69,19 +108,183 @@
     letter-spacing: 0.01em;
 }
 
-.life-page-desc {
+.life-row-desc {
     font-size: 16px;
     color: var(--color-text-muted);
     line-height: 1.6;
     margin: 0;
-    max-width: 680px;
 }
 
-.life-layout {
+/* ---- Row 2: Left photos slider, Right work benefits ---- */
+.life-row-2 {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 32px;
-    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.life-row-2-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.life-benefits-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+}
+
+/* ---- Row 3: Left premium perks, Right photos slider ---- */
+.life-row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+    overflow: visible;
+}
+
+.life-premium-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.life-perks-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0;
+}
+
+.life-perks-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.life-perk {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: var(--color-cream);
+    border: 1px solid rgba(40, 38, 67, 0.1);
+}
+
+.life-perk-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.life-perk-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.life-perk-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+/* ---- Photos sliders (horizontal infinite scroll) ---- */
+.life-photos-slider {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 -24px;
+    padding: 8px 0;
+}
+
+.life-slider-track {
+    display: flex;
+    width: max-content;
+    animation: life-photos-slider-scroll 35s linear infinite;
+}
+
+.life-photos-slider:hover .life-slider-track {
+    animation-play-state: paused;
+}
+
+.life-slider-set {
+    display: flex;
+    gap: 20px;
+    padding: 0 24px;
+    flex-shrink: 0;
+}
+
+/* Row 1: slider on LEFT — full slide in til left border */
+.life-row-1 .life-photos-slider {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    width: calc(100% + var(--section-padding-x));
+    margin-left: calc(-1 * var(--section-padding-x));
+    margin-right: 0;
+    min-width: 0;
+}
+
+/* Row 3: full slide in til right border; slider height matches premium-perks */
+.life-row-3 .life-photos-slider {
+    display: flex;
+    align-items: stretch;
+    align-self: stretch;
+    width: calc(100% + var(--section-padding-x));
+    margin-left: 0;
+    margin-right: calc(-1 * var(--section-padding-x));
+    min-width: 0;
+}
+
+/* Row 2: slider height matches life-pill-list */
+.life-row-2 .life-photos-slider {
+    display: flex;
+    align-items: stretch;
+    align-self: stretch;
+}
+.life-row-2 .life-photos-slider .life-photo-card {
+    width: 280px;
+    flex-shrink: 0;
+    align-self: stretch;
+    height: 100%;
+}
+.life-row-2 .life-photo-img {
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+}
+
+.life-row-3 .life-photos-slider .life-photo-card {
+    width: 280px;
+    flex-shrink: 0;
+    align-self: stretch;
+    height: 100%;
+}
+.life-row-3 .life-photo-img {
+    height: 100%;
+    min-height: 0;
+    object-fit: cover;
+}
+
+.life-row-1 .life-photos-slider .life-photo-card {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+@keyframes life-photos-slider-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
 .life-pill-list {
@@ -142,10 +345,51 @@
     display: block;
 }
 
-.life-photo-caption {
-    padding: 16px 18px 18px;
-    font-size: 14px;
-    color: var(--color-text-muted);
+.life-row-1 .life-photo-img {
+    height: 220px;
+}
+
+/* ---- Join / Careers CTA section ---- */
+.life-career-cta {
+    background: #fff;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.life-career-cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px var(--section-padding-x) 56px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    text-align: center;
+}
+
+.life-career-cta-text {
+    font-size: 18px;
+    color: var(--color-dark);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 500;
+}
+
+.life-career-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: var(--color-orange);
+    color: var(--color-dark);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
 }
 
 @media (max-width: 900px) {
@@ -163,8 +407,33 @@
     }
     .life-page-inner {
         padding: 56px 20px 72px;
+        gap: 48px;
     }
-    .life-page-title {
+    .life-row-1,
+    .life-row-2,
+    .life-row-3 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .life-row-1 .life-row-1-heading {
+        order: 1;
+    }
+    .life-row-1 .life-photos-slider {
+        order: 2;
+    }
+    .life-row-2 .life-photos-slider {
+        order: 1;
+    }
+    .life-row-2-benefits {
+        order: 2;
+    }
+    .life-row-3 .life-premium-perks {
+        order: 1;
+    }
+    .life-row-3 .life-photos-slider {
+        order: 2;
+    }
+    .life-row-title {
         font-size: 28px;
     }
 }
@@ -184,19 +453,45 @@
     }
     .life-page-inner {
         padding: 48px 16px 56px;
+        gap: 40px;
     }
-    .life-page-title {
+    .life-row-title {
         font-size: 26px;
-        margin-bottom: 4px;
     }
-    .life-page-desc {
+    .life-row-desc {
         font-size: 15px;
     }
-    .life-layout {
-        grid-template-columns: 1fr;
+    .life-benefits-title,
+    .life-perks-title {
+        font-size: 20px;
     }
-    .life-photo-img {
-        height: 220px;
+    .life-photos-slider {
+        margin: 0 -16px;
+    }
+    .life-slider-set {
+        padding: 0 16px;
+        gap: 14px;
+    }
+    .life-row-1 .life-photos-slider .life-photo-card {
+        width: 260px;
+    }
+    .life-row-2 .life-photos-slider .life-photo-card,
+    .life-row-3 .life-photos-slider .life-photo-card {
+        width: 220px;
+    }
+    .life-row-1 .life-photo-img {
+        height: 180px;
+    }
+    .life-row-2 .life-photo-img,
+    .life-row-3 .life-photo-img {
+        height: 160px;
+    }
+    .life-career-cta-inner {
+        padding: 40px 16px 48px;
+        gap: 20px;
+    }
+    .life-career-cta-text {
+        font-size: 17px;
     }
 }
 
@@ -215,9 +510,20 @@
     }
     .life-page-inner {
         padding: 40px 16px 48px;
+        gap: 36px;
     }
-    .life-page-title {
+    .life-row-title {
         font-size: 22px;
     }
+    .life-career-cta-inner {
+        padding: 32px 16px 40px;
+        gap: 18px;
+    }
+    .life-career-cta-text {
+        font-size: 16px;
+    }
+    .life-career-btn {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
 }
-
