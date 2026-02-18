@@ -1,0 +1,301 @@
+
+/* SERVICE CARDS - SERVICES PAGE */
+
+/* ----- Navbar: in flow so services-intro sits right below ----- */
+.page-services .navbar {
+    position: relative;
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+/* ----- Nav: selected "Services" link ----- */
+.page-services .menu .nav-active {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.page-services .menu .nav-active::after {
+    width: 100%;
+}
+
+/* ----- Services page intro ----- */
+.services-intro {
+    background: #fff;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.services-intro-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 72px var(--section-padding-x) 56px; */
+    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.services-intro-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 12px 0;
+}
+
+.services-intro-desc {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 640px;
+}
+
+.services-grid-section {
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    /* border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12); */
+}
+
+.services-grid-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+    padding: 40px 24px 72px;
+}
+
+.section-header {
+    padding: 80px 24px;
+    text-align: left;
+    margin-top: 60px;
+}
+
+.section-header h2 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #282643;
+    margin-bottom: 16px;
+}
+
+.section-header p {
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+    padding-bottom: 40px;
+    text-align: left;
+    font-size: 18px;
+    color: #776482;
+
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.service-card {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* box-shadow: 0 4px 20px rgba(40, 38, 67, 0.08); */
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+    margin: 0;
+
+}
+
+/* Icon container */
+.service-card-icon {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background: #f2e1ca;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    color: #e99d75;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+/* Content wrapper - right side */
+.service-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #282643;
+    margin-bottom: 16px;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #776482;
+    margin-bottom: 20px;
+    transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Service features list */
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.service-features li {
+    font-size: 14px;
+    color: #776482;
+    margin-bottom: 10px;
+    padding-left: 0;
+    transition: color 0.3s ease;
+}
+
+.service-features li:last-child {
+    margin-bottom: 0;
+}
+
+/* Hover state */
+.service-card:hover {
+    background: #282643;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(40, 38, 67, 0.2);
+}
+
+.service-card:hover h3,
+.service-card:hover p,
+.service-card:hover li {
+    color: #ffffff;
+}
+
+.service-card:hover p {
+    color: #baa9b8;
+}
+
+.service-card:hover {
+    background: #282643;
+    border-color: #282643;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(224, 141, 96, 0.3);
+
+}
+
+@media (max-width: 900px) {
+    .services-intro-inner {
+        padding: 56px 20px 40px;
+    }
+
+    .services-intro-title {
+        font-size: 30px;
+    }
+
+    .services-intro-desc {
+        font-size: 17px;
+    }
+
+    .services-grid-section .container {
+        padding: 32px 20px 56px;
+    }
+
+    .services-grid {
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-intro-inner {
+        padding: 44px 16px 32px;
+    }
+
+    .services-intro-title {
+        font-size: 26px;
+    }
+
+    .services-intro-desc {
+        font-size: 16px;
+    }
+
+    .services-grid-section .container {
+        padding: 24px 16px 44px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .service-card {
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .service-card h3 {
+        margin-bottom: 12px;
+    }
+
+    .service-card p {
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-intro-inner {
+        padding: 36px 14px 24px;
+    }
+
+    .services-grid-section .container {
+        padding: 20px 14px 36px;
+    }
+
+    .service-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .service-card-icon {
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
+        align-self: flex-start;
+    }
+
+    .service-card-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .services-intro-title {
+        font-size: 22px;
+    }
+
+    .services-intro-desc {
+        font-size: 15px;
+    }
+}
