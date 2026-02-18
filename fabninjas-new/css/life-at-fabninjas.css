@@ -5,7 +5,26 @@
 
 .page-life .navbar {
     position: relative;
+    background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.page-life .navbar .menu li,
+.page-life .navbar .menu li a {
+    color: #fff;
+}
+
+.page-life .navbar .menu li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-life .navbar .menu li a::after {
+    background: #fff;
+}
+
+.page-life .navbar .cta {
+    background: #fff;
+    color: var(--color-dark);
 }
 
 /* Intro */
