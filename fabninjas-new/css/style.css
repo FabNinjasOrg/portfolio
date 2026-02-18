@@ -435,7 +435,7 @@ body {
 
 /* ========== 5. SECTION — WHO WE ARE ========== */
 .who-we-are {
-    background: #fff;
+    background: transparent;
     border-top: 1px solid rgba(40, 38, 67, 0.12);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
@@ -459,7 +459,9 @@ body {
     border: 1px solid rgba(40, 38, 67, 0.12);
     border-radius: 16px;
     padding: 36px 28px;
-    background: #ffffff; /* solid background */
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     position: sticky;
     top: 20px; /* matches card stack offset */
     align-self: flex-start;
@@ -571,7 +573,9 @@ body {
     gap: 20px;
     /* border: 1px solid rgba(40, 38, 67, 0.12); padding: 24px 24px; */
     border-radius: 16px;
-    background: #ffffff; /* solid background */
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     position: relative; /* needed for sticky stacking */
 }
 
@@ -594,7 +598,9 @@ body {
 .who-we-are-card-1,
 .who-we-are-card-2,
 .who-we-are-card-3 {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 }
 
 /* Ensure stacked cards layer correctly when sticky */
@@ -677,7 +683,9 @@ body {
     padding: 16px 28px;
     border: 1px solid rgba(40, 38, 67, 0.12);
     border-radius: 9999px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     flex-shrink: 0;
     transition: border-color 0.2s, background 0.2s;
 }
@@ -721,7 +729,7 @@ body {
 
 /* ========== 6. SECTION — PREVIEW ========== */
 .preview {
-    background: #ffffff;
+    background: transparent;
     border-top: 1px solid rgba(40, 38, 67, 0.12);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
@@ -757,11 +765,13 @@ body {
     gap: 24px;
     padding: 48px 56px;
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.82);
     position: sticky;
     top: 40px;
     border-radius: 16px;
     border: 1px solid rgba(40, 38, 67, 0.12);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     transition: box-shadow 0.2s, border-color 0.2s;
     width: 100%;
     box-sizing: border-box;
@@ -876,7 +886,7 @@ a.preview-item-btn {
 
 /* ========== 7. SECTION — CONTACT ========== */
 .contact {
-    background: #ffffff;
+    background: transparent;
 }
 
 .contact-inner {
@@ -920,7 +930,9 @@ a.preview-item-btn {
     padding: 18px 18px;
     border-radius: 14px;
     border: 1px solid rgba(40, 38, 67, 0.12);
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -982,7 +994,9 @@ a.preview-item-btn {
     padding: 18px 18px;
     border-radius: 14px;
     border: 1px solid rgba(40, 38, 67, 0.12);
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1600,7 +1614,7 @@ a.preview-item-btn {
 
 /* ========== 8. SECTION — FOOTER ========== */
 .footer {
-    background: #ffffff;
+    background: transparent;
     border-top: 1px solid rgba(40, 38, 67, 0.12);
 }
 

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FabNinjas — Blogs</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blogs.css">
+</head>
+
+<body class="blogs-page">
+
+    <!-- NAVBAR (same as homepage) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="fab-new.html"><img src="assets/PNGs/Logo + Favicon_Open File_3 copy.png" alt="fabninjas"></a>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" hidden>
+            <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </label>
+
+            <div class="nav-menu-wrap">
+                <ul class="menu">
+                    <li><a href="fab-services.html">Services</a></li>
+                    <li><a href="fab-work.html">Work</a></li>
+                    <li><a href="fab-testimonials.html">Testimonials</a></li>
+                    <li><a href="fab-about.html">About Us</a></li>
+                    <li><a href="fab-blogs.html" class="nav-active">Blogs</a></li>
+                </ul>
+                <a href="#contact" class="cta">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="blogs-intro" id="blogs-intro">
+        <div class="blogs-intro-inner">
+            <h1 class="blogs-intro-title">Explore Our Blogs</h1>
+            <p class="blogs-intro-desc">
+                Explore our handwritten blogs and explore the tech world.
+            </p>
+        </div>
+    </section>
+
+    <section class="blogs-listing" id="blogs-listing">
+        <div class="blogs-listing-inner">
+            <div class="blogs-grid">
+                <!-- Row 1 -->
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">How We Ship Reliable Products</h3>
+                        <p class="blog-card-excerpt">Behind the scenes of our engineering process, from idea to production.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Design Systems that Scale</h3>
+                        <p class="blog-card-excerpt">Why a solid design system speeds up every new feature you ship.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Modern Web Performance Basics</h3>
+                        <p class="blog-card-excerpt">Simple performance wins that make your product feel instantly faster.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+
+                <!-- Row 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">APIs That Don’t Break</h3>
+                        <p class="blog-card-excerpt">Thoughts on versioning, contracts, and long‑term API health.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Choosing the Right Stack</h3>
+                        <p class="blog-card-excerpt">How we evaluate tools so your product stays maintainable.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">From MVP to Scale</h3>
+                        <p class="blog-card-excerpt">Growing your codebase and infra without slowing the team down.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+
+                <!-- Row 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">UX Details Users Notice</h3>
+                        <p class="blog-card-excerpt">Micro‑interactions and polish that make products feel premium.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Building for Mobile First</h3>
+                        <p class="blog-card-excerpt">Our principles for fast, usable experiences on every device.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-card-thumb"></div>
+                    <div class="blog-card-content">
+                        <h3 class="blog-card-title">Collaborating with Product Teams</h3>
+                        <p class="blog-card-excerpt">How engineers, designers, and founders work together at FabNinjas.</p>
+                        <a href="#" class="blog-card-cta">Read blog</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="blogs-load-more-wrap">
+                <button class="blogs-load-more-btn" type="button">
+                    Load more blogs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/PNGs/Logo + Favicon_Open File_3.png" alt="FabNinjas" class="footer-logo">
+                    <p class="footer-brand-text">Selective partners for complex, scalable digital products.</p>
+                </div>
+
+                <div class="footer-column footer-column--split">
+                    <div class="footer-column-half">
+                        <h4 class="footer-heading">Explore</h4>
+                        <ul class="footer-links">
+                            <li><a href="#services" class="footer-link">Services</a></li>
+                            <li><a href="fab-work.html" class="footer-link">Work</a></li>
+                            <li><a href="fab-testimonials.html" class="footer-link">Testimonials</a></li>
+                            <li><a href="fab-about.html" class="footer-link">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column-half">
+                        <h4 class="footer-heading">Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="fab-blogs.html" class="footer-link">Blogs</a></li>
+                            <li><a href="fab-life-at-fabninjas.html" class="footer-link">Life at FabNinjas</a></li>
+                            <li><a href="fab-careers.html" class="footer-link">Careers</a></li>
+                            <li><a href="#contact" class="footer-link">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contact</h4>
+                    <p class="footer-contact-text">Looking for a tech partner for your next project?</p>
+                    <a href="#contact" class="footer-cta-btn"><svg class="footer-cta-icon"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>Contact FabNinjas</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 FabNinjas. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
+

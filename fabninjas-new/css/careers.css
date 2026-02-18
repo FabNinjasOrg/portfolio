@@ -1,0 +1,379 @@
+/*
+ * FabNinjas — Careers page
+ * New styling for the Careers page. Load after style.css.
+ */
+
+.careers-page {
+    background: #fff;
+}
+
+/* Navbar: in flow so careers-intro sits right below (same as Services / Blogs) */
+.careers-page .navbar {
+    position: relative;
+    background: rgba(40, 38, 67, 0.95);
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.careers-page .navbar .menu li,
+.careers-page .navbar .menu li a {
+    color: #fff;
+}
+
+.careers-page .navbar .menu li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.careers-page .navbar .menu li a::after {
+    background: #fff;
+}
+
+.careers-page .navbar .cta {
+    background: #fff;
+    color: var(--color-dark);
+}
+
+/* Optional: if we ever add .nav-active on Careers link */
+.careers-page .menu .nav-active {
+    color: #fff;
+}
+
+.careers-page .menu .nav-active::after {
+    width: 100%;
+    background: #fff;
+}
+
+/* ----- Careers page intro (mirrors Services intro) ----- */
+.careers-intro {
+    background: #fff;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.careers-intro-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--section-padding-y) var(--section-padding-x);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.careers-intro-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 12px 0;
+}
+
+.careers-intro-desc {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 640px;
+}
+
+/* ----- Careers listing section ----- */
+.careers-listing {
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.careers-listing-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+    padding: 40px 24px 72px;
+}
+
+.careers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+/* Role card – based on .service-card */
+.career-card {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 28px 24px;
+    overflow: hidden;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    border: 1px solid rgba(40, 38, 67, 0.12);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.career-card-icon {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    border-radius: 50%;
+    background: #f2e1ca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e99d75;
+}
+
+.career-card-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.career-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.career-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #282643;
+    margin: 0;
+}
+
+.career-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 2px 0 4px;
+}
+
+.career-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(40, 38, 67, 0.18);
+    color: #776482;
+    background: rgba(242, 225, 202, 0.4);
+}
+
+.career-card-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #776482;
+    margin: 0;
+}
+
+.career-features {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+}
+
+.career-features li {
+    font-size: 14px;
+    color: #776482;
+    margin-bottom: 8px;
+}
+
+.career-features li:last-child {
+    margin-bottom: 0;
+}
+
+.career-meta {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+
+.career-card-actions {
+    margin-top: 12px;
+}
+
+.career-apply-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 24px;
+    border-radius: 999px;
+    background: rgba(40, 38, 67, 0.95);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.career-apply-btn:hover {
+    background: var(--color-orange);
+    color: #282643;
+}
+
+/* Hover state */
+.career-card:hover {
+    background: #282643;
+    border-color: #282643;
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(40, 38, 67, 0.26);
+}
+
+.career-card:hover .career-card-title,
+.career-card:hover .career-card-desc,
+.career-card:hover .career-features li,
+.career-card:hover .career-meta {
+    color: #ffffff;
+}
+
+.career-card:hover .career-tag {
+    border-color: rgba(233, 157, 117, 0.7);
+    background: rgba(233, 157, 117, 0.2);
+    color: #ffffff;
+}
+
+/* Careers apply CTA section (separate block below listing) */
+.careers-cta {
+    background: #fff;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.careers-cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px var(--section-padding-x) 52px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.careers-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.careers-cta-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 6px 0;
+}
+
+.careers-cta-text {
+    font-size: 17px;
+    color: var(--color-dark);
+    max-width: 640px;
+}
+
+.careers-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 26px;
+    border-radius: 999px;
+    background: var(--color-orange);
+    color: #282643;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* ----- Responsive adjustments (match Services / Blogs breakpoints) ----- */
+@media (max-width: 900px) {
+    .careers-intro-inner {
+        padding: 28px 20px 32px;
+    }
+
+    .careers-intro-title {
+        font-size: 30px;
+    }
+
+    .careers-intro-desc {
+        font-size: 17px;
+    }
+
+    .careers-listing-inner {
+        padding: 32px 20px 56px;
+    }
+
+    .careers-grid {
+        gap: 20px;
+    }
+
+    .career-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .careers-intro-inner {
+        padding: 24px 16px 28px;
+    }
+
+    .careers-intro-title {
+        font-size: 26px;
+    }
+
+    .careers-intro-desc {
+        font-size: 16px;
+    }
+
+    .careers-listing-inner {
+        padding: 24px 16px 44px;
+    }
+
+    .careers-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .career-card {
+        gap: 16px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .careers-intro-inner {
+        padding: 20px 16px 24px;
+    }
+
+    .careers-intro-title {
+        font-size: 22px;
+    }
+
+    .careers-intro-desc {
+        font-size: 15px;
+    }
+
+    .careers-listing-inner {
+        padding: 20px 14px 36px;
+    }
+
+    .career-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .career-card-icon {
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
+    }
+
+    .career-card-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
