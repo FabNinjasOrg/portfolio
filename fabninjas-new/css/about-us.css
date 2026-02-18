@@ -6,17 +6,36 @@
 /* ----- Navbar: in flow so about-intro sits right below (no padding needed) ----- */
 .page-about .navbar {
     position: relative;
+    background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.page-about .navbar .menu li,
+.page-about .navbar .menu li a {
+    color: #fff;
+}
+
+.page-about .navbar .menu li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-about .navbar .menu li a::after {
+    background: #fff;
 }
 
 /* ----- Nav: selected "About Us" link ----- */
 .page-about .menu .nav-active {
-    font-weight: 600;
-    color: var(--color-dark);
+    color: #fff;
 }
 
 .page-about .menu .nav-active::after {
     width: 100%;
+    background: #fff;
+}
+
+.page-about .navbar .cta {
+    background: #fff;
+    color: var(--color-dark);
 }
 
 /* ----- About page intro (no hero) ----- */
@@ -121,10 +140,101 @@
     border: 1px solid rgba(40, 38, 67, 0.12);
 }
 
-.about-us-boxes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* ----- About us boxes slider (same pattern & colors as testimonials) ----- */
+.about-us-boxes-slider {
+    overflow: hidden;
+}
+
+.about-us-boxes-track {
+    display: flex;
     gap: 24px;
+    width: max-content;
+    animation: aboutUsBoxesLoop 18s linear infinite;
+    will-change: transform;
+}
+
+.about-us-boxes-slider:hover .about-us-boxes-track {
+    animation-play-state: paused;
+}
+
+.about-us-box {
+    width: 352px;
+    min-width: 352px;
+    min-height: 52px;
+    border-radius: 12px;
+    padding: 38px 38px 32px;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.about-us-box-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.about-us-box-heading .about-us-box-icon {
+    margin-bottom: 0;
+}
+
+/* Testimonial-style colors */
+.about-us-box--sand {
+    background: #f2e1ca;
+}
+
+.about-us-box--rust {
+    background: #e99d75;
+    color: #fff;
+}
+
+.about-us-box--sage {
+    background: #baa9b8;
+    color: #fff;
+}
+
+.about-us-box--sand .about-us-box-title,
+.about-us-box--sand .about-us-box-desc {
+    color: #282643;
+}
+
+.about-us-box--sand .about-us-box-icon {
+    background: rgba(40, 38, 67, 0.2);
+    color: #282643;
+}
+
+.about-us-box--sand .about-us-box-icon svg {
+    stroke: #282643;
+}
+
+.about-us-box--rust .about-us-box-icon,
+.about-us-box--sage .about-us-box-icon {
+    background: rgba(255, 255, 255, 0.35);
+    color: #fff;
+}
+
+.about-us-box--rust .about-us-box-icon svg,
+.about-us-box--sage .about-us-box-icon svg {
+    stroke: #fff;
+}
+
+.about-us-box--rust .about-us-box-title,
+.about-us-box--rust .about-us-box-desc,
+.about-us-box--sage .about-us-box-title,
+.about-us-box--sage .about-us-box-desc {
+    color: #fff;
+}
+
+@keyframes aboutUsBoxesLoop {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(var(--loop-distance, -1200px));
+    }
 }
 
 .about-us-team-img {
@@ -135,19 +245,6 @@
     display: block;
 }
 
-.about-us-box {
-    border: 1px solid rgba(40, 38, 67, 0.12);
-    border-radius: 16px;
-    padding: 28px 24px;
-    background: #fff;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.about-us-box:hover {
-    border-color: rgba(233, 157, 117, 0.35);
-    box-shadow: 0 8px 24px rgba(40, 38, 67, 0.08);
-}
-
 .about-us-box-icon {
     display: inline-flex;
     align-items: center;
@@ -155,10 +252,9 @@
     width: 48px;
     height: 48px;
     flex-shrink: 0;
-    border-radius: 8px;
+    border-radius: 10px;
     background: var(--color-orange);
     color: #fff;
-    margin-bottom: 16px;
 }
 
 .about-us-box-icon svg {
@@ -171,7 +267,10 @@
     font-size: 18px;
     font-weight: 600;
     color: var(--color-dark);
-    margin: 0 0 12px 0;
+    margin: 0;
+    line-height: 1.25;
+    flex: 1;
+    min-width: 0;
 }
 
 .about-us-box-desc {
@@ -214,8 +313,10 @@
         flex: none;
         height: 260px;
     }
-    .about-us-boxes {
-        grid-template-columns: 1fr;
+    .about-us-box {
+        width: 300px;
+        min-width: 300px;
+        padding: 24px 22px 22px;
     }
 }
 
@@ -250,7 +351,9 @@
         font-size: 15px;
     }
     .about-us-box {
-        padding: 24px 20px;
+        width: 300px;
+        min-width: 300px;
+        padding: 24px 22px 22px;
     }
     .about-us-box-icon {
         width: 44px;
@@ -403,5 +506,25 @@
     }
     .team-section-inner {
         padding: 40px 16px 48px;
+    }
+    .about-us-box {
+        width: 256px;
+        min-width: 256px;
+        padding: 24px 20px 22px;
+    }
+    .about-us-box-title {
+        font-size: 16px;
+    }
+    .about-us-box-desc {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-us-boxes-track {
+        animation: none;
+    }
+    .about-us-boxes-slider {
+        overflow-x: auto;
     }
 }

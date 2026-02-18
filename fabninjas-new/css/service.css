@@ -4,20 +4,39 @@
 /* ----- Navbar: in flow so services-intro sits right below ----- */
 .page-services .navbar {
     position: relative;
+    background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.page-services .navbar .menu li,
+.page-services .navbar .menu li a {
+    color: #fff;
+}
+
+.page-services .navbar .menu li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-services .navbar .menu li a::after {
+    background: #fff;
 }
 
 /* ----- Nav: selected "Services" link ----- */
 .page-services .menu .nav-active {
-    font-weight: 600;
-    color: var(--color-dark);
+    color: #fff;
 }
 
 .page-services .menu .nav-active::after {
     width: 100%;
+    background: #fff;
 }
 
-/* ----- Services page intro ----- */
+.page-services .navbar .cta {
+    background: #fff;
+    color: var(--color-dark);
+}
+
+/* ----- Services page intro (same as about) ----- */
 .services-intro {
     background: #fff;
     border-left: 1px solid rgba(40, 38, 67, 0.12);
@@ -27,8 +46,7 @@
 .services-intro-inner {
     max-width: 1200px;
     margin: 0 auto;
-    /* padding: 72px var(--section-padding-x) 56px; */
-    padding: var(--section-padding-y) var(--section-padding-x) 100px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
@@ -204,7 +222,7 @@
 
 @media (max-width: 900px) {
     .services-intro-inner {
-        padding: 56px 20px 40px;
+        padding: 28px 20px 32px;
     }
 
     .services-intro-title {
@@ -230,7 +248,7 @@
 
 @media (max-width: 768px) {
     .services-intro-inner {
-        padding: 44px 16px 32px;
+        padding: 24px 16px 28px;
     }
 
     .services-intro-title {
@@ -266,7 +284,7 @@
 
 @media (max-width: 600px) {
     .services-intro-inner {
-        padding: 36px 14px 24px;
+        padding: 20px 16px 24px;
     }
 
     .services-grid-section .container {

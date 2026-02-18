@@ -1690,15 +1690,21 @@ a.preview-item-btn {
     justify-content: center;
     padding: 10px 18px;
     border-radius: 999px;
-    background: #e99d75;
-    color: #282643;
+    background: #282643;
+    color: #fff;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
 }
 
+.footer-cta-btn .footer-cta-icon {
+    flex-shrink: 0;
+    margin-right: 8px;
+    stroke: currentColor;
+}
+
 .footer-cta-btn:hover {
-    box-shadow: 0 6px 18px rgba(40, 38, 67, 0.16);
+    box-shadow: 0 6px 18px rgba(40, 38, 67, 0.3);
 }
 
 .footer-bottom {

@@ -1,26 +1,43 @@
+/* ----- Navbar: in flow so testimonials-intro sits right below (same as about) ----- */
 .page-testimonials .navbar {
-    position: fixed;
+    position: relative;
+    background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.page-testimonials .navbar .menu li,
+.page-testimonials .navbar .menu li a {
+    color: #fff;
+}
+
+.page-testimonials .navbar .menu li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-testimonials .navbar .menu li a::after {
+    background: #fff;
 }
 
 /* ----- Nav: selected "Testimonials" link ----- */
 .page-testimonials .menu .nav-active {
-    font-weight: 600;
-    color: var(--color-dark);
+    color: #fff;
 }
 
 .page-testimonials .menu .nav-active::after {
     width: 100%;
+    background: #fff;
 }
 
-/* ----- Testimonials intro (no hero) ----- */
+.page-testimonials .navbar .cta {
+    background: #fff;
+    color: var(--color-dark);
+}
+
+/* ----- Testimonials intro (no hero, same as about) ----- */
 .testimonials-intro {
-    padding-top: 80px;
     background: #fff;
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
-    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
-
 }
 
 .testimonials-intro-inner {
@@ -54,10 +71,17 @@
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 } */
 
+.testimonials-page {
+    background: #fff;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
 .testimonials-page-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px 72px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
@@ -86,16 +110,29 @@
 }
 
 .customer-testimonials {
-    margin-top: 40px;
     display: grid;
     grid-template-columns: minmax(320px, 460px) minmax(0, 1fr);
     gap: 24px;
     align-items: center;
 }
 
+/* Team section: slider left (same width as customer slider), description right */
+.customer-testimonials--team {
+    margin-top: 40px;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 460px);
+}
+
+.customer-testimonials--team .customer-slider {
+    grid-column: 1;
+}
+
+.customer-testimonials--team .customer-content {
+    grid-column: 2;
+}
+
 
 .customer-title {
-    font-size: 25px;
+    font-size: 36px;
     line-height: 1.08;
     letter-spacing: 0.01em;
     color: var(--color-dark);
@@ -103,7 +140,7 @@
 }
 
 .customer-title-team {
-    font-size: 25px;
+    font-size: 36px;
     line-height: 1.08;
     letter-spacing: 0.01em;
     color: var(--color-dark);
@@ -156,15 +193,6 @@
     box-shadow: none;
     display: flex;
     flex-direction: column;
-    animation: cardBottomUp 4.6s ease-in-out infinite;
-}
-
-.customer-track .customer-card:nth-child(2n) {
-    animation-delay: 0.35s;
-}
-
-.customer-track .customer-card:nth-child(3n) {
-    animation-delay: 0.7s;
 }
 
 .customer-card--sand {
@@ -275,20 +303,8 @@
     }
 }
 
-@keyframes cardBottomUp {
-
-    0%,
-    100% {
-        transform: translateY(14px);
-    }
-
-    50% {
-        transform: translateY(0);
-    }
-}
-
 @media (max-width: 900px) {
-    .testimonials-intro {
+    .page-no-hero .testimonials-intro {
         padding-top: 88px;
     }
 
@@ -305,7 +321,7 @@
     }
 
     .testimonials-page-inner {
-        padding: 0 20px 56px;
+        padding: 56px 20px 72px;
     }
 
     .testimonials-page-title {
@@ -314,7 +330,7 @@
 }
 
 @media (max-width: 768px) {
-    .testimonials-intro {
+    .page-no-hero .testimonials-intro {
         padding-top: 80px;
     }
 
@@ -331,7 +347,7 @@
     }
 
     .testimonials-page-inner {
-        padding: 0 16px 48px;
+        padding: 48px 16px 56px;
     }
 
     .testimonials-page-title {
@@ -383,7 +399,7 @@
 }
 
 @media (max-width: 600px) {
-    .testimonials-intro {
+    .page-no-hero .testimonials-intro {
         padding-top: 72px;
     }
 
@@ -400,7 +416,7 @@
     }
 
     .testimonials-page-inner {
-        padding: 0 16px 40px;
+        padding: 40px 16px 48px;
     }
 
     .testimonials-page-title {

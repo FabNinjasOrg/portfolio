@@ -6,17 +6,36 @@
 /* ----- Navbar: in flow so work-intro sits right below (no padding needed) ----- */
 .page-work .navbar {
     position: relative;
+    background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.page-work .navbar .menu li,
+.page-work .navbar .menu li a {
+    color: #fff;
+}
+
+.page-work .navbar .menu li a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.page-work .navbar .menu li a::after {
+    background: #fff;
+}
+
+.page-work .navbar .cta {
+    background: #fff;
+    color: var(--color-dark);
 }
 
 /* ----- Nav: selected "Work" link ----- */
 .page-work .menu .nav-active {
-    font-weight: 600;
-    color: var(--color-dark);
+    color: #fff;
 }
 
 .page-work .menu .nav-active::after {
     width: 100%;
+    background: #fff;
 }
 
 /* ----- Work page intro (no hero) ----- */
