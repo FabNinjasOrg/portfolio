@@ -223,6 +223,8 @@ body {
 .hero-content {
     max-width: 520px;
     pointer-events: auto;
+    position: relative;
+    z-index: 4;
 }
 
 /* ── ORBITS ─────────────────────────────────────────────── */
@@ -1087,6 +1089,16 @@ a.preview-item-btn {
 
 /* ----- 900px: Tablet ----- */
 @media (max-width: 900px) {
+    /*
+     * backdrop-filter on .navbar creates a new containing block, which breaks
+     * position:fixed on the overlay (it becomes relative to the navbar instead
+     * of the viewport). Remove it on mobile so the overlay covers the full screen.
+     */
+    .navbar {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -1097,18 +1109,25 @@ a.preview-item-btn {
         right: 0;
         bottom: 0;
         left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex !important;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        gap: 32px;
-        padding: 80px 24px 40px;
+        gap: 0;
+        padding: 100px 24px 40px;
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
         transition: opacity 0.3s ease, visibility 0.3s ease;
-        z-index: 999;
+        z-index: 9999;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     #nav-toggle:checked ~ .nav-menu-wrap {
@@ -1121,6 +1140,14 @@ a.preview-item-btn {
         overflow: hidden;
     }
 
+    .nav-toggle {
+        z-index: 10000;
+    }
+
+    /* When open: X icon dark so visible on white overlay (all pages) */
+    #nav-toggle:checked ~ .nav-toggle .nav-toggle-bar {
+        background: #282643;
+    }
     #nav-toggle:checked ~ .nav-toggle .nav-toggle-bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
@@ -1131,33 +1158,85 @@ a.preview-item-btn {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    /* Mobile menu: show all options */
     .nav-menu-wrap .menu {
+        display: flex !important;
         flex-direction: column;
-        gap: 8px;
+        gap: 4px;
         text-align: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 320px;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
+    .nav-menu-wrap .menu li {
+        display: block !important;
+        flex-shrink: 0;
+        visibility: visible !important;
+    }
     .nav-menu-wrap .menu li a {
-        font-size: 18px;
-        padding: 12px 16px;
+        font-size: 20px;
+        padding: 14px 20px;
+        display: block !important;
+        color: #282643 !important;
+        border-radius: 8px;
+        visibility: visible !important;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+    .nav-menu-wrap .menu li a:hover,
+    .nav-menu-wrap .menu li a:focus,
+    .nav-menu-wrap .menu li a:active {
+        background: transparent;
+        color: #282643 !important;
+        outline: none;
+    }
+    .nav-menu-wrap .menu li a::after {
+        display: none;
     }
 
-    .nav-menu-wrap .cta {
-        margin-top: 8px;
+    .nav-menu-wrap .cta,
+    #nav-toggle:checked ~ .nav-menu-wrap .cta {
+        margin-top: 24px;
+        background: #282643 !important;
+        color: #fff !important;
+        flex-shrink: 0;
+        padding: 14px 32px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .nav-menu-wrap .cta:hover,
+    #nav-toggle:checked ~ .nav-menu-wrap .cta:hover {
+        background: #1a1830 !important;
+        color: #fff !important;
     }
 
     .hero {
-        padding: 0 20px;
+        padding: 0 24px;
+    }
+
+    .hero-inner {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .hero h1 {
         font-size: 48px;
         margin-bottom: 16px;
+        line-height: 1.15;
     }
 
     .hero-content-subtitle {
         font-size: 19px;
-        margin-bottom: 20px;
+        margin-bottom: 22px;
+        line-height: 1.5;
     }
 
     .buttons {
@@ -1207,12 +1286,13 @@ a.preview-item-btn {
         padding: 24px 24px;
     }
 
+    /* Push orbits right on tablet so they don’t overlap hero text */
     .orbits-container {
-        --cx: 72%;
+        --cx: 92%;
     }
-    .orbit-1 { --r: 100px; }
-    .orbit-2 { --r: 190px; }
-    .orbit-3 { --r: 300px; }
+    .orbit-1 { --r: 80px; }
+    .orbit-2 { --r: 150px; }
+    .orbit-3 { --r: 240px; }
     .orbit-center {
         width: 90px;
         height: 90px;
@@ -1273,15 +1353,46 @@ a.preview-item-btn {
 
     .hero h1 {
         font-size: 40px;
-        line-height: 1.15;
+        line-height: 1.2;
     }
 
     .hero-content-subtitle {
         font-size: 17px;
+        line-height: 1.5;
+    }
+
+    /* Hero fits content on tablet too – no empty gap below */
+    .hero {
+        height: auto;
+        min-height: 0;
+        align-items: flex-start;
     }
 
     .hero-inner {
-        min-height: calc(100vh - 72px);
+        min-height: 0;
+        padding-top: 88px; /* clear the absolute-positioned navbar (~72px) + breathing room */
+        padding-bottom: 56px;
+    }
+
+    /* Orbits further right on large phones so they don’t overlap text */
+    .orbits-container {
+        --cx: 100%;
+    }
+    .orbit-1 { --r: 60px; }
+    .orbit-2 { --r: 110px; }
+    .orbit-3 { --r: 170px; }
+    .orbit-center {
+        width: 64px;
+        height: 64px;
+    }
+    .orbit-item {
+        width: 32px;
+        height: 32px;
+        margin: -16px 0 0 -16px;
+    }
+    .orbit-item.tech-tile img {
+        max-width: 18px;
+        max-height: 18px;
     }
 
     .who-we-are-inner {
@@ -1405,51 +1516,64 @@ a.preview-item-btn {
 
 /* ----- 600px: Phone ----- */
 @media (max-width: 600px) {
+    /* Hide orbits on small screens so hero text is fully readable */
     .orbits-container {
-        --cx: 75%;
-    }
-    .orbit-1 { --r: 70px; }
-    .orbit-2 { --r: 140px; }
-    .orbit-3 { --r: 220px; }
-    .orbit-center {
-        width: 70px;
-        height: 70px;
-    }
-    .orbit-item {
-        width: 34px;
-        height: 34px;
-        margin: -17px 0 0 -17px;
-    }
-    .orbit-item.tech-tile img {
-        max-width: 18px;
-        max-height: 18px;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
     }
 
+    /* Hero fits content on mobile – no huge empty gap below */
     .hero {
-        padding: 0 16px;
+        height: auto;
+        min-height: 0;
+        padding: 0 20px;
+        align-items: flex-start;
+        background:
+            radial-gradient(ellipse 160% 60% at 50% 0%, rgba(233, 157, 117, 0.38) 0%, rgba(233, 157, 117, 0.16) 55%, transparent 80%),
+            #fff;
+    }
+
+    .hero-inner {
+        min-height: 0;
+        align-items: flex-start;
+        padding-top: 130px; /* clear the absolute-positioned navbar (~72px) + breathing room */
+        padding-bottom: 80px;
+    }
+
+    .hero-content {
+        max-width: 100%;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 30px;
         margin-bottom: 14px;
+        line-height: 1.25;
     }
 
     .hero-content-subtitle {
-        font-size: 16px;
-        margin-bottom: 18px;
+        font-size: 15.5px;
+        margin-bottom: 24px;
+        line-height: 1.6;
+        color: #6b7280;
     }
 
     .primary,
     .secondary {
-        padding: 12px 22px;
+        padding: 14px 28px;
         font-size: 15px;
-        width: 100%;
-        max-width: 200px;
+        width: auto;
+        max-width: 100%;
+        justify-content: center;
+        display: inline-flex;
     }
 
     .buttons {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
     }
 
     .who-we-are-inner {
@@ -1594,12 +1718,18 @@ a.preview-item-btn {
 
 /* ----- 480px: Small phone ----- */
 @media (max-width: 480px) {
+    .hero {
+        padding: 0 18px;
+    }
+
     .hero h1 {
         font-size: 28px;
+        line-height: 1.25;
     }
 
     .hero-content-subtitle {
         font-size: 15px;
+        line-height: 1.55;
     }
 
     .who-we-are-title {

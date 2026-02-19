@@ -28,6 +28,13 @@
     color: var(--color-dark);
 }
 
+.page-work .nav-toggle-bar {
+    background: #fff;
+}
+.page-work .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
 /* ----- Nav: selected "Work" link ----- */
 .page-work .menu .nav-active {
     color: #fff;

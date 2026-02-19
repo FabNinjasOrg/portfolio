@@ -27,6 +27,13 @@
     color: var(--color-dark);
 }
 
+.page-life .nav-toggle-bar {
+    background: #fff;
+}
+.page-life .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
 /* Intro */
 .life-intro {
     background: #fff;

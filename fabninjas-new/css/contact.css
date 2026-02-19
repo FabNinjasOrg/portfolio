@@ -218,6 +218,18 @@
         font-size: 17px;
         max-width: 680px;
     }
+
+    /* Mobile menu open: force nav list and links visible (dark on white overlay) */
+    body:has(#nav-toggle:checked) .nav-menu-wrap .menu {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    body:has(#nav-toggle:checked) .nav-menu-wrap .menu li,
+    body:has(#nav-toggle:checked) .nav-menu-wrap .menu li a {
+        color: #282643 !important;
+        visibility: visible !important;
+    }
 }
 
 @media (max-width: 768px) {

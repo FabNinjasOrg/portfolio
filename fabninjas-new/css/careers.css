@@ -32,6 +32,13 @@
     color: var(--color-dark);
 }
 
+.careers-page .nav-toggle-bar {
+    background: #fff;
+}
+.careers-page .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
 /* Optional: if we ever add .nav-active on Careers link */
 .careers-page .menu .nav-active {
     color: #fff;

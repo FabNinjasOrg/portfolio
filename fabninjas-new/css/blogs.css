@@ -41,6 +41,13 @@
     color: var(--color-dark);
 }
 
+.blogs-page .nav-toggle-bar {
+    background: #fff;
+}
+.blogs-page .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
 /* Main layout – intro sits directly under navbar like Services page */
 .blogs-main {
     padding-top: 0;

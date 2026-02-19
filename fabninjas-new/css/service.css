@@ -36,6 +36,13 @@
     color: var(--color-dark);
 }
 
+.page-services .nav-toggle-bar {
+    background: #fff;
+}
+.page-services .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
 /* ----- Services page intro (same as about) ----- */
 .services-intro {
     background: #fff;
