@@ -415,10 +415,15 @@ body {
     background: #e99d75;
     color: #282643;
     border: none;
-    padding: 14px 28px;
+    padding: 16px 34px;
     border-radius: 30px;
     font-weight: 500;
+    font-size: 17px;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .secondary {
@@ -960,7 +965,7 @@ a.preview-item-btn {
     width: 48px;
     height: 48px;
     border-radius: 8px;
-    background: #e99d75;
+    background: #776482;
     color: #fff;
     flex-shrink: 0;
 }
