@@ -165,16 +165,23 @@ body {
 }
 
 .cta {
-    background: #e99d75;
+    background: rgba(40, 38, 67, 0.88);
+    color: #fff;
     padding: 10px 24px;
     border-radius: 30px;
-    color: #282643;
     font-weight: 500;
     cursor: pointer;
     border: none;
     outline: none;
     text-decoration: none;
     transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cta:hover {
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(40, 38, 67, 0.3);
+
 }
 
 /* ========== 4. SECTION — HERO ========== */
