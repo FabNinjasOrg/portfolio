@@ -1,8 +1,10 @@
 /* ----- Navbar: in flow so testimonials-intro sits right below (same as about) ----- */
 .page-testimonials .navbar {
     position: relative;
-    background: rgba(40, 38, 67, 0.95);
-    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    background: #343454;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .page-testimonials .navbar .menu li,
@@ -163,6 +165,36 @@
     margin: 0;
     /* max-width: 430px; */
     text-align: right;
+}
+
+@media (max-width: 768px) {
+    .customer-testimonials {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+    .customer-testimonials--team {
+        flex-direction: column-reverse;
+        /* Put content/title on top */
+    }
+
+    .customer-title-team,
+    .customer-desc-team {
+        text-align: left;
+    }
+
+    .customer-slider {
+        width: 100vw;
+        margin-left: -16px;
+        /* Offset parent padding */
+        margin-right: -16px;
+    }
+
+    .customer-track {
+        padding-left: 16px;
+    }
 }
 
 .customer-slider {
@@ -359,23 +391,9 @@
         font-size: 15px;
     }
 
-    .customer-testimonials {
-        margin-top: 28px;
-        grid-template-columns: 1fr;
-    }
-
-    .customer-testimonials--team {
-        margin-top: 24px;
-        grid-template-columns: 1fr;
-    }
-
-    .customer-desc {
-        max-width: 100%;
-    }
-
     .customer-card {
         width: 300px;
-        min-height: 420px;
+        min-height: 380px;
         padding: 24px 22px 22px;
         border-radius: 0;
     }
@@ -408,7 +426,7 @@
     }
 
     .testimonials-intro-title {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .testimonials-intro-desc {
@@ -424,12 +442,12 @@
     }
 
     .customer-card {
-        width: 256px;
-        min-height: 360px;
+        width: 270px;
+        min-height: 340px;
     }
 
     .customer-text {
-        font-size: 13px;
+        font-size: 13.5px;
     }
 
     .customer-name {
@@ -439,6 +457,49 @@
     .customer-role {
         font-size: 12px;
     }
+}
+
+/* Footer & Global UI Overrides for Testimonials Page */
+.page-testimonials .footer {
+    background: #f5f5f7;
+    border-top: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.page-testimonials .footer-inner {
+    padding: 44px 24px 24px;
+}
+
+.page-testimonials .footer-heading {
+    color: #282643;
+}
+
+.page-testimonials .footer-link {
+    color: #5f6777;
+}
+
+.page-testimonials .footer-link:hover {
+    color: #282643;
+}
+
+.page-testimonials .footer-contact-text,
+.page-testimonials .footer-brand-text {
+    color: #5f6777;
+}
+
+.page-testimonials .footer-cta-btn {
+    background: #282643;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 500;
+}
+
+.page-testimonials .nav-toggle-bar {
+    background: #ffffff;
+}
+
+.page-testimonials .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
 }
 
 @media (prefers-reduced-motion: reduce) {
