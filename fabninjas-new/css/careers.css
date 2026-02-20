@@ -7,9 +7,11 @@
     background: #fff;
 }
 
-/* Navbar: in flow so careers-intro sits right below (same as Services / Blogs) */
+/* Navbar: sticky so it stays on scroll (same as Services / Blogs) */
 .careers-page .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
 }

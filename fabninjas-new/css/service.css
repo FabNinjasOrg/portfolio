@@ -1,9 +1,11 @@
 
 /* SERVICE CARDS - SERVICES PAGE */
 
-/* ----- Navbar: in flow so services-intro sits right below ----- */
+/* ----- Navbar: sticky so it stays on scroll ----- */
 .page-services .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
 }

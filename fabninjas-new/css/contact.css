@@ -14,11 +14,13 @@
     border-right: 1px solid var(--c-border);
 }
 
-/* Navbar: same as services page — purple background, white links */
+/* Navbar: same as services page — sticky, purple background, white links */
 .page-contact .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-    background: #343454;
+    background: rgba(40, 38, 67, 0.95);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }

@@ -3,9 +3,11 @@
  * New styling for the about page. Load after style.css.
  */
 
-/* ----- Navbar: in flow so about-intro sits right below (no padding needed) ----- */
+/* ----- Navbar: sticky so it stays on scroll ----- */
 .page-about .navbar {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
     background: rgba(40, 38, 67, 0.95);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
 }

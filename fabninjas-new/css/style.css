@@ -48,19 +48,29 @@ body {
     background: #fff;
 }
 
-/* ========== 3. LAYOUT — NAVBAR ========== */
+/* ========== 3. LAYOUT — NAVBAR (landing: initial glassy; scrolled = sticky + service style) ========== */
 .navbar {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     padding: 8px 24px;
-    background: rgba(255, 255, 255, 0.03); /* lighter glassy overlay */
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid transparent;
     z-index: 1000;
-    transition: background 0.25s ease;
-    /* border-bottom: 1px solid rgba(40, 38, 67, 0.12); */
+    transition: background 0.4s ease-out, border-color 0.4s ease-out, backdrop-filter 0.4s ease-out;
+}
+
+/* After scroll: sticky + solid purple, no blur or transparency */
+.navbar.navbar-scrolled {
+    position: sticky;
+    top: 0;
+    background: rgba(40, 38, 67, 0.95);
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .nav-container {
@@ -95,13 +105,21 @@ body {
     background: rgba(40, 38, 67, 0.06);
 }
 
+.navbar.navbar-scrolled .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
 .nav-toggle-bar {
     display: block;
     width: 22px;
     height: 2px;
     background: var(--color-dark);
     border-radius: 1px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, background 0.25s ease;
+}
+
+.navbar.navbar-scrolled .nav-toggle-bar {
+    background: #fff;
 }
 
 .nav-menu-wrap {
@@ -113,6 +131,57 @@ body {
 .logo {
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+/* Scrolled-state logo: crossfade with default logo */
+.logo .logo-scrolled {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease-out;
+}
+
+.logo .logo-scrolled img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.logo .logo-default {
+    transition: opacity 0.35s ease-out;
+}
+
+/* When scrolled: hide default logo and take it out of flow so layout matches service (single logo, same size) */
+.navbar.navbar-scrolled .logo .logo-default {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.navbar.navbar-scrolled .logo .logo-scrolled {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Scrolled state: same logo size as service page */
+.navbar.navbar-scrolled .logo .logo-scrolled img,
+.navbar.navbar-scrolled .logo img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
 }
 
 .logo img {
@@ -126,11 +195,11 @@ body {
     display: flex;
     gap: 40px;
     list-style: none;
-    color: #282643;
+    color: var(--color-dark);
 }
 
 .menu li {
-    color: #282643;
+    color: var(--color-dark);
     font-weight: 400;
     transition: color 0.25s ease;
 }
@@ -153,11 +222,24 @@ body {
     width: 0;
     height: 2px;
     background: rgba(40, 38, 67, 0.95);
-    transition: width 0.25s ease;
+    transition: width 0.25s ease, background 0.25s ease;
+}
+
+.navbar.navbar-scrolled .menu li a::after {
+    background: #fff;
 }
 
 .menu li a:hover {
     color: rgba(40, 38, 67, 0.95);
+}
+
+.navbar.navbar-scrolled .menu li,
+.navbar.navbar-scrolled .menu li a {
+    color: #fff;
+}
+
+.navbar.navbar-scrolled .menu li a:hover {
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .menu li a:hover::after {
@@ -165,7 +247,7 @@ body {
 }
 
 .cta {
-    background: rgba(40, 38, 67, 0.88);
+    background: rgba(40, 38, 67, 0.95);
     color: #fff;
     padding: 10px 24px;
     border-radius: 30px;
@@ -177,11 +259,20 @@ body {
     transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
+.navbar.navbar-scrolled .cta {
+    background: #fff;
+    color: var(--color-dark);
+}
+
 .cta:hover {
-    color: white;
+    color: #fff;
     transform: translateY(-1px);
     box-shadow: 0 6px 18px rgba(40, 38, 67, 0.3);
+}
 
+.navbar.navbar-scrolled .cta:hover {
+    color: var(--color-dark);
+    box-shadow: 0 6px 18px rgba(40, 38, 67, 0.25);
 }
 
 /* ========== 4. SECTION — HERO ========== */
@@ -449,13 +540,43 @@ body {
 
 /* ========== 5. SECTION — WHO WE ARE ========== */
 .who-we-are {
+    position: relative;
     background: transparent;
     border-top: 1px solid rgba(40, 38, 67, 0.12);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
 
+/* Animated wavy background — bottom of section, 4-5 bumps scrolling */
+.who-we-are-waves {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 420px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.who-we-are-waves-svg {
+    display: block;
+    width: 200%;
+    height: 100%;
+}
+
+.ww-track {
+    animation: ww-scroll 14s linear infinite;
+}
+
+@keyframes ww-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
 .who-we-are-inner {
+    position: relative;
+    z-index: 1;
     padding: 80px 24px 100px;
     max-width: 1200px;
     margin: 0 auto;
@@ -477,7 +598,7 @@ body {
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     position: sticky;
-    top: 20px; /* matches card stack offset */
+    top: 100px; /* gap above when stuck (below navbar + breathing room) */
     align-self: flex-start;
 }
 
@@ -579,28 +700,32 @@ body {
     height: 20px;
 }
 
-/* Right column */
+/* Right column: align-self so sticky cards can stick */
 .who-we-are-right {
     flex: 1;
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* border: 1px solid rgba(40, 38, 67, 0.12); padding: 24px 24px; */
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.78);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    position: relative; /* needed for sticky stacking */
+    position: relative;
 }
 
 /* Cards */
 .who-we-are-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 14px;
+    align-items: start;
     border: 1px solid rgba(40, 38, 67, 0.12);
     border-radius: 16px;
     padding: 28px 28px;
     transition: box-shadow 0.2s, border-color 0.2s;
     position: sticky;
-    top: 40px; /* keep some space above when card is stuck */
+    top: 100px;
 }
 
 .who-we-are-card:hover {
@@ -624,12 +749,14 @@ body {
 
 @media (max-width: 900px) {
     /* Disable stacking behaviour on smaller screens for usability */
-    .who-we-are-card {
+    .who-we-are-card,
+    .who-we-are-right .who-we-are-card {
         position: static;
+        top: auto;
     }
 }
 
-/* Card icons */
+/* Card icons — first column, title beside in second column */
 .who-we-are-card-icon {
     display: inline-flex;
     align-items: center;
@@ -639,7 +766,7 @@ body {
     border-radius: 8px;
     background: #e99d75;
     color: #fff;
-    margin-bottom: 14px;
+    margin-bottom: 0;
 }
 
 .who-we-are-card-icon svg {
@@ -649,17 +776,24 @@ body {
 }
 
 .who-we-are-card-title {
-    font-size: 20px;
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 24px;
     font-weight: 600;
     color: #282643;
-    margin-bottom: 8px;
+    margin: 0;
+    padding-top: 10px;
+    line-height: 1.3;
 }
 
 .who-we-are-card-desc {
+    grid-column: 1 / -1;
+    grid-row: 2;
     font-size: 15px;
     color: #6b7280;
     line-height: 1.6;
     margin: 0;
+    margin-top: 12px;
 }
 
 /* Who we are stats slider: pills with icons, infinite auto-scroll */
@@ -743,11 +877,39 @@ body {
 
 /* ========== 6. SECTION — PREVIEW ========== */
 .preview {
+    position: relative;
     background: transparent;
     border-top: 1px solid rgba(40, 38, 67, 0.12);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.preview-inner {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animated waves — preview section */
+.preview-waves {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 420px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.preview-waves-svg {
+    display: block;
+    width: 200%;
+    height: 100%;
+}
+
+.pw-track {
+    animation: ww-scroll 16s linear infinite;
 }
 
 .preview-inner {
@@ -778,22 +940,36 @@ body {
     justify-content: space-between;
     gap: 24px;
     padding: 48px 56px;
-    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
-    background: rgba(255, 255, 255, 0.82);
     position: sticky;
-    top: 40px;
+    top: 100px;
     border-radius: 16px;
-    border: 1px solid rgba(40, 38, 67, 0.12);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    transition: box-shadow 0.2s, border-color 0.2s;
+    border: 1px solid rgba(40, 38, 67, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s, border-color 0.3s;
     width: 100%;
     box-sizing: border-box;
+    background: #fff;
 }
 
 .preview-item:hover {
-    border-color: rgba(233, 157, 117, 0.35);
-    box-shadow: 0 8px 24px rgba(40, 38, 67, 0.08);
+    border-color: rgba(233, 157, 117, 0.5);
+    box-shadow: 0 12px 40px rgba(40, 38, 67, 0.12);
+}
+
+
+/* Text colours — dark on white card bg */
+.preview-item-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #282643;
+}
+
+.preview-item-desc {
+    font-size: 16px;
+    color: rgba(40, 38, 67, 0.65);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 580px;
 }
 
 /* Stack order when sticky */
@@ -819,19 +995,7 @@ body {
     gap: 10px;
 }
 
-.preview-item-title {
-    font-size: 26px;
-    font-weight: 600;
-    color: #282643;
-}
-
-.preview-item-desc {
-    font-size: 16px;
-    color: #6b7280;
-    line-height: 1.5;
-    margin: 0;
-    max-width: 580px;
-}
+/* title + desc colours set in the card-bg block above */
 
 .preview-item-main {
     flex: 1;
@@ -900,13 +1064,41 @@ a.preview-item-btn {
 
 /* ========== 7. SECTION — CONTACT ========== */
 .contact {
+    position: relative;
     background: transparent;
+}
+
+.contact-inner {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animated waves — contact section */
+.contact-waves {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 420px;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.contact-waves-svg {
+    display: block;
+    width: 200%;
+    height: 100%;
+}
+
+.cw-track {
+    animation: ww-scroll 18s linear infinite;
 }
 
 .contact-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 24px 100px;
+    padding: 80px 24px 120px;
     display: flex;
     gap: 48px;
     align-items: flex-start;
@@ -1335,6 +1527,11 @@ a.preview-item-btn {
 @media (max-width: 768px) {
     .navbar {
         padding: 8px 16px;
+    }
+
+    .navbar.navbar-scrolled .logo .logo-scrolled img {
+        width: 56px;
+        height: 56px;
     }
 
     .culture-people-inner {
