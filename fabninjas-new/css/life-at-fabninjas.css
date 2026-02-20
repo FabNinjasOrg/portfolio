@@ -1,9 +1,16 @@
 /*
  * FabNinjas — Life at FabNinjas page only
- * New styling for the Life at FabNinjas page. Load after style.css.
+ * Modern Grid-Layout + Wavy Card Design.
  */
 
 .page-life .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #282643;
+    /* Solid Dark Navy as per image */
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -11,205 +18,151 @@
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
 }
 
-.page-life .navbar .menu li,
+.page-life .navbar .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.page-life .navbar .menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .page-life .navbar .menu li a {
-    color: #fff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    padding: 8px 0;
+    transition: opacity 0.3s ease;
 }
 
+/* Active state for 'Life at FabNinjas' or current page if applicable */
+.page-life .navbar .menu li a.active,
 .page-life .navbar .menu li a:hover {
-    color: rgba(255, 255, 255, 0.85);
+    opacity: 1;
 }
 
-.page-life .navbar .menu li a::after {
-    background: #fff;
+/* White underline for active page */
+.page-life .navbar .menu li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
 }
 
 .page-life .navbar .cta {
-    background: #fff;
-    color: var(--color-dark);
+    background: #ffffff;
+    /* White pill as per image */
+    color: #282643;
+    padding: 12px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.page-life .nav-toggle-bar {
-    background: #fff;
-}
-.page-life .nav-toggle:hover {
-    background: rgba(255, 255, 255, 0.12);
+.page-life .navbar .cta:hover {
+    transform: translateY(-2px);
+    background: #f8f9fa;
 }
 
-/* Intro */
-.life-intro {
-    background: #fff;
-    border-left: 1px solid rgba(40, 38, 67, 0.12);
-    border-right: 1px solid rgba(40, 38, 67, 0.12);
-}
 
 .life-intro-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--section-padding-y) var(--section-padding-x);
+    padding: 100px 40px 60px;
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
 
 .life-intro-title {
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin: 0 0 12px 0;
+    font-size: 48px;
+    font-weight: 800;
+    color: #282643;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
 }
 
 .life-intro-desc {
-    font-size: 18px;
-    color: var(--color-text-muted);
+    font-size: 20px;
+    color: #5f6777;
     line-height: 1.6;
     margin: 0;
-    max-width: 640px;
+    max-width: 700px;
 }
 
-/* Main content */
-.life-page {
-    background: #fff;
+
+
+/* BENEFITS & PERKS */
+.benefits-section {
+    background-color: #fff;
     border-top: 1px solid rgba(40, 38, 67, 0.12);
-    border-left: 1px solid rgba(40, 38, 67, 0.12);
-    border-right: 1px solid rgba(40, 38, 67, 0.12);
+    border-bottom: 1px solid rgba(40, 38, 67, 0.12);
+    /* padding: 80px 0 40px; */
+
 }
 
-.life-page-inner {
+.benefits-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: var(--section-padding-y) var(--section-padding-x);
+    padding: 0 40px;
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
 }
 
-/* ---- Row 1: Premium space / Work location (slider left, heading right) ---- */
-.life-row {
-    display: block;
-}
-
-.life-row-1 {
+.benefits-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    overflow: visible;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+    padding: 80px 0;
 }
 
-/* Work location: title + description with orange square icon */
-.life-row-1-heading {
-    max-width: 100%;
-}
-
-.life-row-1-heading-top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.life-row-1-heading .life-heading-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background: var(--color-orange);
-    color: #fff;
-}
-
-.life-row-1-heading .life-heading-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: #fff;
-}
-
-.life-row-title {
+.benefits-title {
     font-size: 32px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin: 0;
-    letter-spacing: 0.01em;
+    font-weight: 800;
+    color: #282643;
+    margin-bottom: 32px;
 }
 
-.life-row-desc {
-    font-size: 16px;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* ---- Row 2: Left photos slider, Right work benefits ---- */
-.life-row-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: stretch;
-}
-
-.life-row-2-benefits {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.life-benefits-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin: 0;
-}
-
-/* ---- Row 3: Left premium perks, Right photos slider ---- */
-.life-row-3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: stretch;
-    overflow: visible;
-}
-
-.life-premium-perks {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.life-perks-title {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--color-dark);
-    margin: 0;
-}
-
-.life-perks-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.pill-list {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.life-perk {
+.benefit-pill {
+    background-color: white;
+    border-radius: 999px;
+    padding: 16px 32px;
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 14px 18px;
-    border-radius: 12px;
-    background: var(--color-cream);
-    border: 1px solid rgba(40, 38, 67, 0.1);
+    gap: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #776482;
 }
 
-.life-perk-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: var(--color-orange);
+.benefit-pill:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(40, 38, 67, 0.08);
+}
+
+.pill-icon {
+    width: 44px;
+    height: 44px;
+    background-color: #776482;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,341 +170,419 @@
     flex-shrink: 0;
 }
 
-.life-perk-icon svg {
-    width: 20px;
-    height: 20px;
+.pill-icon svg {
+    width: 22px;
+    height: 22px;
 }
 
-.life-perk-text {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-dark);
-}
-
-/* ---- Photos sliders (horizontal infinite scroll) ---- */
-.life-photos-slider {
-    width: 100%;
-    overflow: hidden;
-    margin: 0 -24px;
-    padding: 8px 0;
-}
-
-.life-slider-track {
-    display: flex;
-    width: max-content;
-    animation: life-photos-slider-scroll 35s linear infinite;
-}
-
-.life-photos-slider:hover .life-slider-track {
-    animation-play-state: paused;
-}
-
-.life-slider-set {
-    display: flex;
-    gap: 20px;
-    padding: 0 24px;
-    flex-shrink: 0;
-}
-
-/* Row 1: slider on LEFT — full slide in til left border */
-.life-row-1 .life-photos-slider {
-    display: flex;
-    align-items: center;
-    align-self: stretch;
-    width: calc(100% + var(--section-padding-x));
-    margin-left: calc(-1 * var(--section-padding-x));
-    margin-right: 0;
-    min-width: 0;
-}
-
-/* Row 3: full slide in til right border; slider height matches premium-perks */
-.life-row-3 .life-photos-slider {
-    display: flex;
-    align-items: stretch;
-    align-self: stretch;
-    width: calc(100% + var(--section-padding-x));
-    margin-left: 0;
-    margin-right: calc(-1 * var(--section-padding-x));
-    min-width: 0;
-}
-
-/* Row 2: slider height matches life-pill-list */
-.life-row-2 .life-photos-slider {
-    display: flex;
-    align-items: stretch;
-    align-self: stretch;
-}
-.life-row-2 .life-photos-slider .life-photo-card {
-    width: 280px;
-    flex-shrink: 0;
-    align-self: stretch;
-    height: 100%;
-}
-.life-row-2 .life-photo-img {
-    height: 100%;
-    min-height: 0;
-    object-fit: cover;
-}
-
-.life-row-3 .life-photos-slider .life-photo-card {
-    width: 280px;
-    flex-shrink: 0;
-    align-self: stretch;
-    height: 100%;
-}
-.life-row-3 .life-photo-img {
-    height: 100%;
-    min-height: 0;
-    object-fit: cover;
-}
-
-.life-row-1 .life-photos-slider .life-photo-card {
-    width: 320px;
-    flex-shrink: 0;
-}
-
-@keyframes life-photos-slider-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.life-pill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.life-pill {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 16px 18px;
-    border-radius: 999px;
-    background: var(--color-cream);
-    border: 1px solid rgba(40, 38, 67, 0.1);
-}
-
-.life-pill-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: var(--color-orange);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    flex-shrink: 0;
-}
-
-.life-pill-icon svg {
-    width: 18px;
-    height: 18px;
-}
-
-.life-pill-text-main {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--color-dark);
-}
-
-.life-pill-text-sub {
-    font-size: 14px;
-    color: var(--color-text-muted);
-}
-
-.life-photo-card {
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(40, 38, 67, 0.12);
-    background: #fff;
-}
-
-.life-photo-img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
-}
-
-.life-row-1 .life-photo-img {
-    height: 220px;
-}
-
-/* ---- Join / Careers CTA section ---- */
-.life-career-cta {
-    background: #fff;
-    border-top: 1px solid rgba(40, 38, 67, 0.12);
-    border-left: 1px solid rgba(40, 38, 67, 0.12);
-    border-right: 1px solid rgba(40, 38, 67, 0.12);
-}
-
-.life-career-cta-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 48px var(--section-padding-x) 56px;
-    border-left: 1px solid rgba(40, 38, 67, 0.12);
-    border-right: 1px solid rgba(40, 38, 67, 0.12);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    text-align: center;
-}
-
-.life-career-cta-text {
+.pill-content h3 {
     font-size: 18px;
-    color: var(--color-dark);
-    line-height: 1.5;
+    font-weight: 700;
+    color: #282643;
     margin: 0;
-    font-weight: 500;
 }
 
-.life-career-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 28px;
-    border-radius: 999px;
-    background: var(--color-orange);
-    color: var(--color-dark);
+.pill-content p {
     font-size: 15px;
-    font-weight: 500;
-    text-decoration: none;
+    color: #5f6777;
+    margin: 4px 0 0;
 }
 
+/* Responsive adjustments */
 @media (max-width: 900px) {
-    .page-no-hero .life-intro {
-        padding-top: 88px;
-    }
-    .life-intro-inner {
-        padding: 28px 20px 32px;
-    }
-    .life-intro-title {
-        font-size: 30px;
-    }
-    .life-intro-desc {
-        font-size: 17px;
-    }
-    .life-page-inner {
-        padding: 56px 20px 72px;
-        gap: 48px;
-    }
-    .life-row-1,
-    .life-row-2,
-    .life-row-3 {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-    .life-row-1 .life-row-1-heading {
-        order: 1;
-    }
-    .life-row-1 .life-photos-slider {
-        order: 2;
-    }
-    .life-row-2 .life-photos-slider {
-        order: 1;
-    }
-    .life-row-2-benefits {
-        order: 2;
-    }
-    .life-row-3 .life-premium-perks {
-        order: 1;
-    }
-    .life-row-3 .life-photos-slider {
-        order: 2;
-    }
-    .life-row-title {
-        font-size: 28px;
+    .page-life .navbar .menu {
+        display: none;
+        /* Hide for mobile toggle if exists */
     }
 }
 
-@media (max-width: 768px) {
-    .page-no-hero .life-intro {
-        padding-top: 80px;
-    }
-    .life-intro-inner {
-        padding: 24px 16px 28px;
-    }
-    .life-intro-title {
-        font-size: 26px;
-    }
-    .life-intro-desc {
-        font-size: 16px;
-    }
-    .life-page-inner {
-        padding: 48px 16px 56px;
-        gap: 40px;
-    }
-    .life-row-title {
-        font-size: 26px;
-    }
-    .life-row-desc {
-        font-size: 15px;
-    }
-    .life-benefits-title,
-    .life-perks-title {
-        font-size: 20px;
-    }
-    .life-photos-slider {
-        margin: 0 -16px;
-    }
-    .life-slider-set {
-        padding: 0 16px;
-        gap: 14px;
-    }
-    .life-row-1 .life-photos-slider .life-photo-card {
-        width: 260px;
-    }
-    .life-row-2 .life-photos-slider .life-photo-card,
-    .life-row-3 .life-photos-slider .life-photo-card {
-        width: 220px;
-    }
-    .life-row-1 .life-photo-img {
-        height: 180px;
-    }
-    .life-row-2 .life-photo-img,
-    .life-row-3 .life-photo-img {
-        height: 160px;
-    }
-    .life-career-cta-inner {
-        padding: 40px 16px 48px;
-        gap: 20px;
-    }
-    .life-career-cta-text {
-        font-size: 17px;
+/* Responsive adjustment for benefits */
+@media (max-width: 900px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
     }
 }
 
 @media (max-width: 600px) {
-    .page-no-hero .life-intro {
-        padding-top: 72px;
+    .benefit-pill {
+        padding: 14px 24px;
+        border-radius: 20px;
+        /* Slightly less round on mobile if text wraps */
+        align-items: flex-start;
     }
-    .life-intro-inner {
-        padding: 20px 16px 24px;
+
+    .benefits-title {
+        font-size: 28px;
     }
-    .life-intro-title {
-        font-size: 22px;
+}
+
+/* SPLIT SCROLL SECTION */
+.split-scroll-section {
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.split-scroll-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px 100px;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
+
+.split-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    /* border-bottom: 1px solid rgba(40, 38, 67, 0.12); */
+    /* margin-bottom: 100px; */
+}
+
+.split-row:last-child {
+    margin-bottom: 0;
+}
+
+.split-content {
+    flex: 0 0 32%;
+}
+
+.content-badge {
+    display: inline-block;
+    background: rgba(119, 100, 130, 0.1);
+    color: #776482;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+}
+
+.split-content h2 {
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 900;
+    color: #e99d75;
+    margin-bottom: 20px;
+}
+
+.split-content .lead-text {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #5f6777;
+    margin-bottom: 40px;
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #282643;
+}
+
+.feature-icon {
+    width: 38px;
+    height: 38px;
+    background: #f2e1ca;
+    color: #e99d75;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Stat Box */
+.stat-box {
+    background: #f8f9fa;
+    border-left: 4px solid #776482;
+    padding: 24px;
+    border-radius: 0 16px 16px 0;
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: #776482;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.stat-text {
+    font-size: 15px;
+    color: #5f6777;
+    line-height: 1.5;
+}
+
+/* Activity Mini Cards */
+.activity-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Outline Button */
+.outline-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 2px solid #282643;
+    color: #282643;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.outline-btn:hover {
+    background: #282643;
+    color: #fff;
+}
+
+.split-cards-wrap {
+    flex: 1;
+    height: 700px;
+    overflow: hidden;
+    position: relative;
+    /* Smooth endless scroll fade */
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 5%, black 95%, transparent);
+}
+
+.scroll-track {
+    display: flex;
+    flex-direction: column;
+}
+
+.scroll-track-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.scroll-track.scroll-up {
+    animation: scroll-up-anim 20s linear infinite;
+}
+
+.scroll-track.scroll-down {
+    animation: scroll-down-anim 20s linear infinite;
+}
+
+.scroll-track.scroll-up:hover,
+.scroll-track.scroll-down:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-up-anim {
+    0% {
+        transform: translateY(0);
     }
-    .life-intro-desc {
-        font-size: 15px;
+
+    100% {
+        transform: translateY(-50%);
     }
-    .life-page-inner {
-        padding: 40px 16px 48px;
-        gap: 36px;
+}
+
+@keyframes scroll-down-anim {
+    0% {
+        transform: translateY(-50%);
     }
-    .life-row-title {
-        font-size: 22px;
+
+    100% {
+        transform: translateY(0);
     }
-    .life-career-cta-inner {
-        padding: 32px 16px 40px;
-        gap: 18px;
-    }
-    .life-career-cta-text {
-        font-size: 16px;
-    }
-    .life-career-btn {
-        padding: 10px 24px;
-        font-size: 14px;
-    }
+}
+
+/* Ensure wavy cards inside track don't get the reveal animations since they are already looping */
+.split-cards-wrap .wavy-card {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease !important;
+    margin: 0;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+}
+
+
+
+
+/* THE CARDS GRID */
+.wavy-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+    padding-top: 40px;
+}
+
+/* THE NEW CARD DESIGN */
+.wavy-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border-radius: 32px; */
+    overflow: hidden;
+    height: auto;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    border: 1px solid rgba(40, 38, 67, 0.08);
+    position: relative;
+    opacity: 0;
+    pointer-events: none;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(40, 38, 67, 0.04);
+    margin: 0;
+}
+
+.wavy-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(40, 38, 67, 0.1);
+}
+
+/* Creative Reveal Animation */
+.life-ready .wavy-card.life-reveal {
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.life-ready .wavy-card.life-reveal:nth-child(odd) {
+    transform: translateY(30px);
+}
+
+.life-ready .wavy-card.life-reveal:nth-child(even) {
+    transform: translateY(30px);
+}
+
+.life-ready .wavy-card.life-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* 5 background colors on hover */
+.wavy-card:nth-child(5n+1):hover {
+    background-color: #e99d75;
+}
+
+.wavy-card:nth-child(5n+2):hover {
+    background-color: #776482;
+}
+
+.wavy-card:nth-child(5n+3):hover {
+    background-color: #f2e1ca;
+}
+
+.wavy-card:nth-child(5n+4):hover {
+    background-color: #baa9b8;
+}
+
+.wavy-card:nth-child(5n+5):hover {
+    background-color: #282643;
+}
+
+/* Adapt text color on hover based on contrast */
+.wavy-card:nth-child(5n+1):hover .card-body h3,
+.wavy-card:nth-child(5n+1):hover .card-body p {
+    color: #fff;
+}
+
+.wavy-card:nth-child(5n+2):hover .card-body h3,
+.wavy-card:nth-child(5n+2):hover .card-body p {
+    color: #fff;
+}
+
+.wavy-card:nth-child(5n+3):hover .card-body h3,
+.wavy-card:nth-child(5n+3):hover .card-body p {
+    color: #282643;
+}
+
+.wavy-card:nth-child(5n+4):hover .card-body h3,
+.wavy-card:nth-child(5n+4):hover .card-body p {
+    color: #fff;
+}
+
+.wavy-card:nth-child(5n+5):hover .card-body h3,
+.wavy-card:nth-child(5n+5):hover .card-body p {
+    color: #fff;
+}
+
+/* Card Content Styling */
+.card-body {
+    flex: none;
+    padding: 24px 8px 12px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+}
+
+.card-body h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #282643;
+    transition: color 0.3s ease;
+}
+
+.card-body p {
+    font-size: 15px;
+    color: #5f6777;
+    line-height: 1.6;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+/* Card Media Styling */
+.card-media {
+    flex: none;
+    width: 100%;
+    height: 260px;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.image-arch-frame {
+    width: 100%;
+    height: 100%;
+    /* border-radius: 24px; */
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background: #eee;
+}
+
+.card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
