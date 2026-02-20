@@ -3,14 +3,8 @@
  * Modern Grid-Layout + Wavy Card Design.
  */
 
+/* ----- Navbar: sticky so it stays on scroll ----- */
 .page-life .navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #282643;
-    /* Solid Dark Navy as per image */
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -18,100 +12,75 @@
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
 }
 
-.page-life .navbar .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-.page-life .navbar .menu {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
+.page-life .navbar .menu li,
 .page-life .navbar .menu li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    position: relative;
-    padding: 8px 0;
-    transition: opacity 0.3s ease;
+    color: #fff;
 }
 
-/* Active state for 'Life at FabNinjas' or current page if applicable */
-.page-life .navbar .menu li a.active,
 .page-life .navbar .menu li a:hover {
-    opacity: 1;
+    color: rgba(255, 255, 255, 0.85);
 }
 
-/* White underline for active page */
-.page-life .navbar .menu li a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #ffffff;
+.page-life .navbar .menu li a::after {
+    background: #fff;
+}
+
+/* Fix for mobile menu links being white on a white background */
+@media (max-width: 900px) {
+    .page-life .navbar .menu li a {
+        color: var(--color-dark) !important;
+    }
 }
 
 .page-life .navbar .cta {
-    background: #ffffff;
-    /* White pill as per image */
-    color: #282643;
-    padding: 12px 28px;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.3s ease, background 0.3s ease;
+    background: #fff;
+    color: var(--color-dark);
 }
 
-.page-life .navbar .cta:hover {
-    transform: translateY(-2px);
-    background: #f8f9fa;
+.page-life .nav-toggle-bar {
+    background: #fff;
 }
 
+.page-life .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* ----- page intro (no hero) ----- */
+
+.life-intro {
+    background: #fff;
+    border-left: 1px solid rgba(40, 38, 67, 0.12);
+    border-right: 1px solid rgba(40, 38, 67, 0.12);
+}
 
 .life-intro-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 100px 40px 60px;
+    padding: var(--section-padding-y) var(--section-padding-x);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
 }
 
 .life-intro-title {
-    font-size: 48px;
-    font-weight: 800;
-    color: #282643;
-    margin: 0 0 16px 0;
-    letter-spacing: -0.02em;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-dark);
+    margin: 0 0 12px 0;
 }
 
 .life-intro-desc {
-    font-size: 20px;
-    color: #5f6777;
+    font-size: 18px;
+    color: var(--color-text-muted);
     line-height: 1.6;
     margin: 0;
-    max-width: 700px;
+    max-width: 640px;
 }
-
-
 
 /* BENEFITS & PERKS */
 .benefits-section {
     background-color: #fff;
     border-top: 1px solid rgba(40, 38, 67, 0.12);
     border-bottom: 1px solid rgba(40, 38, 67, 0.12);
-    /* padding: 80px 0 40px; */
-
 }
 
 .benefits-container {
@@ -126,7 +95,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 80px;
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .benefits-title {
@@ -188,13 +157,7 @@
     margin: 4px 0 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
-    .page-life .navbar .menu {
-        display: none;
-        /* Hide for mobile toggle if exists */
-    }
-}
+/* Removed redundant navbar menu hider that was breaking the toggle */
 
 /* Responsive adjustment for benefits */
 @media (max-width: 900px) {
@@ -388,8 +351,7 @@
     animation: scroll-down-anim 20s linear infinite;
 }
 
-.scroll-track.scroll-up:hover,
-.scroll-track.scroll-down:hover {
+.scroll-track:has(.wavy-card:hover) {
     animation-play-state: paused;
 }
 
@@ -425,8 +387,91 @@
     height: auto;
 }
 
+/* Responsive Styles for Split Layout */
+@media (max-width: 900px) {
+    .split-row {
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 60px;
+    }
 
+    /* Force text to show before card cards on mobile */
+    .split-row.mobile-reverse {
+        flex-direction: column-reverse;
+    }
 
+    .split-content {
+        flex: none;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .split-content h2 {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .split-content .lead-text {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .feature-list {
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .feature-list li {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .stat-box {
+        border-left: none;
+        border-top: 4px solid #776482;
+        border-radius: 0 0 16px 16px;
+        text-align: center;
+    }
+
+    /* Disable scrolling on mobile web and show cards statically */
+    .scroll-track.scroll-up,
+    .scroll-track.scroll-down {
+        animation: none !important;
+    }
+
+    .split-cards-wrap {
+        height: auto;
+        overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    /* Hide the duplicate loop track on mobile to avoid showing double cards */
+    .scroll-track-inner[aria-hidden="true"] {
+        display: none;
+    }
+
+    /* Show all cards statically on mobile instead of just the first one */
+    .scroll-track-inner .wavy-card {
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+    .scroll-track-inner .wavy-card:last-child {
+        margin-bottom: 0;
+    }
+
+    .scroll-track-inner {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .split-scroll-container {
+        padding: 40px 20px 60px;
+    }
+}
 
 /* THE CARDS GRID */
 .wavy-cards-grid {
