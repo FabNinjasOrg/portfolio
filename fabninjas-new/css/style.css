@@ -1007,6 +1007,8 @@ body {
     justify-content: center;
     gap: 10px;
     padding: 14px 26px;
+    width: 200px;
+    min-width: 200px;
     border-radius: 999px;
     background: #e99d75;
     color: #282643;
@@ -1988,6 +1990,35 @@ a.preview-item-btn {
     line-height: 1.6;
 }
 
+.footer-follow-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.footer-follow-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: #776482;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-follow-icon:hover {
+    background: #282643;
+    color: #fff;
+}
+
+.footer-follow-icon svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
 .footer-column {
     min-width: 160px;
 }
@@ -2035,6 +2066,49 @@ a.preview-item-btn {
     color: #6b7280;
     line-height: 1.6;
     margin-bottom: 12px;
+}
+
+.footer-contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.footer-contact-item:hover {
+    color: rgba(40, 38, 67, 0.95);
+}
+
+.footer-contact-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    color: #776482;
+}
+
+.footer-contact-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.footer-contact-value {
+    flex: 1;
+    min-width: 0;
 }
 
 .footer-cta-btn {
