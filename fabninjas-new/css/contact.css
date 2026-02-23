@@ -147,7 +147,7 @@
     margin: 18px 0 0;
     max-width: 980px;
     font-size: 17px;
-    line-height: 1.55;
+    line-height: var(--line-height-loose);
     color: rgba(40, 38, 67, 0.78);
 }
 
@@ -202,7 +202,7 @@
     max-width: 760px;
     color: rgba(40, 38, 67, 0.78);
     font-size: 18px;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     text-align: left;
 }
 
@@ -294,13 +294,13 @@
 .connect-card small {
     display: block;
     font-size: 12px;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
     color: rgba(40, 38, 67, 0.6);
 }
 
 .connect-card strong {
     font-size: 14px;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
     color: var(--c-dark);
 }
 
@@ -664,7 +664,7 @@
     align-items: center;
     gap: 10px;
     font-size: 14px;
-    line-height: 1.35;
+    line-height: var(--line-height-snug);
 }
 
 .contact-visual-left li span {

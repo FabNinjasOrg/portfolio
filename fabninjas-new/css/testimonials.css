@@ -62,7 +62,7 @@
 .testimonials-intro-desc {
     font-size: 18px;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0;
     max-width: 640px;
 }
@@ -108,7 +108,7 @@
 .testimonials-page-desc {
     font-size: 16px;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0;
     max-width: 680px;
 }
@@ -137,7 +137,7 @@
 
 .customer-title {
     font-size: 36px;
-    line-height: 1.08;
+    line-height: var(--line-height-tight);
     letter-spacing: 0.01em;
     color: var(--color-dark);
     margin: 0 0 22px;
@@ -145,7 +145,7 @@
 
 .customer-title-team {
     font-size: 36px;
-    line-height: 1.08;
+    line-height: var(--line-height-tight);
     letter-spacing: 0.01em;
     color: var(--color-dark);
     margin: 0 0 22px;
@@ -154,7 +154,7 @@
 
 .customer-desc {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: var(--line-height-loose);
     color: #282643;
     margin: 0;
     max-width: 430px;
@@ -162,7 +162,7 @@
 
 .customer-desc-team {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: var(--line-height-loose);
     color: #282643;
     margin: 0;
     /* max-width: 430px; */
@@ -269,7 +269,7 @@
 
 .customer-text {
     font-size: 14px;
-    line-height: 1.45;
+    line-height: var(--line-height-snug);
     font-weight: 400;
     margin: 0;
     max-width: 95%;
@@ -288,7 +288,7 @@
     display: block;
     font-size: 18px;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
 }
 
 .customer-role {

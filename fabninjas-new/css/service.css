@@ -70,7 +70,7 @@
 .services-intro-desc {
     font-size: 18px;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0;
     max-width: 640px;
 }
@@ -113,7 +113,7 @@
     text-align: left;
     font-size: 18px;
     color: #776482;
-
+    line-height: var(--line-height-relaxed);
 }
 
 .services-grid {
@@ -178,7 +178,7 @@
 
 .service-card p {
     font-size: 15px;
-    line-height: 1.7;
+    line-height: var(--line-height-loose);
     color: #776482;
     margin-bottom: 20px;
     transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -194,6 +194,7 @@
 .service-features li {
     font-size: 14px;
     color: #776482;
+    line-height: var(--line-height-relaxed);
     margin-bottom: 10px;
     padding-left: 0;
     transition: color 0.3s ease;

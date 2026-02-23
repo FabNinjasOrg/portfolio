@@ -71,7 +71,7 @@
 .life-intro-desc {
     font-size: 18px;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0;
     max-width: 640px;
 }
@@ -263,7 +263,7 @@
 
 .split-content .lead-text {
     font-size: 17px;
-    line-height: 1.7;
+    line-height: var(--line-height-loose);
     color: #282643;
     /* Specified Dark Navy */
     margin-bottom: 32px;
@@ -312,7 +312,7 @@
 .stat-text {
     font-size: 15px;
     color: #5f6777;
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
 }
 
 /* Activity Mini Cards */
@@ -617,7 +617,7 @@
     font-size: 22px;
     margin-bottom: 12px;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: var(--line-height-tight);
     color: #282643;
     transition: color 0.3s ease;
 }
@@ -625,7 +625,7 @@
 .card-body p {
     font-size: 15px;
     color: #5f6777;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin-bottom: 0;
     transition: color 0.3s ease;
 }

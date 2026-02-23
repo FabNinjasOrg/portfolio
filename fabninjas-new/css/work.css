@@ -72,7 +72,7 @@
 .work-intro-desc {
     font-size: 18px;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0;
     max-width: 640px;
 }
@@ -129,7 +129,7 @@
 .work-page-desc {
     font-size: 16px;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0;
     max-width: 680px;
 }
@@ -208,7 +208,7 @@
 
 .work-card-desc {
     font-size: 14px;
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
     color: #ffffff;
     margin: 0;
 }

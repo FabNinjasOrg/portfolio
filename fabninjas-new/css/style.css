@@ -34,6 +34,13 @@
     --border-radius-pill: 9999px;
     /* Typography */
     --font-family: 'Libre Franklin', sans-serif;
+    --line-height-tight: 1.25;
+    --line-height-snug: 1.35;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.6;
+    --line-height-loose: 1.7;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.01em;
 }
 
 /* ========== 2. RESET & BASE ========== */
@@ -46,6 +53,7 @@
 
 body {
     background: #fff;
+    line-height: var(--line-height-relaxed);
 }
 
 /* ========== 3. LAYOUT — NAVBAR (landing: initial glassy; scrolled = sticky + service style) ========== */
@@ -487,7 +495,10 @@ body {
 .hero-content-subtitle {
     font-size: 23px;
     font-weight: 200;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+    line-height: var(--line-height-loose);
+    max-width: 28em;
+    letter-spacing: var(--letter-spacing-wide);
 }
 
 .hero h1 {
@@ -499,7 +510,7 @@ body {
 
 .hero p {
     color: #6b7280;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .buttons {
@@ -509,7 +520,7 @@ body {
 }
 
 .primary {
-    background: #e99d75;
+    background: var(--color-orange);
     color: #282643;
     border: none;
     padding: 16px 34px;
@@ -521,6 +532,27 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+    box-shadow: 0 2px 12px rgba(233, 157, 117, 0.35);
+}
+
+.primary:hover {
+    background: #e08f64;
+    box-shadow: 0 6px 24px rgba(233, 157, 117, 0.45);
+    transform: translateY(-2px);
+}
+
+.primary:focus-visible {
+    outline: 2px solid var(--color-dark);
+    outline-offset: 3px;
+}
+
+.primary span:last-child {
+    transition: transform 0.2s ease;
+}
+
+.primary:hover span:last-child {
+    transform: translateX(4px);
 }
 
 .secondary {
@@ -545,7 +577,7 @@ body {
 /* ========== 5. SECTION — WHO WE ARE ========== */
 .who-we-are {
     position: relative;
-    background: transparent;
+    background: linear-gradient(180deg, #fff 0%, rgba(242, 225, 202, 0.12) 60%, rgba(242, 225, 202, 0.2) 100%);
     border-top: 1px solid rgba(40, 38, 67, 0.12);
     border-left: 1px solid rgba(40, 38, 67, 0.12);
     border-right: 1px solid rgba(40, 38, 67, 0.12);
@@ -570,7 +602,7 @@ body {
 }
 
 .ww-track {
-    animation: ww-scroll 14s linear infinite;
+    animation: ww-scroll 20s linear infinite;
 }
 
 @keyframes ww-scroll {
@@ -595,15 +627,22 @@ body {
 .who-we-are-left {
     flex: 0 0 38%;
     max-width: 38%;
-    border: 1px solid rgba(40, 38, 67, 0.12);
-    border-radius: 16px;
+    border: 1px solid rgba(40, 38, 67, 0.1);
+    border-radius: 20px;
     padding: 36px 28px;
-    background: rgba(255, 255, 255, 0.78);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     position: sticky;
     top: 100px; /* gap above when stuck (below navbar + breathing room) */
     align-self: flex-start;
+    box-shadow: 0 4px 24px rgba(40, 38, 67, 0.06), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.who-we-are-left:hover {
+    box-shadow: 0 12px 40px rgba(40, 38, 67, 0.08), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    border-color: rgba(233, 157, 117, 0.2);
 }
 
 .who-we-are-title {
@@ -623,10 +662,11 @@ body {
     justify-content: center;
     width: 48px;
     height: 48px;
-    border-radius: 8px;
-    background: #e99d75;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e99d75 0%, #e08f64 100%);
     color: #fff;
     line-height: 0;
+    box-shadow: 0 4px 14px rgba(233, 157, 117, 0.4);
 }
 
 .who-we-are-title-icon svg {
@@ -647,7 +687,7 @@ body {
 .who-we-are-desc {
     font-size: 16px;
     color: #6b7280;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin-bottom: 0;
 }
 
@@ -678,25 +718,38 @@ body {
     gap: 10px;
     padding: 14px 26px;
     border-radius: 999px;
-    background: #e99d75;
+    background: linear-gradient(135deg, #e99d75 0%, #e08f64 100%);
     color: #282643;
     border: none;
     font-size: 16px;
     font-weight: 500;
+    line-height: var(--line-height-normal);
     text-decoration: none;
-    box-shadow: 0 6px 18px rgba(40, 38, 67, 0.12);
-    transition: box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(233, 157, 117, 0.35), 0 2px 6px rgba(40, 38, 67, 0.08);
+    transition: box-shadow 0.25s ease, transform 0.2s ease, background 0.25s ease;
     cursor: pointer;
 }
 
 .who-we-are-cta-btn:hover {
-    box-shadow: 0 8px 22px rgba(40, 38, 67, 0.18);
+    box-shadow: 0 8px 28px rgba(233, 157, 117, 0.45), 0 4px 12px rgba(40, 38, 67, 0.12);
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #e08f64 0%, #d98256 100%);
+}
+
+.who-we-are-cta-btn:focus-visible {
+    outline: 2px solid var(--color-dark);
+    outline-offset: 3px;
 }
 
 .who-we-are-cta-btn-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.who-we-are-cta-btn:hover .who-we-are-cta-btn-icon {
+    transform: translateX(4px);
 }
 
 .who-we-are-cta-btn-icon svg {
@@ -711,10 +764,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
     position: relative;
 }
 
@@ -724,24 +774,26 @@ body {
     grid-template-columns: auto 1fr;
     gap: 0 14px;
     align-items: start;
-    border: 1px solid rgba(40, 38, 67, 0.12);
-    border-radius: 16px;
+    border: 1px solid rgba(40, 38, 67, 0.08);
+    border-radius: 20px;
     padding: 28px 28px;
-    transition: box-shadow 0.2s, border-color 0.2s;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
     position: sticky;
     top: 100px;
+    box-shadow: 0 4px 20px rgba(40, 38, 67, 0.06), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
 }
 
 .who-we-are-card:hover {
-    border-color: rgba(233, 157, 117, 0.35);
-    box-shadow: 0 8px 24px rgba(40, 38, 67, 0.08);
+    border-color: rgba(233, 157, 117, 0.4);
+    box-shadow: 0 16px 40px rgba(40, 38, 67, 0.1), 0 0 0 1px rgba(233, 157, 117, 0.15), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
+    transform: translateY(-4px);
 }
 
 /* Card background colour (uniform white) */
 .who-we-are-card-1,
 .who-we-are-card-2,
 .who-we-are-card-3 {
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 }
@@ -767,10 +819,17 @@ body {
     justify-content: center;
     width: 48px;
     height: 48px;
-    border-radius: 8px;
-    background: #e99d75;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e99d75 0%, #e08f64 100%);
     color: #fff;
     margin-bottom: 0;
+    box-shadow: 0 4px 12px rgba(233, 157, 117, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.who-we-are-card:hover .who-we-are-card-icon {
+    transform: scale(1.06);
+    box-shadow: 0 6px 18px rgba(233, 157, 117, 0.45);
 }
 
 .who-we-are-card-icon svg {
@@ -787,7 +846,7 @@ body {
     color: #282643;
     margin: 0;
     padding-top: 10px;
-    line-height: 1.3;
+    line-height: var(--line-height-snug);
 }
 
 .who-we-are-card-desc {
@@ -795,7 +854,7 @@ body {
     grid-row: 2;
     font-size: 15px;
     color: #6b7280;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0;
     margin-top: 12px;
 }
@@ -871,7 +930,7 @@ body {
     font-size: 17px;
     font-weight: 600;
     color: #282643;
-    line-height: 1.35;
+    line-height: var(--line-height-snug);
 }
 
 @keyframes who-we-are-slider-scroll {
@@ -971,7 +1030,7 @@ body {
 .preview-item-desc {
     font-size: 16px;
     color: rgba(40, 38, 67, 0.65);
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
     margin: 0;
     max-width: 580px;
 }
@@ -1127,7 +1186,7 @@ a.preview-item-btn {
 .contact-subtitle {
     font-size: 16px;
     color: #6b7280;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0 0 28px 0;
 }
 
@@ -1253,7 +1312,7 @@ a.preview-item-btn {
 
 .contact-follow-text {
     font-size: 14px;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin: 0 0 16px 0;
     opacity: 0.9;
 }
@@ -1428,13 +1487,13 @@ a.preview-item-btn {
     .hero h1 {
         font-size: 48px;
         margin-bottom: 16px;
-        line-height: 1.15;
+        line-height: var(--line-height-tight);
     }
 
     .hero-content-subtitle {
         font-size: 19px;
         margin-bottom: 22px;
-        line-height: 1.5;
+        line-height: var(--line-height-normal);
     }
 
     .buttons {
@@ -1556,12 +1615,12 @@ a.preview-item-btn {
 
     .hero h1 {
         font-size: 40px;
-        line-height: 1.2;
+        line-height: var(--line-height-tight);
     }
 
     .hero-content-subtitle {
         font-size: 17px;
-        line-height: 1.5;
+        line-height: var(--line-height-normal);
     }
 
     /* Hero fits content on tablet too – no empty gap below */
@@ -1752,13 +1811,13 @@ a.preview-item-btn {
     .hero h1 {
         font-size: 30px;
         margin-bottom: 14px;
-        line-height: 1.25;
+        line-height: var(--line-height-tight);
     }
 
     .hero-content-subtitle {
         font-size: 15.5px;
         margin-bottom: 24px;
-        line-height: 1.6;
+        line-height: var(--line-height-relaxed);
         color: #6b7280;
     }
 
@@ -1827,6 +1886,7 @@ a.preview-item-btn {
 
     .culture-people-desc {
         font-size: 15px;
+        line-height: var(--line-height-relaxed);
     }
 
     .who-we-are-cta-btn {
@@ -1840,10 +1900,12 @@ a.preview-item-btn {
 
     .who-we-are-card-title {
         font-size: 18px;
+        line-height: var(--line-height-snug);
     }
 
     .who-we-are-card-desc {
         font-size: 14px;
+        line-height: var(--line-height-relaxed);
     }
 
     .who-we-are-slider-wrap {
@@ -1927,12 +1989,12 @@ a.preview-item-btn {
 
     .hero h1 {
         font-size: 28px;
-        line-height: 1.25;
+        line-height: var(--line-height-tight);
     }
 
     .hero-content-subtitle {
         font-size: 15px;
-        line-height: 1.55;
+        line-height: var(--line-height-loose);
     }
 
     .who-we-are-title {
@@ -1991,7 +2053,7 @@ a.preview-item-btn {
 .footer-brand-text {
     font-size: 14px;
     color: #6b7280;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
 }
 
 .footer-follow-icons {
@@ -2070,7 +2132,7 @@ a.preview-item-btn {
 .footer-contact-text {
     font-size: 14px;
     color: #6b7280;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
     margin-bottom: 12px;
 }
 
@@ -2087,7 +2149,7 @@ a.preview-item-btn {
     gap: 10px;
     color: #6b7280;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: var(--line-height-normal);
     text-decoration: none;
 }
 
@@ -2186,7 +2248,7 @@ a.preview-item-btn {
     color: #ffffff;
     font-size: 18px;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: var(--line-height-snug);
     margin: 0 0 20px 0;
 }
 
