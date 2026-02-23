@@ -212,6 +212,8 @@ body {
     padding: 6px 0;
     cursor: pointer;
     position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 .menu li a::after {
@@ -256,6 +258,8 @@ body {
     border: none;
     outline: none;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
     transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -2055,6 +2059,8 @@ a.preview-item-btn {
     font-size: 14px;
     color: #6b7280;
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 .footer-link:hover {
